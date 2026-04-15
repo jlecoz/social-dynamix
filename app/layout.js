@@ -10,7 +10,7 @@ export async function generateMetadata() {
 
   const isJonny = host.toLowerCase().startsWith("jonny.");
   const defaultDescription = isJonny
-    ? "Experiential Designer with 20+ years across arts, creative, design, and technology."
+    ? "Experiential Designer with 20+ years across creative arts, brand design and web technology."
     : "Design-led product strategy and delivery for ambitious teams.";
 
   const title = isJonny
@@ -53,7 +53,7 @@ function jsonLdForSite(siteConfig, host) {
       "@type": "Person",
       name: "Jonathan Le Coz",
       url: siteConfig.siteUrl,
-      description: "Experiential Designer with 20+ years across arts, creative, design, and technology.",
+      description: "Experiential Designer with 20+ years across creative arts, brand design and web technology.",
       email: siteConfig.contactEmail,
       ...(sameAs.length ? { sameAs } : {}),
     };
