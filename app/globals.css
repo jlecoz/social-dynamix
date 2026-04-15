@@ -780,7 +780,8 @@ p {
   margin: 0 0 1.2rem;
 }
 
-.skills-wheel svg {
+.skills-wheel svg,
+.skills-wheel-img {
   width: 100%;
   height: auto;
   display: block;
