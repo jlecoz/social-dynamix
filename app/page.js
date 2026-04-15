@@ -17,10 +17,8 @@ const cv = {
   ],
   skillTags: [
     "Product Leadership",
-    "User-centered Design",
+    "Human-centered Design",
     "Customer Innovation",
-    "Cross Collaboration",
-    "Squad Communication",
   ],
   experience: [
     {
@@ -96,9 +94,7 @@ function HeroSection() {
       <div className="hero-content">
         <p className="eyebrow">{cv.meta}</p>
         <h1 className="hero-headline">
-          {cv.name}
-          <br />
-          <span className="gold">{cv.title}</span>
+          <span className="gold">Experience Design Leader</span>
         </h1>
         <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
 
