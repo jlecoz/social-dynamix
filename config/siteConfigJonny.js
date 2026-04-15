@@ -5,6 +5,11 @@ export const siteConfigJonny = {
     logoText: "JONATHAN LE COZ",
     tagline: "Experience Design Leader",
   },
+  contact: {
+    location: "Manchester, United Kingdom",
+    phoneLabel: "+44 793 163 7144",
+    phoneHref: "tel:+447931637144",
+  },
   theme: {
     // Light theme with dark-blue accessible text (Jonny CV)
     background: "#F7F9FF",

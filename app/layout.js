@@ -125,6 +125,24 @@ function Footer({ config }) {
           <img src="/img/logo.png" alt="Jonathan Le Coz" className="footer-logo" />
           <strong>{siteConfig.brand.logoText}</strong>
           <p className="footer-tagline">{siteConfig.brand.tagline}</p>
+          {siteConfig.contact?.location || siteConfig.contactEmail || siteConfig.contact?.phoneLabel ? (
+            <p className="footer-contact">
+              {siteConfig.contact?.location ? (
+                <>
+                  {siteConfig.contact.location} <span aria-hidden="true">&bull;</span>{" "}
+                </>
+              ) : null}
+              {siteConfig.contactEmail ? (
+                <>
+                  <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>{" "}
+                  <span aria-hidden="true">&bull;</span>{" "}
+                </>
+              ) : null}
+              {siteConfig.contact?.phoneLabel ? (
+                <a href={siteConfig.contact?.phoneHref || "#"}>{siteConfig.contact.phoneLabel}</a>
+              ) : null}
+            </p>
+          ) : null}
           <p className="footer-legal">
             &copy; {new Date().getFullYear()} Jonathan Le Coz. All rights reserved.
           </p>

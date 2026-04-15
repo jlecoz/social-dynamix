@@ -1113,6 +1113,21 @@ p {
   font-weight: 400;
 }
 
+.footer-contact {
+  font-size: 0.85rem;
+  color: var(--color-grey-mid);
+  margin-top: 0.5rem;
+}
+
+.footer-contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: var(--color-accent);
+}
+
 .footer-legal {
   font-size: 0.78rem;
   color: var(--color-grey-mid);
