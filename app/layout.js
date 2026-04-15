@@ -10,11 +10,11 @@ export async function generateMetadata() {
 
   const isJonny = host.toLowerCase().startsWith("jonny.");
   const defaultDescription = isJonny
-    ? "Experience Design Leader with 20+ years across arts, design, and technology."
+    ? "Experiential Designer with 20+ years across arts, creative, design, and technology."
     : "Design-led product strategy and delivery for ambitious teams.";
 
   const title = isJonny
-    ? { default: "Jonathan Le Coz — Experience Design Leader", template: "%s | Jonathan Le Coz" }
+    ? { default: "Jonathan Le Coz — Experiential Designer", template: "%s | Jonathan Le Coz" }
     : { default: "Social Dynamix", template: "%s | Social Dynamix" };
 
   return {
@@ -53,7 +53,7 @@ function jsonLdForSite(siteConfig, host) {
       "@type": "Person",
       name: "Jonathan Le Coz",
       url: siteConfig.siteUrl,
-      description: "Experience Design Leader with 20+ years across arts, design, and technology.",
+      description: "Experiential Designer with 20+ years across arts, creative, design, and technology.",
       email: siteConfig.contactEmail,
       ...(sameAs.length ? { sameAs } : {}),
     };
@@ -169,7 +169,7 @@ function Footer({ config }) {
       </div>
 
       <p className="footer-copy">
-        JONATHAN LE COZ &bull; Experience Design Leader
+        JONATHAN LE COZ &bull; Experiential Designer
       </p>
     </footer>
   );

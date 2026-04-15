@@ -3,7 +3,7 @@ export const siteConfigJonny = {
   siteUrl: "https://jonny.socialdynamix.co",
   brand: {
     logoText: "JONATHAN LE COZ",
-    tagline: "Experience Design Leader",
+    tagline: "Experiential Designer",
   },
   contact: {
     location: "Manchester, United Kingdom",
