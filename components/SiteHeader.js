@@ -11,7 +11,7 @@ export default function SiteHeader({ config }) {
   return (
     <header className="site-header">
       <Link href="/" className="logo-link" aria-label="Home">
-        <img src="/img/logo.png" alt="" className="logo-mark" aria-hidden="true" />
+        <img src="/img/digital_ronin.svg" alt="" className="logo-mark" aria-hidden="true" />
         <div className="logo-text">
           <strong>{siteConfig.brand.logoText}</strong>
         </div>

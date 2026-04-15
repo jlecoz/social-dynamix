@@ -30,13 +30,13 @@ export async function generateMetadata() {
       siteName: siteConfig.brand.logoText,
       title: title.default,
       description: defaultDescription,
-      images: [{ url: "/img/logo.png", alt: siteConfig.brand.logoText }],
+      images: [{ url: "/img/digital_ronin.svg", alt: siteConfig.brand.logoText }],
     },
     twitter: {
       card: "summary_large_image",
       title: title.default,
       description: defaultDescription,
-      images: ["/img/logo.png"],
+      images: ["/img/digital_ronin.svg"],
     },
   };
 }
@@ -122,7 +122,7 @@ function Footer({ config }) {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src="/img/logo.png" alt="Jonathan Le Coz" className="footer-logo" />
+          <img src="/img/digital_ronin.svg" alt="Jonathan Le Coz" className="footer-logo" />
           <strong>{siteConfig.brand.logoText}</strong>
           <p className="footer-tagline">{siteConfig.brand.tagline}</p>
           {siteConfig.contact?.location || siteConfig.contactEmail || siteConfig.contact?.phoneLabel ? (
