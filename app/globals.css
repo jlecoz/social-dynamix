@@ -132,7 +132,6 @@ p {
 
 /* Label — ALL CAPS, +200 tracking, small */
 .section-label,
-.eyebrow,
 .work-category,
 .member-role,
 .path-label,
@@ -143,6 +142,18 @@ p {
   font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+/* Hero eyebrow — sentence case (not the ALL CAPS label style) */
+.eyebrow {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--size-200);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  max-width: none;
+  color: var(--color-accent);
+  margin-bottom: 0.3rem;
 }
 
 /* Gold accent */
@@ -523,11 +534,6 @@ p {
   pointer-events: none;
   filter: blur(100px);
   z-index: 1;
-}
-
-.eyebrow {
-  color: var(--color-accent);
-  margin-bottom: 0.3rem;
 }
 
 .lead {

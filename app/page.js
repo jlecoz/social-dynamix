@@ -108,12 +108,17 @@ function HeroSection() {
         <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
 
         <div className="cta-row">
-          <Link className="button button-gold" href="#experience">
-            View experience
-          </Link>
-          <Link className="button button-secondary" href="/contact">
+          <Link className="button button-gold" href="/contact">
             Contact
           </Link>
+          <a
+            className="button button-secondary"
+            href="https://www.linkedin.com/in/jonathan-lecoz/?locale=en_US"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>
