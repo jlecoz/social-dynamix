@@ -94,7 +94,7 @@ function HeroSection() {
       <div className="hero-bg-embed" aria-hidden="true">
         <iframe
           className="hero-bg-iframe"
-          src="/animations/digital_ronin_spectrum_animation.html"
+          src="/animations/digital_ronin_bg.html"
           title=""
           loading="eager"
         />

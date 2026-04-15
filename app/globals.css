@@ -32,6 +32,23 @@
   --duration-fast: 400ms;
   --duration-mid: 600ms;
   --duration-slow: 800ms;
+
+  /* Core sizing (8pt-based scale, with intermediate steps) */
+  --size-0: 0px;
+  --size-50: 4px;
+  --size-100: 8px;
+  --size-150: 12px;
+  --size-200: 16px;
+  --size-300: 24px;
+  --size-400: 32px;
+  --size-500: 40px;
+  --size-600: 48px;
+  --size-700: 56px;
+  --size-800: 64px;
+  --size-900: 72px;
+  --size-1000: 80px;
+  --size-1100: 88px;
+  --size-1200: 96px;
 }
 
 html {
@@ -48,7 +65,7 @@ body {
   color: var(--color-fg);
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--size-200);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,7 +101,7 @@ img {
 
 /* Display — Hero headlines, campaign titles (72–120px) */
 .hero-headline {
-  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-size: clamp(var(--size-600), 7vw, var(--size-1200));
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -0.01em;
@@ -93,7 +110,7 @@ img {
 
 /* Heading 1 — Section titles (40–60px) */
 .section-headline {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(var(--size-400), 4.5vw, var(--size-700));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.005em;
@@ -123,7 +140,7 @@ p {
 .footer-col-title {
   font-family: var(--font-label);
   font-weight: 500;
-  font-size: 0.72rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
@@ -139,7 +156,7 @@ p {
 }
 
 .section-intro {
-  font-size: 1.1rem;
+  font-size: var(--size-200);
   color: var(--color-grey);
   max-width: 56ch;
   line-height: 1.7;
@@ -196,7 +213,7 @@ p {
 .logo-text strong {
   font-family: var(--font-display);
   letter-spacing: 0.18em;
-  font-size: clamp(1.2rem, 1rem + 1vw, 1.48rem);
+  font-size: clamp(var(--size-200), 1rem + 1vw, var(--size-300));
   font-weight: 700;
   line-height: 1.05;
 }
@@ -213,7 +230,7 @@ p {
   padding: 0.45rem 0.65rem;
   border-radius: 0.35rem;
   font-family: var(--font-label);
-  font-size: 0.7rem;
+  font-size: var(--size-150);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -233,7 +250,7 @@ p {
 
 /* Header CTA: stronger contrast + less tracking than default .button (small caps were hard to parse) */
 .main-nav .nav-cta.button-gold {
-  font-size: 0.8125rem;
+  font-size: var(--size-200);
   letter-spacing: 0.06em;
   font-weight: 700;
   color: var(--color-bg);
@@ -278,7 +295,7 @@ p {
   border: 1px solid transparent;
   cursor: pointer;
   font-family: var(--font-label);
-  font-size: 0.75rem;
+  font-size: var(--size-150);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -377,7 +394,7 @@ p {
 
 .sdx-kicker {
   font-family: var(--font-label);
-  font-size: 0.75rem;
+  font-size: var(--size-150);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-grey-mid);
@@ -387,7 +404,7 @@ p {
 
 .sdx-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.8vw, 4.2rem);
+  font-size: clamp(var(--size-500), 5.8vw, var(--size-800));
   line-height: 1.05;
   letter-spacing: -0.01em;
   margin: 0 0 1.2rem;
@@ -399,7 +416,7 @@ p {
 
 .sdx-subtitle {
   color: var(--color-grey);
-  font-size: 1.05rem;
+  font-size: var(--size-200);
   max-width: 58ch;
 }
 
@@ -426,7 +443,7 @@ p {
 
 .sdx-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.05rem;
+  font-size: var(--size-200);
 }
 
 .sdx-card p {
@@ -509,7 +526,7 @@ p {
 .lead {
   max-width: 48ch;
   color: var(--color-grey);
-  font-size: 1.15rem;
+  font-size: var(--size-200);
   line-height: 1.7;
   font-weight: 400;
 }
@@ -536,7 +553,7 @@ p {
 /* Jonny CV hero: core tags directly under headline */
 .cv-core-tags {
   max-width: none;
-  font-size: 0.95rem;
+  font-size: var(--size-200);
   color: var(--color-grey);
   margin-top: 0.9rem;
 }
@@ -548,7 +565,7 @@ p {
 
 .cv-meta p {
   max-width: none;
-  font-size: 0.95rem;
+  font-size: var(--size-200);
   color: var(--color-grey);
 }
 
@@ -602,7 +619,7 @@ p {
 }
 
 .card-panel h3 {
-  font-size: 0.88rem;
+  font-size: var(--size-150);
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -611,7 +628,7 @@ p {
 }
 
 .card-panel p {
-  font-size: 0.9rem;
+  font-size: var(--size-150);
   color: var(--color-grey);
   line-height: 1.65;
   padding: 0 1.4rem 1.5rem;
@@ -679,17 +696,17 @@ p {
 
 .work-category {
   color: var(--color-accent);
-  font-size: 0.65rem;
+  font-size: var(--size-150);
 }
 
 .work-tile h3 {
-  font-size: 1.2rem;
+  font-size: var(--size-200);
   margin: 0.35rem 0 0.5rem;
   font-weight: 500;
 }
 
 .work-tile p {
-  font-size: 0.88rem;
+  font-size: var(--size-150);
   color: var(--color-grey);
   line-height: 1.55;
 }
@@ -709,7 +726,7 @@ p {
 }
 
 .story-content p {
-  font-size: 1rem;
+  font-size: var(--size-200);
   color: color-mix(in srgb, var(--color-fg), var(--color-grey) 20%);
   line-height: 1.75;
 }
@@ -770,20 +787,20 @@ p {
 
 .cv-role-title h3 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--size-200);
   letter-spacing: -0.01em;
   font-weight: 900;
 }
 
 .cv-role-org {
   color: var(--color-grey);
-  font-size: 0.95rem;
+  font-size: var(--size-200);
   max-width: none;
 }
 
 .cv-role-period {
   font-family: var(--font-label);
-  font-size: 0.7rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-grey-mid);
@@ -817,7 +834,7 @@ p {
 }
 
 .cv-subhead {
-  font-size: 0.8rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--color-accent);
@@ -836,7 +853,7 @@ p {
   color: var(--color-fg);
   border-radius: 999px;
   padding: 0.4rem 0.7rem;
-  font-size: 0.85rem;
+  font-size: var(--size-150);
 }
 
 .cv-knowledge p {
@@ -863,7 +880,7 @@ p {
 
 .cv-edu-row h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--size-200);
 }
 
 .cv-edu-org {
@@ -873,7 +890,7 @@ p {
 
 .cv-edu-period {
   font-family: var(--font-label);
-  font-size: 0.7rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-grey-mid);
@@ -889,7 +906,7 @@ p {
 /* ── Languages ────────────────────────────────────────── */
 .languages-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(var(--size-400), 4.5vw, var(--size-700));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.005em;
@@ -924,7 +941,7 @@ p {
 }
 
 .languages-label {
-  font-size: 1.25rem;
+  font-size: var(--size-300);
   line-height: 1.2;
   color: color-mix(in srgb, var(--color-fg), transparent 15%);
 }
@@ -951,7 +968,7 @@ p {
 }
 
 #services .section-label {
-  font-size: 1.44rem; /* 2× base 0.72rem */
+  font-size: var(--size-300);
 }
 
 .services-list {
@@ -980,7 +997,7 @@ p {
 
 .service-row h4 {
   font-family: var(--font-label);
-  font-size: 0.78rem;
+  font-size: var(--size-150);
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -988,7 +1005,7 @@ p {
 }
 
 .service-row p {
-  font-size: 0.92rem;
+  font-size: var(--size-150);
   color: var(--color-grey);
   line-height: 1.6;
 }
@@ -1098,7 +1115,7 @@ p {
 .path-action {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: var(--size-200);
   color: var(--color-accent);
   transition: color var(--duration-fast) var(--ease);
 }
@@ -1137,14 +1154,14 @@ p {
 }
 
 .footer-tagline {
-  font-size: 0.85rem;
+  font-size: var(--size-150);
   color: var(--color-grey);
   font-style: italic;
   font-weight: 400;
 }
 
 .footer-contact {
-  font-size: 0.85rem;
+  font-size: var(--size-150);
   color: var(--color-grey-mid);
   margin-top: 0.5rem;
 }
@@ -1159,7 +1176,7 @@ p {
 }
 
 .footer-legal {
-  font-size: 0.78rem;
+  font-size: var(--size-150);
   color: var(--color-grey-mid);
   margin-top: 0.5rem !important;
 }
@@ -1179,7 +1196,7 @@ p {
 .footer-nav a,
 .footer-social a {
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: var(--size-150);
   color: var(--color-grey-mid);
   transition: color var(--duration-fast) var(--ease);
 }
@@ -1191,7 +1208,7 @@ p {
 
 .footer-copy {
   font-family: var(--font-label);
-  font-size: 0.65rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-grey-mid);
@@ -1217,7 +1234,7 @@ p {
 
 .contact-form label {
   font-family: var(--font-label);
-  font-size: 0.7rem;
+  font-size: var(--size-150);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-grey);
@@ -1234,7 +1251,7 @@ p {
   padding: 0.75rem;
   border-radius: 0.4rem;
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: var(--size-150);
   font-weight: 400;
   transition: border-color var(--duration-fast) var(--ease);
 }
@@ -1247,7 +1264,7 @@ p {
 
 .contact-alt {
   margin-top: 1.4rem;
-  font-size: 0.88rem;
+  font-size: var(--size-150);
   color: var(--color-grey);
 }
 
@@ -1273,7 +1290,7 @@ p {
   }
 
   .hero-headline {
-    font-size: clamp(2rem, 9vw, 3.2rem);
+    font-size: clamp(var(--size-400), 9vw, var(--size-700));
   }
 
   .card-trio {
