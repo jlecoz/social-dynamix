@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { siteConfig } from "@/config/siteConfig";
+import { headers } from "next/headers";
+import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const cv = {
@@ -428,7 +429,7 @@ function LanguagesSection() {
   );
 }
 
-function ContactCTA() {
+function ContactCTA({ siteConfig }) {
   return (
     <section className="section section-contact-cta">
       <ScrollReveal>
@@ -451,7 +452,7 @@ function ContactCTA() {
   );
 }
 
-export default function HomePage() {
+function JonnyHome({ siteConfig }) {
   return (
     <>
       <HeroSection />
@@ -459,7 +460,91 @@ export default function HomePage() {
       <SkillsSection />
       <EducationSection />
       <LanguagesSection />
-      <ContactCTA />
+      <ContactCTA siteConfig={siteConfig} />
     </>
   );
+}
+
+function MainHome() {
+  return (
+    <>
+      <section className="sdx-hero">
+        <div className="sdx-hero-inner">
+          <p className="sdx-kicker">Social Dynamix</p>
+          <h1 className="sdx-title">
+            Design-led product strategy <span className="sdx-title-accent">&amp; delivery.</span>
+          </h1>
+          <p className="sdx-subtitle">
+            We help teams ship clearer roadmaps, stronger experiences, and measurable outcomes.
+          </p>
+          <div className="sdx-cta">
+            <a className="button button-gold" href="#services">
+              See services
+            </a>
+            <a className="button button-secondary" href="https://jonny.socialdynamix.co">
+              Jonny&rsquo;s CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="services">
+        <ScrollReveal>
+          <p className="section-label">What we do</p>
+          <h2 className="section-headline">
+            Strategy, systems, and execution <span className="gold">that teams can run.</span>
+          </h2>
+          <p className="section-intro">
+            From discovery to delivery: aligning stakeholders, reducing risk, and improving usability and conversion.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal stagger className="sdx-grid">
+          {[
+            { title: "Product strategy", body: "Roadmaps, positioning, OKRs, and decision frameworks." },
+            { title: "UX & UI design", body: "Flows, prototypes, design systems, and ship-ready specs." },
+            { title: "Research & validation", body: "Interviews, usability testing, and rapid experiments." },
+          ].map((c) => (
+            <div key={c.title} className="sdx-card reveal">
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </div>
+          ))}
+        </ScrollReveal>
+      </section>
+
+      <section className="section" id="work">
+        <ScrollReveal>
+          <p className="section-label">Work</p>
+          <h2 className="section-headline">
+            A pragmatic approach to <span className="gold">complex products.</span>
+          </h2>
+          <p className="section-intro">
+            Need a hands-on design lead or an advisory partner? We can plug into squads quickly.
+          </p>
+        </ScrollReveal>
+      </section>
+
+      <section className="section section-contact-cta">
+        <ScrollReveal>
+          <h2 className="section-headline">
+            Want to move faster with <span className="gold">less risk?</span>
+          </h2>
+          <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
+          <div className="cta-row" style={{ justifyContent: "center" }}>
+            <Link className="button button-gold" href="/contact">
+              Contact
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+    </>
+  );
+}
+
+export default async function HomePage() {
+  const host = (await headers()).get("host") || "";
+  const siteConfig = getSiteConfig(host);
+  const isJonny = host.toLowerCase().startsWith("jonny.");
+  return isJonny ? <JonnyHome siteConfig={siteConfig} /> : <MainHome />;
 }

@@ -1,10 +1,29 @@
-import { siteConfig } from "@/config/siteConfig";
+import { headers } from "next/headers";
+import { getSiteConfig } from "@/config/getSiteConfig";
 
-export default function sitemap() {
+export default async function sitemap() {
+  const host = (await headers()).get("host") || "";
+  const siteConfig = getSiteConfig(host);
   const base = siteConfig.siteUrl;
   const now = new Date();
-  return [
-    { url: base, lastModified: now, changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-  ];
+
+  const isJonny = host.toLowerCase().startsWith("jonny.");
+  const urls = isJonny
+    ? [
+        base,
+        `${base}/#overview`,
+        `${base}/#experience`,
+        `${base}/#skills`,
+        `${base}/#education`,
+        `${base}/#languages`,
+        `${base}/contact`,
+      ]
+    : [base, `${base}/#services`, `${base}/#work`, `${base}/contact`];
+
+  return urls.map((url, i) => ({
+    url,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: i === 0 ? 1 : 0.7,
+  }));
 }

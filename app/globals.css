@@ -350,6 +350,88 @@ p {
   padding: 6rem 0 3rem;
 }
 
+/* ── Social Dynamix (main domain) ─────────────────────── */
+.sdx-hero {
+  padding: 7rem 0 5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.sdx-hero-inner {
+  padding: 32px;
+  background: radial-gradient(
+      700px 700px at 85% -15%,
+      color-mix(in srgb, var(--color-accent), transparent 78%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      520px 520px at -10% 20%,
+      color-mix(in srgb, var(--color-gold-light), transparent 86%) 0%,
+      transparent 55%
+    );
+  border: 1px solid color-mix(in srgb, var(--color-border), transparent 15%);
+  border-radius: 1rem;
+}
+
+.sdx-kicker {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-grey-mid);
+  margin-bottom: 0.9rem;
+  max-width: none;
+}
+
+.sdx-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.8vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+}
+
+.sdx-title-accent {
+  color: var(--color-accent);
+}
+
+.sdx-subtitle {
+  color: var(--color-grey);
+  font-size: 1.05rem;
+  max-width: 58ch;
+}
+
+.sdx-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+.sdx-grid {
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.sdx-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  padding: 1.4rem;
+}
+
+.sdx-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.sdx-card p {
+  margin: 0;
+  color: var(--color-grey);
+  max-width: none;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -1153,6 +1235,10 @@ p {
   }
 
   .cv-split {
+    grid-template-columns: 1fr;
+  }
+
+  .sdx-grid {
     grid-template-columns: 1fr;
   }
 

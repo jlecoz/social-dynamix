@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { siteConfig } from "@/config/siteConfig";
+import { siteConfigMain } from "@/config/siteConfigMain";
 
-export default function SiteHeader() {
+export default function SiteHeader({ config }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const siteConfig = config || siteConfigMain;
 
   return (
     <header className="site-header">

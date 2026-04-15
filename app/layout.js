@@ -1,65 +1,77 @@
 import "./globals.css";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
-import { siteConfig } from "@/config/siteConfig";
+import { headers } from "next/headers";
+import { getSiteConfig } from "@/config/getSiteConfig";
 
-const defaultDescription =
-  "Experience Design Leader with 20+ years across arts, design, and technology.";
+export async function generateMetadata() {
+  const host = (await headers()).get("host") || "";
+  const siteConfig = getSiteConfig(host);
 
-export const metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
-  title: {
-    default: "Jonathan Le Coz — Experience Design Leader",
-    template: "%s | Jonathan Le Coz",
-  },
-  description: defaultDescription,
-  keywords: [
-    "UX",
-    "product design",
-    "design strategy",
-    "user-centered design",
-    "interaction design",
-    "leadership",
-    "design systems",
-    "research",
-  ],
-  authors: [{ name: "Jonathan Le Coz" }],
-  creator: "Jonathan Le Coz",
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: "/",
-    siteName: "Jonathan Le Coz",
-    title: "Jonathan Le Coz — Experience Design Leader",
+  const isJonny = host.toLowerCase().startsWith("jonny.");
+  const defaultDescription = isJonny
+    ? "Experience Design Leader with 20+ years across arts, design, and technology."
+    : "Design-led product strategy and delivery for ambitious teams.";
+
+  const title = isJonny
+    ? { default: "Jonathan Le Coz — Experience Design Leader", template: "%s | Jonathan Le Coz" }
+    : { default: "Social Dynamix", template: "%s | Social Dynamix" };
+
+  return {
+    metadataBase: new URL(siteConfig.siteUrl),
+    title,
     description: defaultDescription,
-    images: [{ url: "/img/logo.png", alt: "Jonathan Le Coz" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jonathan Le Coz — Experience Design Leader",
-    description: defaultDescription,
-    images: ["/img/logo.png"],
-  },
-  robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
-};
+    robots: { index: true, follow: true },
+    alternates: { canonical: "/" },
+    openGraph: {
+      type: "website",
+      locale: "en_GB",
+      url: "/",
+      siteName: siteConfig.brand.logoText,
+      title: title.default,
+      description: defaultDescription,
+      images: [{ url: "/img/logo.png", alt: siteConfig.brand.logoText }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title.default,
+      description: defaultDescription,
+      images: ["/img/logo.png"],
+    },
+  };
+}
 
-function personJsonLd() {
+function jsonLdForSite(siteConfig, host) {
   const sameAs = Object.values(siteConfig.social).filter(
     (href) => typeof href === "string" && href.startsWith("http")
   );
+
+  const isJonny = (host || "").toLowerCase().startsWith("jonny.");
+  if (isJonny) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Jonathan Le Coz",
+      url: siteConfig.siteUrl,
+      description: "Experience Design Leader with 20+ years across arts, design, and technology.",
+      email: siteConfig.contactEmail,
+      ...(sameAs.length ? { sameAs } : {}),
+    };
+  }
+
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Jonathan Le Coz",
+    "@type": "Organization",
+    name: siteConfig.brand.logoText,
     url: siteConfig.siteUrl,
-    description: defaultDescription,
     email: siteConfig.contactEmail,
     ...(sameAs.length ? { sameAs } : {}),
   };
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const host = (await headers()).get("host") || "";
+  const siteConfig = getSiteConfig(host);
   const themeVars = {
     "--color-bg": siteConfig.theme.background,
     "--color-fg": siteConfig.theme.foreground,
@@ -92,26 +104,27 @@ export default function RootLayout({ children }) {
       <body style={themeVars}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdForSite(siteConfig, host)) }}
         />
         <div className="page-shell">
-          <SiteHeader />
+          <SiteHeader config={siteConfig} />
           <main>{children}</main>
-          <Footer />
+          <Footer config={siteConfig} />
         </div>
       </body>
     </html>
   );
 }
 
-function Footer() {
+function Footer({ config }) {
+  const siteConfig = config;
   return (
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
           <img src="/img/logo.png" alt="Jonathan Le Coz" className="footer-logo" />
-          <strong>JONATHAN LE COZ</strong>
-          <p className="footer-tagline">Experience Design Leader</p>
+          <strong>{siteConfig.brand.logoText}</strong>
+          <p className="footer-tagline">{siteConfig.brand.tagline}</p>
           <p className="footer-legal">
             &copy; {new Date().getFullYear()} Jonathan Le Coz. All rights reserved.
           </p>

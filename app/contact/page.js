@@ -1,23 +1,30 @@
-import { siteConfig } from "@/config/siteConfig";
+import { headers } from "next/headers";
+import { getSiteConfig } from "@/config/getSiteConfig";
 
-export const metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with Jonathan Le Coz.",
-  openGraph: {
-    title: "Contact | Jonathan Le Coz",
-    description: "Get in touch with Jonathan Le Coz.",
-    url: "/contact",
-  },
-  alternates: { canonical: "/contact" },
-};
+export async function generateMetadata() {
+  const host = (await headers()).get("host") || "";
+  const isJonny = host.toLowerCase().startsWith("jonny.");
+  const description = isJonny ? "Get in touch with Jonathan Le Coz." : "Get in touch with Social Dynamix.";
+  const title = "Contact";
 
-export default function ContactPage() {
+  return {
+    title,
+    description,
+    openGraph: { title, description, url: "/contact" },
+    alternates: { canonical: "/contact" },
+  };
+}
+
+export default async function ContactPage() {
+  const host = (await headers()).get("host") || "";
+  const siteConfig = getSiteConfig(host);
+  const isJonny = host.toLowerCase().startsWith("jonny.");
+
   return (
     <section className="section">
       <p className="section-label">Contact</p>
       <h1 className="section-headline">
-        Let&rsquo;s connect <span className="gold">directly.</span>
+        Let&rsquo;s connect <span className="gold">{isJonny ? "directly." : "today."}</span>
       </h1>
       <p className="section-intro" style={{ marginBottom: "2rem" }}>
         Email is best. Include a short note on what you&rsquo;re building and what you need.
