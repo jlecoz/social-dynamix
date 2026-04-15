@@ -3,11 +3,10 @@ import { siteConfig } from "@/config/siteConfig";
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with Tridium Creative Lab. Whether you're a brand, an artist, or a dreamer with a vision — we want to hear from you.",
+    "Get in touch with Jonathan Le Coz.",
   openGraph: {
-    title: "Contact | Tridium Creative Lab",
-    description:
-      "Get in touch with Tridium Creative Lab. Whether you're a brand, an artist, or a dreamer with a vision — we want to hear from you.",
+    title: "Contact | Jonathan Le Coz",
+    description: "Get in touch with Jonathan Le Coz.",
     url: "/contact",
   },
   alternates: { canonical: "/contact" },
@@ -18,11 +17,10 @@ export default function ContactPage() {
     <section className="section">
       <p className="section-label">Contact</p>
       <h1 className="section-headline">
-        Let&rsquo;s build something <span className="gold">together.</span>
+        Let&rsquo;s connect <span className="gold">directly.</span>
       </h1>
       <p className="section-intro" style={{ marginBottom: "2rem" }}>
-        Send us a quick message and we can discuss your project goals, timing,
-        and budget.
+        Email is best. Include a short note on what you&rsquo;re building and what you need.
       </p>
 
       <div className="content-card">
@@ -42,11 +40,16 @@ export default function ContactPage() {
         </form>
 
         <p className="contact-alt">
-          Prefer email? Reach us at{" "}
+          Prefer email? Reach me at{" "}
           <a href={`mailto:${siteConfig.contactEmail}`}>
             {siteConfig.contactEmail}
           </a>
           .
+        </p>
+        <p className="contact-alt" style={{ marginTop: "0.7rem" }}>
+          Phone: <a href="tel:+447931637144">+44 793 163 7144</a>
+          <br />
+          Location: Manchester, United Kingdom
         </p>
       </div>
     </section>

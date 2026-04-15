@@ -1,29 +1,29 @@
 export const siteConfig = {
   /** Production origin — used for canonical URLs, OG images, sitemap */
-  siteUrl: "https://tridium.uk",
+  siteUrl: "https://www.socialdynamix.co",
   brand: {
-    logoText: "TRIDIUM",
+    logoText: "JONATHAN LE COZ",
   },
   theme: {
-    // Primary
-    background: "#0A0A0A",
-    foreground: "#FFFFFF",
-    accent: "#C9A84C",
-    accentAlt: "#E8C96E",
-    surface: "#1A1A1A",
-    surfaceBorder: "#555555",
-    // Secondary
-    grey: "#AAAAAA",
-    greyMid: "#555555",
-    navy: "#0D1B2A",
-    goldLight: "#E8C96E",
+    // Light theme with dark-blue accessible text
+    background: "#F7F9FF", // light canvas
+    foreground: "#0B1F3A", // dark blue (primary text)
+    accent: "#0B3A6A", // dark blue (links/CTAs)
+    accentAlt: "#0E4A86", // hover/active
+    surface: "#FFFFFF", // cards/surfaces
+    surfaceBorder: "#D6E2F0", // borders/dividers
+    // Secondary text tones (still accessible on light bg)
+    grey: "#334B68",
+    greyMid: "#5B738F",
+    navy: "#0B1F3A",
+    goldLight: "#1463FF", // highlight (used sparingly)
   },
-  contactEmail: "hello@tridium.uk",
+  contactEmail: "jonathan.lecoz@gmail.com",
   nav: [
-    { label: "Home", href: "/" },
-    { label: "Studio", href: "/#story" },
-    { label: "Work", href: "/#work" },
-    { label: "The Collective", href: "/#collective" },
+    { label: "Overview", href: "/#overview" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Education", href: "/#education" },
     { label: "Contact", href: "/contact" },
   ],
   social: {

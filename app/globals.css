@@ -13,16 +13,16 @@
 
 /* ── Root & Font Stack ────────────────────────────────── */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Typekit kit ejw0fwc: termina, neue-haas-grotesk-display, neue-haas-grotesk-text */
-  --font-display: "termina", "neue-haas-grotesk-display", "Helvetica Neue", system-ui, sans-serif;
+  /* Primary brand font: Nexa (add local files or webfont to load it) */
+  --font-display: "Nexa", "termina", "neue-haas-grotesk-display", "Helvetica Neue", system-ui, sans-serif;
 
-  --font-heading: "termina", "neue-haas-grotesk-text", "Helvetica Neue", system-ui, sans-serif;
+  --font-heading: "Nexa", "termina", "neue-haas-grotesk-text", "Helvetica Neue", system-ui, sans-serif;
 
-  --font-body: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-body: "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
 
-  --font-label: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-label: "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
 
   /* Code */
   --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
@@ -169,8 +169,8 @@ p {
   padding: 1.1rem 0;
   backdrop-filter: blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  background: color-mix(in srgb, var(--color-bg), transparent 15%);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-border), transparent 70%);
+  background: color-mix(in srgb, var(--color-bg), transparent 10%);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .logo-link {
@@ -236,17 +236,17 @@ p {
   font-size: 0.8125rem;
   letter-spacing: 0.06em;
   font-weight: 700;
-  color: #000000;
-  background: color-mix(in srgb, var(--color-accent), #000000 16%);
-  border: 1px solid color-mix(in srgb, var(--color-accent), #000000 28%);
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
   -webkit-font-smoothing: antialiased;
 }
 
 .main-nav .nav-cta.button-gold:hover {
-  color: #000000 !important;
-  background: color-mix(in srgb, var(--color-gold-light), #000000 10%) !important;
-  border-color: color-mix(in srgb, var(--color-gold-light), #000000 22%) !important;
-  box-shadow: 0 6px 24px color-mix(in srgb, var(--color-accent), transparent 50%);
+  color: var(--color-bg) !important;
+  background: var(--color-accent-hover) !important;
+  border-color: var(--color-accent-hover) !important;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent), transparent 85%);
 }
 
 .menu-toggle {
@@ -298,8 +298,8 @@ p {
 }
 
 .button-gold:hover {
-  background: var(--color-gold-light);
-  box-shadow: 0 6px 24px color-mix(in srgb, var(--color-accent), transparent 50%);
+  background: var(--color-accent-hover);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent), transparent 85%);
 }
 
 .button-secondary {
@@ -343,6 +343,11 @@ p {
   min-height: 90vh;
   display: flex;
   align-items: center;
+}
+
+.hero.hero-cv {
+  min-height: auto;
+  padding: 6rem 0 3rem;
 }
 
 .hero-bg {
@@ -397,6 +402,26 @@ p {
   font-size: 1.15rem;
   line-height: 1.7;
   font-weight: 400;
+}
+
+.cv-meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* When only one meta card is present, don't force 2 cols */
+.cv-meta-row > .cv-meta:only-child {
+  grid-column: 1 / -1;
+}
+
+.cv-meta p {
+  max-width: none;
+  font-size: 0.95rem;
+  color: var(--color-grey);
 }
 
 .cta-row {
@@ -516,7 +541,11 @@ p {
   position: relative;
   z-index: 1;
   padding: 1.8rem;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 25%, transparent);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-bg), transparent 4%) 25%,
+    transparent
+  );
   width: 100%;
 }
 
@@ -589,10 +618,206 @@ p {
   pointer-events: none;
 }
 
+/* ── CV Sections ──────────────────────────────────────── */
+.cv-timeline {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.cv-role {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  padding: 1.4rem;
+}
+
+.cv-role-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+
+.cv-role-title h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.cv-role-org {
+  color: var(--color-grey);
+  font-size: 0.95rem;
+  max-width: none;
+}
+
+.cv-role-period {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-grey-mid);
+  white-space: nowrap;
+}
+
+.cv-bullets {
+  display: grid;
+  gap: 0.6rem;
+  padding-left: 1.1rem;
+  color: var(--color-grey);
+}
+
+.cv-split {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.2rem;
+}
+
+.skills-wheel {
+  width: min(320px, 100%);
+  margin: 0 0 1.2rem;
+}
+
+.skills-wheel svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cv-subhead {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: 0.9rem;
+}
+
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cv-tag {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.cv-knowledge p {
+  max-width: none;
+  color: var(--color-grey);
+}
+
+.cv-edu {
+  margin-top: 3rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cv-edu-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  padding: 1.2rem 1.4rem;
+}
+
+.cv-edu-row h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cv-edu-org {
+  color: var(--color-grey);
+  max-width: none;
+}
+
+.cv-edu-period {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-grey-mid);
+  white-space: nowrap;
+}
+
 /* ── Services ─────────────────────────────────────────── */
 .section-services {
   background: var(--color-surface);
   padding-inline: 32px;
+}
+
+/* ── Languages ────────────────────────────────────────── */
+.languages-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.languages-rule {
+  height: 2px;
+  width: 100%;
+  margin-top: 0.9rem;
+  background: color-mix(in srgb, var(--color-fg), transparent 70%);
+}
+
+.languages-list {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.languages-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-fg), transparent 82%);
+}
+
+.languages-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.languages-label {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--color-fg), transparent 15%);
+}
+
+.languages-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.languages-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent), transparent 70%);
+}
+
+.languages-dot.is-on {
+  background: var(--color-accent);
+}
+
+.languages-dot.is-off {
+  background: color-mix(in srgb, var(--color-accent), transparent 78%);
 }
 
 #services .section-label {
@@ -754,6 +979,7 @@ p {
 
 /* ── Footer ───────────────────────────────────────────── */
 .site-footer {
+  background: var(--color-bg);
   border-top: 1px solid var(--color-border);
   padding: 3.5rem 0 2rem;
   margin-top: 2rem;
@@ -896,6 +1122,11 @@ p {
     min-height: 70vh;
   }
 
+  .hero.hero-cv {
+    padding: 5rem 0 2.5rem;
+    min-height: auto;
+  }
+
   .hero-headline {
     font-size: clamp(2rem, 9vw, 3.2rem);
   }
@@ -911,6 +1142,18 @@ p {
   .service-row {
     grid-template-columns: 1fr;
     gap: 0.3rem;
+  }
+
+  .cv-meta-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-role-head {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-split {
+    grid-template-columns: 1fr;
   }
 
   .story-layout {

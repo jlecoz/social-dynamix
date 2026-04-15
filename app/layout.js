@@ -4,57 +4,55 @@ import SiteHeader from "@/components/SiteHeader";
 import { siteConfig } from "@/config/siteConfig";
 
 const defaultDescription =
-  "We build immersive experiences for the world's boldest brands. AR, 3D, creative production, and custom hardware.";
+  "Experience Design Leader with 20+ years across arts, design, and technology.";
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Tridium Creative Lab — Where Technology Meets Artistry",
-    template: "%s | Tridium Creative Lab",
+    default: "Jonathan Le Coz — Experience Design Leader",
+    template: "%s | Jonathan Le Coz",
   },
   description: defaultDescription,
   keywords: [
-    "creative studio",
-    "immersive experiences",
-    "AR",
-    "3D",
-    "spatial technology",
-    "creative production",
-    "Tridium",
-    "Tridium Creative Lab",
-    "UK",
+    "UX",
+    "product design",
+    "design strategy",
+    "user-centered design",
+    "interaction design",
+    "leadership",
+    "design systems",
+    "research",
   ],
-  authors: [{ name: "Tridium Creative Lab" }],
-  creator: "Tridium Creative Lab",
+  authors: [{ name: "Jonathan Le Coz" }],
+  creator: "Jonathan Le Coz",
   openGraph: {
     type: "website",
     locale: "en_GB",
     url: "/",
-    siteName: "Tridium Creative Lab",
-    title: "Tridium Creative Lab — Where Technology Meets Artistry",
+    siteName: "Jonathan Le Coz",
+    title: "Jonathan Le Coz — Experience Design Leader",
     description: defaultDescription,
-    images: [{ url: "/img/tridium-labs.png", alt: "Tridium Creative Lab" }],
+    images: [{ url: "/img/logo.png", alt: "Jonathan Le Coz" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tridium Creative Lab — Where Technology Meets Artistry",
+    title: "Jonathan Le Coz — Experience Design Leader",
     description: defaultDescription,
-    images: ["/img/tridium-labs.png"],
+    images: ["/img/logo.png"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
 };
 
-function organizationJsonLd() {
+function personJsonLd() {
   const sameAs = Object.values(siteConfig.social).filter(
     (href) => typeof href === "string" && href.startsWith("http")
   );
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Tridium Creative Lab",
+    "@type": "Person",
+    name: "Jonathan Le Coz",
     url: siteConfig.siteUrl,
-    logo: `${siteConfig.siteUrl}/img/logo.png`,
     description: defaultDescription,
     email: siteConfig.contactEmail,
     ...(sameAs.length ? { sameAs } : {}),
@@ -94,7 +92,7 @@ export default function RootLayout({ children }) {
       <body style={themeVars}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
         />
         <div className="page-shell">
           <SiteHeader />
@@ -111,11 +109,11 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src="/img/logo.png" alt="Tridium Creative Lab" className="footer-logo" />
-          <strong>TRIDIUM CREATIVE LAB</strong>
-          <p className="footer-tagline">Where Technology Meets Artistry</p>
+          <img src="/img/logo.png" alt="Jonathan Le Coz" className="footer-logo" />
+          <strong>JONATHAN LE COZ</strong>
+          <p className="footer-tagline">Experience Design Leader</p>
           <p className="footer-legal">
-            &copy; {new Date().getFullYear()} Tridium Creative Lab. All rights reserved.
+            &copy; {new Date().getFullYear()} Jonathan Le Coz. All rights reserved.
           </p>
         </div>
 
@@ -146,7 +144,7 @@ function Footer() {
       </div>
 
       <p className="footer-copy">
-        TRIDIUM CREATIVE LAB &bull; Where Technology Meets Artistry
+        JONATHAN LE COZ &bull; Experience Design Leader
       </p>
     </footer>
   );
