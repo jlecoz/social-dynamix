@@ -91,6 +91,15 @@ const cv = {
 function HeroSection() {
   return (
     <section className="hero hero-cv" id="overview">
+      <div className="hero-bg-embed" aria-hidden="true">
+        <iframe
+          className="hero-bg-iframe"
+          src="/animations/digital_ronin_spectrum_animation.html"
+          title=""
+          loading="eager"
+        />
+        <div className="hero-bg-dim" />
+      </div>
       <div className="hero-content">
         <p className="eyebrow">{cv.meta}</p>
         <h1 className="hero-headline">
