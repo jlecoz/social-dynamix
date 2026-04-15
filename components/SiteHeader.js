@@ -35,9 +35,6 @@ export default function SiteHeader({ config }) {
           <Link
             key={item.href}
             href={item.href}
-            className={
-              item.href === "/contact" ? "button button-gold nav-cta" : undefined
-            }
             onClick={() => setMenuOpen(false)}
           >
             {item.label}
