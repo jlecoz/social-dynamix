@@ -1,0 +1,30 @@
+{
+  "name": "tridium",
+  "version": "1.0.0",
+  "description": "Tridium Studios",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlecoz/Tridium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlecoz/Tridium/issues"
+  },
+  "homepage": "https://github.com/jlecoz/Tridium#readme",
+  "dependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
