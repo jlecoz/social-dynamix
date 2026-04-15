@@ -100,17 +100,12 @@ function HeroSection() {
           <br />
           <span className="gold">{cv.title}</span>
         </h1>
+        <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
         <p className="lead">
           {cv.location} &bull;{" "}
           <a href={`mailto:${cv.email}`}>{cv.email}</a> &bull;{" "}
           <a href="tel:+447931637144">{cv.phone}</a>
         </p>
-        <div className="cv-meta-row">
-          <div className="cv-meta">
-            <span className="section-label">Core</span>
-            <p>{cv.skillTags.join(" • ")}</p>
-          </div>
-        </div>
 
         <div className="cta-row">
           <Link className="button button-gold" href="#experience">
