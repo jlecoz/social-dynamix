@@ -348,6 +348,9 @@ p {
 .hero.hero-cv {
   min-height: auto;
   padding: 6rem 0 3rem;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 /* ── Social Dynamix (main domain) ─────────────────────── */
