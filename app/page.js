@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 const cv = {
   name: "Jonathan Le Coz",
   title: "Experiential Designer",
-  meta: "20+ years of arts, design, and technology",
+  meta: "20+ years of arts, creative, design, and technology",
   location: "Manchester, United Kingdom",
   phone: "+44 793 163 7144",
   email: "jonathan.lecoz@gmail.com",
