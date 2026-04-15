@@ -95,11 +95,6 @@ function HeroSection() {
     <section className="hero hero-cv" id="overview">
       <div className="hero-content">
         <p className="eyebrow">{cv.meta}</p>
-        <h1 className="hero-headline">
-          {cv.name}
-          <br />
-          <span className="gold">{cv.title}</span>
-        </h1>
         <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
 
         <div className="cta-row">
