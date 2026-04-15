@@ -94,7 +94,7 @@ function HeroSection() {
       <div className="hero-content">
         <p className="eyebrow">{cv.meta}</p>
         <h1 className="hero-headline">
-          <span className="gold">Experience Design Leader</span>
+          <span className="gold">{cv.title}</span>
         </h1>
         <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
 
@@ -261,9 +261,6 @@ function ContactCTA({ siteConfig }) {
           <Link className="button button-gold" href="/contact">
             Contact
           </Link>
-          <a className="button button-secondary" href={`mailto:${siteConfig.contactEmail}`}>
-            {siteConfig.contactEmail}
-          </a>
         </div>
       </ScrollReveal>
     </section>

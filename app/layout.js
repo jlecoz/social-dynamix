@@ -132,12 +132,6 @@ function Footer({ config }) {
                   {siteConfig.contact.location} <span aria-hidden="true">&bull;</span>{" "}
                 </>
               ) : null}
-              {siteConfig.contactEmail ? (
-                <>
-                  <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>{" "}
-                  <span aria-hidden="true">&bull;</span>{" "}
-                </>
-              ) : null}
               {siteConfig.contact?.phoneLabel ? (
                 <a href={siteConfig.contact?.phoneHref || "#"}>{siteConfig.contact.phoneLabel}</a>
               ) : null}
