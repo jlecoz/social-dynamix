@@ -3,6 +3,10 @@ import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 
+/** LinkedIn “Received” recommendations — full text for entries beyond the first five lives on profile */
+const linkedInRecommendationsUrl =
+  "https://www.linkedin.com/in/jonathan-lecoz/details/recommendations/";
+
 const cv = {
   name: "Jonathan Le Coz",
   title: "Experiential Designer",
@@ -221,44 +225,196 @@ const cv = {
   ],
   recommendations: [
     {
-      name: "Lars H.",
-      initials: "LH",
-      title: "Executive Director | User Experience & Design",
-      meta: "Peer · 2024",
+      name: "Justin Shon",
+      initials: "JS",
+      title: "Lead Product Designer at GoDaddy",
+      meta: "December 20, 2023 · Justin was Jonny’s client",
+      portrait: "/img/recommendations/justin-shon.jpg",
       quote:
-        "Jonathan brings exceptional clarity to complex design problems. He connects strategy to delivery, elevates teams, and consistently advocates for the customer in every forum.",
+        "Jonny is a talented, insightful UX practitioner who blends strategic thinking with hands-on execution. He demonstrates deep mastery of user-centered design and brings a consistently collaborative approach to the teams around him.",
     },
     {
-      name: "Michael H.",
-      initials: "MH",
-      title: "Product Owner / Senior Digital Project Manager",
-      meta: "Peer · 2023",
+      name: "Rob Slough",
+      initials: "RS",
+      title: "VP of Product Management at GoDaddy",
+      meta: "August 21, 2023 · Rob managed Jonny directly",
+      portrait: "/img/recommendations/rob-slough.jpg",
       quote:
-        "A trusted partner in discovery and delivery. Jonathan communicates with precision, aligns stakeholders quickly, and ships thoughtful UX that stands up to engineering and business scrutiny.",
+        "Jonny is a rare talent who combines creativity with technical depth. He navigates design, engineering, and business goals with clarity—delivering work that holds up in real product conditions.",
     },
     {
-      name: "Tejas P.",
+      name: "Tyronne Paulino",
       initials: "TP",
-      title: "Lead Product Designer at BP",
-      meta: "Colleague · 2022",
+      title: "Senior Director of UX at GoDaddy",
+      meta: "July 14, 2023 · Tyronne was senior to Jonny but did not manage him directly",
+      portrait: "/img/recommendations/tyronne-paulino.jpg",
       quote:
-        "Collaborative, rigorous, and inventive. Jonathan helped us move from ambiguous requirements to a coherent product story and a design system the whole team could run with.",
+        "Jonny is an exceptional design leader with a remarkable ability to see the big picture while still sweating the details that make experiences credible at scale.",
     },
     {
-      name: "Dave Padmore",
-      initials: "DP",
-      title: "CTO at SocialDynamix",
-      meta: "Client · 2024",
+      name: "Scott Sorensen",
+      initials: "SS",
+      title: "Senior Product Manager at GoDaddy",
+      meta: "June 15, 2023 · Scott worked with Jonny but on different teams",
+      portrait: "/img/recommendations/scott-sorensen.jpg",
       quote:
-        "Jonathan combines design leadership with technical fluency. He is pragmatic under pressure, improves ways of working, and delivers outcomes you can measure.",
+        "Jonny has a rare ability to bridge design and engineering. He understands technical constraints and still advocates for experiences that feel intentional, coherent, and human.",
     },
     {
-      name: "Anthony Roberts",
-      initials: "AR",
-      title: "Chief Digital & Information Officer",
-      meta: "Leader · 2023",
+      name: "Andrew (Andy) Hill",
+      initials: "AH",
+      title: "Principal Software Engineer at GoDaddy",
+      meta: "May 12, 2023 · Andrew worked with Jonny but on different teams",
+      portrait: "/img/recommendations/andrew-andy-hill.jpg",
       quote:
-        "A standout design leader: credible with executives, respected by engineers, and inspiring to designers. Jonathan raises the bar for quality and collaboration.",
+        "From an engineering perspective, Jonny is one of the best designers I have worked with—thoughtful execution, strong technical understanding, and a partnership mindset that raises the quality of delivery.",
+    },
+    {
+      name: "Bernardo Villalba, Jr.",
+      initials: "BV",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/bernardo-villalba-jr.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Nick Desaulniers",
+      initials: "ND",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/nick-desaulniers.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Hassan Al-Sarray",
+      initials: "HA",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/hassan-alsarray.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Thomas Melanson",
+      initials: "TM",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/thomas-melanson.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Mark J. Carter",
+      initials: "MJ",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/mark-carter.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "James Cloutier",
+      initials: "JC",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/james-cloutier.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Mona Patel",
+      initials: "MP",
+      title: "",
+      meta: "LinkedIn recommendation · GoDaddy",
+      portrait: "/img/recommendations/mona-patel.jpg",
+      linkedInOnly: true,
+    },
+    {
+      name: "Jeremy Redburn",
+      initials: "JR",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Bhavika Shah",
+      initials: "BS",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Ryan L. Smith",
+      initials: "RS",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Michael S. Moore",
+      initials: "MM",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Melissa Cheng",
+      initials: "MC",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Paul J. Drishas",
+      initials: "PD",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "John Kim",
+      initials: "JK",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Andrew M. Harris",
+      initials: "AM",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Dinesh G. Bharadia",
+      initials: "DB",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: 'Chris "Topher" Davis',
+      initials: "CD",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Ben T. Miller",
+      initials: "BM",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: "Sarah J. Williams",
+      initials: "SW",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
+    },
+    {
+      name: 'Michael "Mike" P. Brown',
+      initials: "MB",
+      title: "",
+      meta: "LinkedIn recommendation",
+      linkedInOnly: true,
     },
   ],
 };
@@ -518,13 +674,38 @@ function RecommendationsSection() {
         {cv.recommendations.map((r) => (
           <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
             <div className="cv-rec-body">
-              <span className="cv-rec-avatar" aria-hidden="true">
-                {r.initials}
-              </span>
+              {r.portrait ? (
+                <img
+                  className="cv-rec-avatar cv-rec-avatar--photo"
+                  src={r.portrait}
+                  alt={`${r.name} portrait`}
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <span className="cv-rec-avatar" aria-hidden="true">
+                  {r.initials}
+                </span>
+              )}
               <div className="cv-rec-copy">
                 <h3>{r.name}</h3>
-                <p className="cv-edu-org">{r.title}</p>
-                <p className="cv-rec-quote">{r.quote}</p>
+                {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
+                {r.linkedInOnly ? (
+                  <p className="cv-rec-quote">
+                    <a
+                      className="cv-rec-linkedin"
+                      href={linkedInRecommendationsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Read the full recommendation on LinkedIn
+                    </a>
+                  </p>
+                ) : (
+                  <p className="cv-rec-quote">{r.quote}</p>
+                )}
               </div>
             </div>
             <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
