@@ -841,58 +841,123 @@ p {
   max-width: none;
 }
 
-.cv-role {
-  border-radius: 0.8rem;
-  padding: 1.4rem;
+/* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */
+.cv-role--linkedin {
+  background: #1d2226;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem 1.15rem 1.15rem;
+  color: #fff;
 }
 
-.cv-role .cv-role-org {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.cv-role .cv-role-period {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.cv-role .cv-bullets {
-  color: rgba(255, 255, 255, 0.93);
-}
-
-.cv-role-head {
+.cv-role-layout {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-  align-items: baseline;
-  margin-bottom: 0.8rem;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.75rem 1rem;
+  align-items: start;
 }
 
-.cv-role-title h3 {
+.cv-role-logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.cv-role-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.cv-role-main {
+  min-width: 0;
+}
+
+.cv-role-company-heading {
+  margin: 0;
+  font-size: var(--size-300);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.cv-role-company {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cv-role-company:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.cv-role-company-meta {
+  margin: 0.25rem 0 0;
+  font-size: var(--size-150);
+  color: rgba(255, 255, 255, 0.55);
+  max-width: none;
+  line-height: 1.45;
+}
+
+.cv-role-job-block {
+  margin-top: 0.85rem;
+}
+
+.cv-role-job-title {
   margin: 0;
   font-size: var(--size-200);
+  font-weight: 700;
+  color: #fff;
   letter-spacing: -0.01em;
-  font-weight: 900;
+  line-height: 1.3;
 }
 
-.cv-role-org {
-  color: var(--color-grey);
-  font-size: var(--size-200);
+.cv-role-job-dates {
+  margin: 0.25rem 0 0;
+  font-size: var(--size-150);
+  color: rgba(255, 255, 255, 0.55);
+  max-width: none;
+  line-height: 1.45;
+}
+
+.cv-role-timeline {
+  margin-top: 0.65rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.cv-bullets-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cv-bullets-timeline li {
+  position: relative;
+  padding-left: 0.7rem;
+  font-size: var(--size-150);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
   max-width: none;
 }
 
-.cv-role-period {
-  font-family: var(--font-label);
-  font-size: var(--size-150);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-grey-mid);
-  white-space: nowrap;
-}
-
-.cv-bullets {
-  display: grid;
-  gap: 0.6rem;
-  padding-left: 1.1rem;
-  color: var(--color-grey);
+.cv-bullets-timeline li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
 }
 
 .cv-split {
@@ -1388,10 +1453,6 @@ p {
   }
 
   .cv-meta-row {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-role-head {
     grid-template-columns: 1fr;
   }
 

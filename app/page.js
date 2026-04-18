@@ -24,7 +24,12 @@ const cv = {
     {
       role: "Director of Digital Experience Design",
       org: "Imperial Brands",
-      period: "2021 - present",
+      orgDisplay: "Imperial Brands PLC",
+      orgUrl: "https://www.imperialbrandsplc.com",
+      logoDomain: "imperialbrandsplc.com",
+      employmentType: "Full-time",
+      location: "Bristol, United Kingdom",
+      period: "2021 – Present",
       bullets: [
         "Advocate for design thinking and design linking, supporting Product Owners, Engineers and Designers throughout the NGP pillar to work smart and drive the vision for user experience across multiple product lines.",
         "Develop, maintain and scale design processes and tools to drive efficiency and velocity internally and with external partners.",
@@ -36,8 +41,12 @@ const cv = {
     {
       role: "Experience Design Lead",
       org: "Auto Trader UK",
+      orgDisplay: "Auto Trader UK",
       orgUrl: "https://www.autotrader.co.uk",
-      period: "2020 - 2021",
+      logoDomain: "autotrader.co.uk",
+      employmentType: "Full-time",
+      location: "United Kingdom",
+      period: "2020 – 2021",
       bullets: [
         "Helped cross-functional teams understand and define pain points and potential gains for the Digital Retailing offer for retailers and customers.",
         "Line-managed and mentored 3 product designers; led 7 other designers to deliver their best work and grow their careers.",
@@ -47,8 +56,12 @@ const cv = {
     {
       role: "Design Lead",
       org: "Booking.com",
+      orgDisplay: "Booking.com",
       orgUrl: "https://www.booking.com",
-      period: "2018 - 2020",
+      logoDomain: "booking.com",
+      employmentType: "Full-time",
+      location: "Netherlands",
+      period: "2018 – 2020",
       bullets: [
         "Steered discovery and experimentation to influence stakeholders and deliver customer-focused end-to-end experiences increasing convenience, loyalty and engagement.",
         "Led 3 UX designers to define and deliver solutions for pain points across the ground transport business.",
@@ -58,8 +71,12 @@ const cv = {
     {
       role: "Principal Product Designer",
       org: "Intuit France (QuickBooks)",
+      orgDisplay: "Intuit",
       orgUrl: "https://www.quickbooks.fr",
-      period: "2017 - 2018",
+      logoDomain: "intuit.com",
+      employmentType: "Full-time",
+      location: "France",
+      period: "2017 – 2018",
       bullets: [
         "Uncovered customer problems around finances to help people save time, make money and gain confidence.",
         "Led cross-functional teams through research-informed design studios to ideate, prototype and refine workflows (invoicing, expenses, reports, taxes).",
@@ -164,30 +181,53 @@ function ExperienceSection() {
       </ScrollReveal>
 
       <ScrollReveal stagger className="cv-timeline">
-        {cv.experience.map((item) => (
-          <article key={`${item.role}-${item.org}`} className="cv-role reveal core-teal text-white">
-            <header className="cv-role-head">
-              <div className="cv-role-title">
-                <h3>{item.role}</h3>
-                <p className="cv-role-org">
-                  {item.orgUrl ? (
-                    <a href={item.orgUrl} target="_blank" rel="noopener noreferrer">
-                      {item.org}
-                    </a>
-                  ) : (
-                    item.org
-                  )}
-                </p>
+        {cv.experience.map((item) => {
+          const companyName = item.orgDisplay ?? item.org;
+          const metaBits = [item.employmentType ?? "Full-time", item.location].filter(Boolean);
+          const companyMeta = metaBits.join(" · ");
+          const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(item.logoDomain)}&sz=128`;
+          return (
+            <article key={`${item.role}-${item.org}`} className="cv-role cv-role--linkedin reveal">
+              <div className="cv-role-layout">
+                <div className="cv-role-logo">
+                  <img
+                    className="cv-role-logo-img"
+                    src={faviconSrc}
+                    alt=""
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="cv-role-main">
+                  <div className="cv-role-company-block">
+                    <h3 className="cv-role-company-heading">
+                      {item.orgUrl ? (
+                        <a className="cv-role-company" href={item.orgUrl} target="_blank" rel="noopener noreferrer">
+                          {companyName}
+                        </a>
+                      ) : (
+                        <span className="cv-role-company">{companyName}</span>
+                      )}
+                    </h3>
+                    <p className="cv-role-company-meta">{companyMeta}</p>
+                  </div>
+                  <div className="cv-role-job-block">
+                    <h4 className="cv-role-job-title">{item.role}</h4>
+                    <p className="cv-role-job-dates">{item.period}</p>
+                    <div className="cv-role-timeline">
+                      <ul className="cv-bullets-timeline">
+                        {item.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="cv-role-period">{item.period}</div>
-            </header>
-            <ul className="cv-bullets">
-              {item.bullets.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </ScrollReveal>
     </section>
   );
