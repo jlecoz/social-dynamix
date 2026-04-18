@@ -377,10 +377,10 @@ function SkillsSection() {
 
       <div className="cv-split">
         <ScrollReveal className="cv-split-left">
+          <h3 className="cv-subhead">Key skills</h3>
           <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
             <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
           </div>
-          <h3 className="cv-subhead">Key skills</h3>
           <div className="cv-tags">
             {cv.skillTags.map((t) => (
               <span key={t} className="cv-tag">
@@ -392,11 +392,11 @@ function SkillsSection() {
 
         <ScrollReveal className="cv-split-right">
           <h3 className="cv-subhead">Knowledge</h3>
-          <div className="cv-knowledge">
+          <ul className="cv-knowledge">
             {cv.knowledge.map((p) => (
-              <p key={p}>{p}</p>
+              <li key={p}>{p}</li>
             ))}
-          </div>
+          </ul>
         </ScrollReveal>
       </div>
     </section>

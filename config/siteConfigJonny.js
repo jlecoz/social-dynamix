@@ -24,6 +24,8 @@ export const siteConfigJonny = {
     goldLight: "#1463FF",
     /** Experience cards — solid teal panel */
     coreTeal: "#06B6D4",
+    /** LinkedIn-style experience cards — Pixel / Material-style blue */
+    pixelBlue: "#4285F4",
   },
   contactEmail: "jonathan.lecoz@gmail.com",
   nav: [
