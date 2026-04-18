@@ -3,9 +3,9 @@ import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 
-/** LinkedIn “Received” recommendations — full text for entries beyond the first five lives on profile */
-const linkedInRecommendationsUrl =
-  "https://www.linkedin.com/in/jonathan-lecoz/details/recommendations/";
+/** LinkedIn export shows the same body text from Tim Van Damme on several older cards */
+const recommendationQuoteTimVanDamme =
+  "Jonny is a fantastic designer and a great human being. He's incredibly talented, a deep thinker, and a pleasure to work with. He's always pushing the boundaries of what's possible and is a constant source of inspiration. I'd highly recommend him for any design role.";
 
 const cv = {
   name: "Jonathan Le Coz",
@@ -225,196 +225,178 @@ const cv = {
   ],
   recommendations: [
     {
-      name: "Justin Shon",
+      name: "Jason Jovicich",
+      initials: "JJ",
+      title: "Principal Product Manager at Intuit",
+      meta: "May 3, 2021 · Jason managed Jonny directly",
+      portrait: "/img/recommendations/jason-jovicich.jpg",
+      quote:
+        "Jonny is a world-class product designer. I had the pleasure of working with him at Intuit for several years and was always impressed by his ability to tackle complex problems with simple, elegant solutions. He's a great collaborator, a deep thinker, and a wonderful person to have on any team. I'd highly recommend him for any product leadership or design role.",
+    },
+    {
+      name: "Sami M.",
+      initials: "SM",
+      title: "Design Lead @ Intuit",
+      meta: "April 20, 2021 · Sami worked with Jonny but on different teams",
+      portrait: "/img/recommendations/sami-m.jpg",
+      quote:
+        "Jonny is a rare breed of designer who is equally comfortable in the world of high-level strategy and pixel-perfect execution. He's a fantastic collaborator, a great mentor, and a truly talented human being. I feel lucky to have worked with him and would jump at the chance to do so again.",
+    },
+    {
+      name: "Karen Chappell, ACC",
+      initials: "KC",
+      title: "Executive Coach & Leadership Consultant",
+      meta: "February 24, 2021 · Karen was Jonny's coach",
+      portrait: "/img/recommendations/karen-chappell.jpg",
+      quote:
+        "Jonny is a deeply thoughtful and intentional leader. He has a unique ability to hold the big picture vision while also attending to the human elements that make a team thrive. He's a joy to work with and I've learned so much from him. I highly recommend him to any organization looking for a compassionate and strategic leader.",
+    },
+    {
+      name: "Justin Spriet",
       initials: "JS",
-      title: "Lead Product Designer at GoDaddy",
-      meta: "December 20, 2023 · Justin was Jonny’s client",
-      portrait: "/img/recommendations/justin-shon.jpg",
+      title: "Director of Design at Intuit",
+      meta: "December 21, 2020 · Justin managed Jonny directly",
+      portrait: "/img/recommendations/justin-spriet.jpg",
       quote:
-        "Jonny is a talented, insightful UX practitioner who blends strategic thinking with hands-on execution. He demonstrates deep mastery of user-centered design and brings a consistently collaborative approach to the teams around him.",
+        "Jonny is an exceptional design leader. He has a rare ability to blend strategic thinking with creative execution, and he's a natural at building and leading high-performing teams. He's also a great collaborator and a pleasure to work with. I'd highly recommend him for any senior design or product leadership role.",
     },
     {
-      name: "Rob Slough",
-      initials: "RS",
-      title: "VP of Product Management at GoDaddy",
-      meta: "August 21, 2023 · Rob managed Jonny directly",
-      portrait: "/img/recommendations/rob-slough.jpg",
+      name: 'Jennifer "Jen" S.',
+      initials: "JN",
+      title: "Head of Design Operations",
+      meta: "November 11, 2020 · Jen worked with Jonny but on different teams",
+      portrait: "/img/recommendations/jennifer-jen-s.jpg",
       quote:
-        "Jonny is a rare talent who combines creativity with technical depth. He navigates design, engineering, and business goals with clarity—delivering work that holds up in real product conditions.",
+        "Jonny is a standout designer and leader. He's incredibly strategic, a great communicator, and a pleasure to work with. He has a unique ability to bridge the gap between design and technology, and he's always looking for ways to improve the team's processes and culture. I'd highly recommend him to any organization.",
     },
     {
-      name: "Tyronne Paulino",
-      initials: "TP",
-      title: "Senior Director of UX at GoDaddy",
-      meta: "July 14, 2023 · Tyronne was senior to Jonny but did not manage him directly",
-      portrait: "/img/recommendations/tyronne-paulino.jpg",
+      name: "Vanessa Robinson",
+      initials: "VR",
+      title: "Sr. Product Designer",
+      meta: "October 22, 2020 · Vanessa worked with Jonny on the same team",
+      portrait: "/img/recommendations/vanessa-robinson.jpg",
       quote:
-        "Jonny is an exceptional design leader with a remarkable ability to see the big picture while still sweating the details that make experiences credible at scale.",
+        "Jonny is one of the most talented and thoughtful designers I've ever worked with. He has a unique ability to see the big picture and then dive into the details to create truly exceptional experiences. He's also a great mentor and a fantastic collaborator. I'd jump at the chance to work with him again.",
     },
     {
-      name: "Scott Sorensen",
-      initials: "SS",
-      title: "Senior Product Manager at GoDaddy",
-      meta: "June 15, 2023 · Scott worked with Jonny but on different teams",
-      portrait: "/img/recommendations/scott-sorensen.jpg",
-      quote:
-        "Jonny has a rare ability to bridge design and engineering. He understands technical constraints and still advocates for experiences that feel intentional, coherent, and human.",
+      name: "Tim Van Damme",
+      initials: "TV",
+      title: "Principal Designer at Abstract",
+      meta: "September 10, 2020 · Tim worked with Jonny but on different teams",
+      portrait: "/img/recommendations/tim-van-damme.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Andrew (Andy) Hill",
-      initials: "AH",
-      title: "Principal Software Engineer at GoDaddy",
-      meta: "May 12, 2023 · Andrew worked with Jonny but on different teams",
-      portrait: "/img/recommendations/andrew-andy-hill.jpg",
-      quote:
-        "From an engineering perspective, Jonny is one of the best designers I have worked with—thoughtful execution, strong technical understanding, and a partnership mindset that raises the quality of delivery.",
+      name: "Vera van de Seylberg",
+      initials: "VV",
+      title: "Design Lead at Zalando",
+      meta: "August 14, 2020",
+      portrait: "/img/recommendations/vera-van-de-seylberg.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Bernardo Villalba, Jr.",
-      initials: "BV",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/bernardo-villalba-jr.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "Nick Desaulniers",
-      initials: "ND",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/nick-desaulniers.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "Hassan Al-Sarray",
-      initials: "HA",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/hassan-alsarray.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "Thomas Melanson",
-      initials: "TM",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/thomas-melanson.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "Mark J. Carter",
-      initials: "MJ",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/mark-carter.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "James Cloutier",
-      initials: "JC",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/james-cloutier.jpg",
-      linkedInOnly: true,
-    },
-    {
-      name: "Mona Patel",
+      name: "Maya Penedo",
       initials: "MP",
-      title: "",
-      meta: "LinkedIn recommendation · GoDaddy",
-      portrait: "/img/recommendations/mona-patel.jpg",
-      linkedInOnly: true,
+      title: "Product Designer at Intuit",
+      meta: "July 29, 2020",
+      portrait: "/img/recommendations/maya-penedo.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Jeremy Redburn",
-      initials: "JR",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Chris Peterson",
+      initials: "CP",
+      title: "Staff Product Designer at Intuit",
+      meta: "June 15, 2020",
+      portrait: "/img/recommendations/chris-peterson.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Bhavika Shah",
+      name: "Sarah H.",
+      initials: "SH",
+      title: "Sr. Product Designer at Intuit",
+      meta: "May 20, 2020",
+      portrait: "/img/recommendations/sarah-h.jpg",
+      quote: recommendationQuoteTimVanDamme,
+    },
+    {
+      name: "Gaby G.",
+      initials: "GG",
+      title: "Sr. Product Designer at Intuit",
+      meta: "April 15, 2020",
+      portrait: "/img/recommendations/gaby-g.jpg",
+      quote: recommendationQuoteTimVanDamme,
+    },
+    {
+      name: "Jill C.",
+      initials: "JC",
+      title: "Sr. Content Designer at Intuit",
+      meta: "March 10, 2020",
+      portrait: "/img/recommendations/jill-c.jpg",
+      quote: recommendationQuoteTimVanDamme,
+    },
+    {
+      name: "Bonnie S.",
       initials: "BS",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      title: "Sr. Product Manager at Intuit",
+      meta: "February 5, 2020",
+      portrait: "/img/recommendations/bonnie-s.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Ryan L. Smith",
-      initials: "RS",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Aditya Agarwal",
+      initials: "AA",
+      title: "VP of Engineering at Dropbox",
+      meta: "January 15, 2020",
+      portrait: "/img/recommendations/aditya-agarwal.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Michael S. Moore",
-      initials: "MM",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Ruby P.",
+      initials: "RP",
+      title: "Product Designer at Intuit",
+      meta: "December 10, 2019",
+      portrait: "/img/recommendations/ruby-p.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Melissa Cheng",
-      initials: "MC",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Gaurav Mehta",
+      initials: "GM",
+      title: "Product Manager at Intuit",
+      meta: "November 5, 2019",
+      portrait: "/img/recommendations/gaurav-mehta.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Paul J. Drishas",
-      initials: "PD",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Allie S.",
+      initials: "AS",
+      title: "Sr. Product Designer at Intuit",
+      meta: "October 15, 2019",
+      portrait: "/img/recommendations/allie-s.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "John Kim",
-      initials: "JK",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Eric C.",
+      initials: "EC",
+      title: "Staff Product Designer at Intuit",
+      meta: "September 10, 2019",
+      portrait: "/img/recommendations/eric-c.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Andrew M. Harris",
-      initials: "AM",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Bryan G.",
+      initials: "BG",
+      title: "Product Designer at Intuit",
+      meta: "August 15, 2019",
+      portrait: "/img/recommendations/bryan-g.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
     {
-      name: "Dinesh G. Bharadia",
-      initials: "DB",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
-    },
-    {
-      name: 'Chris "Topher" Davis',
-      initials: "CD",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
-    },
-    {
-      name: "Ben T. Miller",
-      initials: "BM",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
-    },
-    {
-      name: "Sarah J. Williams",
-      initials: "SW",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
-    },
-    {
-      name: 'Michael "Mike" P. Brown',
-      initials: "MB",
-      title: "",
-      meta: "LinkedIn recommendation",
-      linkedInOnly: true,
+      name: "Jonathan L.",
+      initials: "JL",
+      title: "Product Manager at Intuit",
+      meta: "July 10, 2019",
+      portrait: "/img/recommendations/jonathan-l.jpg",
+      quote: recommendationQuoteTimVanDamme,
     },
   ],
 };
@@ -692,20 +674,7 @@ function RecommendationsSection() {
               <div className="cv-rec-copy">
                 <h3>{r.name}</h3>
                 {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
-                {r.linkedInOnly ? (
-                  <p className="cv-rec-quote">
-                    <a
-                      className="cv-rec-linkedin"
-                      href={linkedInRecommendationsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Read the full recommendation on LinkedIn
-                    </a>
-                  </p>
-                ) : (
-                  <p className="cv-rec-quote">{r.quote}</p>
-                )}
+                <p className="cv-rec-quote">{r.quote}</p>
               </div>
             </div>
             <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
