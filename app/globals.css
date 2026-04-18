@@ -194,7 +194,7 @@ p {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1.1rem 0;
+  padding: 1.1rem 32px;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -209,7 +209,6 @@ p {
   align-items: center;
   gap: 0.7rem;
   text-decoration: none;
-  padding-left: 32px;
 }
 
 /* Logo mark — official tri-form icon */
@@ -288,7 +287,7 @@ p {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.4rem 32px 0.4rem 0.4rem;
+  padding: 0.4rem;
 }
 
 .menu-toggle span {
