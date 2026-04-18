@@ -6,19 +6,29 @@ export const siteConfigMain = {
     tagline: "Design-led product strategy & delivery",
   },
   theme: {
-    // Distinct look for the main domain (dark, high-contrast)
-    background: "#070A12",
-    foreground: "#F3F7FF",
-    accent: "#7C5CFF",
-    accentAlt: "#9C86FF",
-    surface: "#0D1222",
-    surfaceBorder: "#222A44",
-    grey: "#B7C3E1",
-    greyMid: "#8E9ABD",
-    navy: "#0B1020",
-    goldLight: "#35D4C7",
-    coreTeal: "#06B6D4",
-    pixelBlue: "#4285F4",
+    // Brand palette — main domain (Void primary BG)
+    background: "#0A0B0C", // Void — Primary BG
+    foreground: "#F2F8FA", // White — Light Surface as primary text
+    accent: "#4AC8E8", // Cyan Strike — Accent / CTA
+    accentAlt: "#24A89E", // Bright Teal — Active / Hover
+    surface: "#0D3D3A", // Deep Teal — Surface / Shadow
+    surfaceBorder: "#1A7A73", // Core Teal — panel edges on dark
+    grey: "#B8D4D8", // Steel — Body text
+    greyMid: "#D6E8EC", // Fog — Subdued
+    navy: "#0A0B0C", // Void
+    goldLight: "#7DDFF2", // Cyan Light — Highlight
+    coreTeal: "#1A7A73",
+    pixelBlue: "#2D8EBF",
+    void: "#0A0B0C",
+    deepTeal: "#0D3D3A",
+    brightTeal: "#24A89E",
+    cyanStrike: "#4AC8E8",
+    cyanLight: "#7DDFF2",
+    steel: "#B8D4D8",
+    fog: "#D6E8EC",
+    white: "#F2F8FA",
+    offWhite: "#F5F5F5",
+    lightGray: "#E5E5E5",
   },
   contactEmail: "hello@socialdynamix.co",
   nav: [

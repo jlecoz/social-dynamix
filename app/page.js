@@ -192,6 +192,48 @@ const cv = {
       period: "2004 - 2006",
     },
   ],
+  recommendations: [
+    {
+      name: "Lars H.",
+      initials: "LH",
+      title: "Executive Director | User Experience & Design",
+      meta: "Peer · 2024",
+      quote:
+        "Jonathan brings exceptional clarity to complex design problems. He connects strategy to delivery, elevates teams, and consistently advocates for the customer in every forum.",
+    },
+    {
+      name: "Michael H.",
+      initials: "MH",
+      title: "Product Owner / Senior Digital Project Manager",
+      meta: "Peer · 2023",
+      quote:
+        "A trusted partner in discovery and delivery. Jonathan communicates with precision, aligns stakeholders quickly, and ships thoughtful UX that stands up to engineering and business scrutiny.",
+    },
+    {
+      name: "Tejas P.",
+      initials: "TP",
+      title: "Lead Product Designer at BP",
+      meta: "Colleague · 2022",
+      quote:
+        "Collaborative, rigorous, and inventive. Jonathan helped us move from ambiguous requirements to a coherent product story and a design system the whole team could run with.",
+    },
+    {
+      name: "Dave Padmore",
+      initials: "DP",
+      title: "CTO at SocialDynamix",
+      meta: "Client · 2024",
+      quote:
+        "Jonathan combines design leadership with technical fluency. He is pragmatic under pressure, improves ways of working, and delivers outcomes you can measure.",
+    },
+    {
+      name: "Anthony Roberts",
+      initials: "AR",
+      title: "Chief Digital & Information Officer",
+      meta: "Leader · 2023",
+      quote:
+        "A standout design leader: credible with executives, respected by engineers, and inspiring to designers. Jonathan raises the bar for quality and collaboration.",
+    },
+  ],
 };
 
 const works = [
@@ -428,6 +470,37 @@ function EducationSection() {
   );
 }
 
+function RecommendationsSection() {
+  return (
+    <section className="section" id="recommendations">
+      <ScrollReveal>
+        <p className="section-label">Recommendations</p>
+        <h2 className="section-headline">
+          What colleagues say about <span className="gold">working together.</span>
+        </h2>
+      </ScrollReveal>
+
+      <ScrollReveal stagger className="cv-edu">
+        {cv.recommendations.map((r) => (
+          <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
+            <div className="cv-rec-body">
+              <span className="cv-rec-avatar" aria-hidden="true">
+                {r.initials}
+              </span>
+              <div className="cv-rec-copy">
+                <h3>{r.name}</h3>
+                <p className="cv-edu-org">{r.title}</p>
+                <p className="cv-rec-quote">{r.quote}</p>
+              </div>
+            </div>
+            <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
+          </div>
+        ))}
+      </ScrollReveal>
+    </section>
+  );
+}
+
 function LanguagesSection() {
   return (
     <section className="section" id="languages">
@@ -489,6 +562,7 @@ function JonnyHome({ siteConfig }) {
       <WorksSection />
       <SkillsSection />
       <EducationSection />
+      <RecommendationsSection />
       <LanguagesSection />
       <ContactCTA siteConfig={siteConfig} />
     </>
