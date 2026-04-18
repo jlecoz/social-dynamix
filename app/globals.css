@@ -51,6 +51,16 @@
   --size-1200: 96px;
 }
 
+/* Brand utilities — Core Teal surface + white copy */
+.core-teal {
+  background: var(--color-core-teal, #06b6d4);
+  border: 1px solid color-mix(in srgb, var(--color-core-teal, #06b6d4), black 14%);
+}
+
+.text-white {
+  color: #fff;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -832,15 +842,8 @@ p {
 }
 
 .cv-role {
-  background: var(--color-core-teal);
-  border: 1px solid color-mix(in srgb, var(--color-core-teal), black 14%);
   border-radius: 0.8rem;
   padding: 1.4rem;
-  color: #fff;
-}
-
-.cv-role .cv-role-title h3 {
-  color: #fff;
 }
 
 .cv-role .cv-role-org {

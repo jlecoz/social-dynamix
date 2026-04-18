@@ -165,7 +165,7 @@ function ExperienceSection() {
 
       <ScrollReveal stagger className="cv-timeline">
         {cv.experience.map((item) => (
-          <article key={`${item.role}-${item.org}`} className="cv-role reveal">
+          <article key={`${item.role}-${item.org}`} className="cv-role reveal core-teal text-white">
             <header className="cv-role-head">
               <div className="cv-role-title">
                 <h3>{item.role}</h3>
