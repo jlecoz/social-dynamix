@@ -491,7 +491,10 @@ p {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 30px 1.5rem;
 }
 
 .hero-bg-embed {
