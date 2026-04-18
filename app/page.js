@@ -182,14 +182,41 @@ const cv = {
   ],
   education: [
     {
-      label: "Certifications (20 certificates in varying subjects)",
-      org: "The Interaction Design Foundation",
-      period: "2017 - 2018",
+      school: "California State University, Chico",
+      degree: "Bachelor of Science - BS, Computer Science",
+      period: "2004 – 2006",
+      activities: "Activities and societies: Option in Applied Computer Graphics",
+      description: "Minor in Communication Design",
     },
     {
-      label: "Bachelor of Science in Computer Sciences (Minor: Communication Design)",
-      org: "California State University Chico",
-      period: "2004 - 2006",
+      school: "IxDF - The Interaction Design Foundation",
+      degree: "Professional Education, User Experience and Interaction Design",
+      period: "2016 – 2027",
+    },
+    {
+      school: "International Academy of Design",
+      degree: "ACE, Design Multimédia",
+      period: "2002 – 2003",
+      activities:
+        "Activities and societies: Création de la plaquette de l'école et le site internet.",
+      description: "Design Multimédia",
+    },
+    {
+      school: "Santa Monica College",
+      degree: "Associate's degree, General Studies",
+      period: "1999 – 2001",
+      activities: "Activities and societies: Club de Snowboard 2000",
+      description: "Études générales",
+    },
+    {
+      school: "Crespi Carmelite Highschool",
+      degree: "Diploma, Études générales",
+      period: "1995 – 1999",
+      activities: "Activities and societies: Football, athlétisme, snowboard, kickboxing",
+      details: [
+        "Bénévolat aux marchés locaux",
+        "AP US History, AP French, AP Government, AP Calculus, AP Physics",
+      ],
     },
   ],
   recommendations: [
@@ -457,10 +484,17 @@ function EducationSection() {
 
       <ScrollReveal stagger className="cv-edu">
         {cv.education.map((e) => (
-          <div key={`${e.org}-${e.period}`} className="cv-edu-row reveal">
-            <div>
-              <h3>{e.label}</h3>
-              <p className="cv-edu-org">{e.org}</p>
+          <div key={e.school} className="cv-edu-row reveal">
+            <div className="cv-edu-main">
+              <h3>{e.school}</h3>
+              <p className="cv-edu-degree">{e.degree}</p>
+              {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+              {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+              {e.details?.map((line) => (
+                <p key={line} className="cv-edu-detail">
+                  {line}
+                </p>
+              ))}
             </div>
             <div className="cv-edu-period">{e.period}</div>
           </div>
