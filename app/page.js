@@ -88,6 +88,34 @@ const cv = {
   ],
 };
 
+const works = [
+  {
+    title: "Ser.vi",
+    blurb: "Product design and digital experience.",
+    href: "https://get.ser.vi",
+  },
+  {
+    title: "QuickBooks",
+    blurb: "Intuit — invoicing, expenses, and SMB finance workflows.",
+    href: "https://www.quickbooks.fr",
+  },
+  {
+    title: "Booking.com",
+    blurb: "Ground transport — discovery, experimentation, and delivery.",
+    href: "https://www.booking.com",
+  },
+  {
+    title: "Auto Trader UK",
+    blurb: "Digital retailing — funnels and dealer-facing journeys.",
+    href: "https://www.autotrader.co.uk",
+  },
+  {
+    title: "Imperial NGP",
+    blurb: "Next-generation products — design systems and multi-brand platforms.",
+    href: "https://www.imperialbrandsplc.com",
+  },
+];
+
 function HeroSection() {
   return (
     <section className="hero hero-cv" id="overview">
@@ -159,6 +187,37 @@ function ExperienceSection() {
               ))}
             </ul>
           </article>
+        ))}
+      </ScrollReveal>
+    </section>
+  );
+}
+
+function WorksSection() {
+  return (
+    <section className="section" id="works">
+      <ScrollReveal>
+        <p className="section-label">Works</p>
+        <h2 className="section-headline">
+          Selected collaborations across <span className="gold">product and platform.</span>
+        </h2>
+        <p className="section-intro">
+          A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal stagger className="cv-work-grid">
+        {works.map((item) => (
+          <a
+            key={item.title}
+            className="cv-work-card reveal"
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>{item.title}</h3>
+            <p>{item.blurb}</p>
+          </a>
         ))}
       </ScrollReveal>
     </section>
@@ -286,6 +345,7 @@ function JonnyHome({ siteConfig }) {
     <>
       <HeroSection />
       <ExperienceSection />
+      <WorksSection />
       <SkillsSection />
       <EducationSection />
       <LanguagesSection />

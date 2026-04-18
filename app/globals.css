@@ -491,7 +491,10 @@ p {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 32px;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 30px 1.5rem;
 }
 
 .hero-bg-embed {
@@ -783,11 +786,73 @@ p {
   gap: 1.2rem;
 }
 
+.cv-work-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.cv-work-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-border), transparent 40%);
+  border-radius: 0.8rem;
+  padding: 1.35rem 1.25rem;
+  min-height: 7.5rem;
+  transition: border-color var(--duration-mid) var(--ease),
+    transform var(--duration-mid) var(--ease),
+    box-shadow var(--duration-mid) var(--ease);
+}
+
+.cv-work-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--color-navy), transparent 92%);
+}
+
+.cv-work-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: var(--size-300);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+.cv-work-card p {
+  margin: 0;
+  margin-top: auto;
+  font-size: var(--size-150);
+  color: var(--color-grey);
+  line-height: 1.55;
+  max-width: none;
+}
+
 .cv-role {
-  background: color-mix(in srgb, rgb(6 182 212) 22%, var(--color-surface));
-  border: 1px solid var(--color-border);
+  background: var(--color-core-teal);
+  border: 1px solid color-mix(in srgb, var(--color-core-teal), black 14%);
   border-radius: 0.8rem;
   padding: 1.4rem;
+  color: #fff;
+}
+
+.cv-role .cv-role-title h3 {
+  color: #fff;
+}
+
+.cv-role .cv-role-org {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cv-role .cv-role-period {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cv-role .cv-bullets {
+  color: rgba(255, 255, 255, 0.93);
 }
 
 .cv-role-head {
