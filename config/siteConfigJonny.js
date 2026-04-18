@@ -29,6 +29,7 @@ export const siteConfigJonny = {
   nav: [
     { label: "Overview", href: "/#overview" },
     { label: "Experience", href: "/#experience" },
+    { label: "Works", href: "/#works" },
     { label: "Skills", href: "/#skills" },
     { label: "Education", href: "/#education" },
     { label: "Contact", href: "/contact" },
