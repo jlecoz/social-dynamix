@@ -83,6 +83,7 @@ export default async function RootLayout({ children }) {
     "--color-grey-mid": siteConfig.theme.greyMid,
     "--color-navy": siteConfig.theme.navy,
     "--color-gold-light": siteConfig.theme.goldLight,
+    "--color-core-teal": siteConfig.theme.coreTeal,
   };
 
   return (

@@ -787,10 +787,27 @@ p {
 }
 
 .cv-role {
-  background: color-mix(in srgb, rgb(6 182 212) 22%, var(--color-surface));
-  border: 1px solid var(--color-border);
+  background: var(--color-core-teal);
+  border: 1px solid color-mix(in srgb, var(--color-core-teal), black 14%);
   border-radius: 0.8rem;
   padding: 1.4rem;
+  color: #fff;
+}
+
+.cv-role .cv-role-title h3 {
+  color: #fff;
+}
+
+.cv-role .cv-role-org {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cv-role .cv-role-period {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cv-role .cv-bullets {
+  color: rgba(255, 255, 255, 0.93);
 }
 
 .cv-role-head {

@@ -22,6 +22,8 @@ export const siteConfigJonny = {
     greyMid: "#5B738F",
     navy: "#0B1F3A",
     goldLight: "#1463FF",
+    /** Experience cards — solid teal panel */
+    coreTeal: "#06B6D4",
   },
   contactEmail: "jonathan.lecoz@gmail.com",
   nav: [

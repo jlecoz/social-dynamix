@@ -17,6 +17,7 @@ export const siteConfigMain = {
     greyMid: "#8E9ABD",
     navy: "#0B1020",
     goldLight: "#35D4C7",
+    coreTeal: "#06B6D4",
   },
   contactEmail: "hello@socialdynamix.co",
   nav: [
