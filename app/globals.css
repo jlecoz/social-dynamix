@@ -843,8 +843,8 @@ p {
 
 /* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */
 .cv-role--linkedin {
-  background: #1d2226;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-pixel-blue, #4285f4);
+  border: 1px solid color-mix(in srgb, var(--color-pixel-blue, #4285f4), black 18%);
   border-radius: 0.75rem;
   padding: 1rem 1.15rem 1.15rem;
   color: #fff;
@@ -1051,9 +1051,21 @@ p {
   font-size: var(--size-150);
 }
 
-.cv-knowledge p {
+.cv-knowledge {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  list-style-position: outside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cv-knowledge li {
   max-width: none;
   color: var(--color-grey);
+  line-height: 1.7;
+  padding-left: 0.35rem;
 }
 
 .cv-edu {
