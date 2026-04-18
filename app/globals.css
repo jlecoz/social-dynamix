@@ -1162,18 +1162,6 @@ p {
   font-weight: 400;
 }
 
-.cv-rec-linkedin {
-  font-weight: 500;
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  transition: color var(--duration-fast) var(--ease);
-}
-
-.cv-rec-linkedin:hover {
-  color: var(--color-gold-light);
-}
-
 .cv-rec-copy {
   min-width: 0;
 }
