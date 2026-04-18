@@ -51,14 +51,14 @@
   --size-1200: 96px;
 }
 
-/* Brand utilities — Core Teal surface + white copy */
+/* Brand utilities — Core Teal surface + palette white copy */
 .core-teal {
-  background: var(--color-core-teal, #06b6d4);
-  border: 1px solid color-mix(in srgb, var(--color-core-teal, #06b6d4), black 14%);
+  background: var(--color-core-teal, #1a7a73);
+  border: 1px solid color-mix(in srgb, var(--color-core-teal, #1a7a73), black 14%);
 }
 
 .text-white {
-  color: #fff;
+  color: var(--color-white, #f2f8fa);
 }
 
 html {
@@ -843,8 +843,8 @@ p {
 
 /* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */
 .cv-role--linkedin {
-  background: var(--color-pixel-blue, #4285f4);
-  border: 1px solid color-mix(in srgb, var(--color-pixel-blue, #4285f4), black 18%);
+  background: var(--color-pixel-blue, #2d8ebf);
+  border: 1px solid color-mix(in srgb, var(--color-pixel-blue, #2d8ebf), black 18%);
   border-radius: 0.75rem;
   padding: 1rem 1.15rem 1.15rem;
   color: #fff;
@@ -1102,6 +1102,59 @@ p {
   letter-spacing: 0.12em;
   color: var(--color-grey-mid);
   white-space: nowrap;
+}
+
+/* Recommendations — same surface as Education, with avatar + quote */
+.cv-edu-row--rec {
+  align-items: start;
+}
+
+.cv-rec-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.cv-rec-avatar {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--color-border), var(--color-surface) 40%);
+  border: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--size-150);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.cv-rec-copy {
+  min-width: 0;
+}
+
+.cv-rec-quote {
+  margin: 0.65rem 0 0;
+  font-size: var(--size-150);
+  line-height: 1.6;
+  color: var(--color-grey);
+  max-width: none;
+}
+
+.cv-edu-row--rec .cv-rec-meta {
+  text-transform: none;
+  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-size: var(--size-150);
+  color: var(--color-grey-mid);
+  white-space: normal;
+  text-align: right;
+  max-width: 9rem;
+  line-height: 1.4;
 }
 
 /* ── Services ─────────────────────────────────────────── */
@@ -1515,6 +1568,17 @@ p {
 
   .cv-meta-row {
     grid-template-columns: 1fr;
+  }
+
+  .cv-edu-row--rec {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cv-edu-row--rec .cv-rec-meta {
+    text-align: left;
+    max-width: none;
+    justify-self: start;
   }
 
   .cv-split {

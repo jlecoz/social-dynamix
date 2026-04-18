@@ -72,19 +72,30 @@ function jsonLdForSite(siteConfig, host) {
 export default async function RootLayout({ children }) {
   const host = (await headers()).get("host") || "";
   const siteConfig = getSiteConfig(host);
+  const t = siteConfig.theme;
   const themeVars = {
-    "--color-bg": siteConfig.theme.background,
-    "--color-fg": siteConfig.theme.foreground,
-    "--color-accent": siteConfig.theme.accent,
-    "--color-accent-hover": siteConfig.theme.accentAlt,
-    "--color-surface": siteConfig.theme.surface,
-    "--color-border": siteConfig.theme.surfaceBorder,
-    "--color-grey": siteConfig.theme.grey,
-    "--color-grey-mid": siteConfig.theme.greyMid,
-    "--color-navy": siteConfig.theme.navy,
-    "--color-gold-light": siteConfig.theme.goldLight,
-    "--color-core-teal": siteConfig.theme.coreTeal,
-    "--color-pixel-blue": siteConfig.theme.pixelBlue,
+    "--color-bg": t.background,
+    "--color-fg": t.foreground,
+    "--color-accent": t.accent,
+    "--color-accent-hover": t.accentAlt,
+    "--color-surface": t.surface,
+    "--color-border": t.surfaceBorder,
+    "--color-grey": t.grey,
+    "--color-grey-mid": t.greyMid,
+    "--color-navy": t.navy,
+    "--color-gold-light": t.goldLight,
+    "--color-core-teal": t.coreTeal,
+    "--color-pixel-blue": t.pixelBlue,
+    "--color-void": t.void,
+    "--color-deep-teal": t.deepTeal,
+    "--color-bright-teal": t.brightTeal,
+    "--color-cyan-strike": t.cyanStrike,
+    "--color-cyan-light": t.cyanLight,
+    "--color-steel": t.steel,
+    "--color-fog": t.fog,
+    "--color-white": t.white,
+    "--color-off-white": t.offWhite,
+    "--color-light-gray": t.lightGray,
   };
 
   return (
