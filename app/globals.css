@@ -843,8 +843,8 @@ p {
 
 /* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */
 .cv-role--linkedin {
-  background: var(--color-pixel-blue, #2d8ebf);
-  border: 1px solid color-mix(in srgb, var(--color-pixel-blue, #2d8ebf), black 18%);
+  background: #0b1f3a;
+  border: 1px solid color-mix(in srgb, #0b1f3a, white 14%);
   border-radius: 0.75rem;
   padding: 1rem 1.15rem 1.15rem;
   color: #fff;
@@ -1078,16 +1078,37 @@ p {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
-  align-items: baseline;
+  align-items: start;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.8rem;
   padding: 1.2rem 1.4rem;
 }
 
+.cv-edu-main {
+  min-width: 0;
+}
+
 .cv-edu-row h3 {
   margin: 0;
   font-size: var(--size-200);
+}
+
+.cv-edu-degree {
+  margin: 0.35rem 0 0;
+  font-size: var(--size-200);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-fg);
+  max-width: none;
+}
+
+.cv-edu-detail {
+  margin: 0.45rem 0 0;
+  font-size: var(--size-150);
+  line-height: 1.55;
+  color: var(--color-grey);
+  max-width: none;
 }
 
 .cv-edu-org {
@@ -1118,8 +1139,8 @@ p {
 
 .cv-rec-avatar {
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 0.35rem;
   background: color-mix(in srgb, var(--color-border), var(--color-surface) 40%);
   border: 1px solid var(--color-border);
@@ -1131,6 +1152,26 @@ p {
   justify-content: center;
   font-family: var(--font-heading);
   line-height: 1;
+}
+
+.cv-rec-avatar--photo {
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 0;
+  font-size: 0;
+  font-weight: 400;
+}
+
+.cv-rec-linkedin {
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.cv-rec-linkedin:hover {
+  color: var(--color-gold-light);
 }
 
 .cv-rec-copy {
@@ -1221,6 +1262,7 @@ p {
 
 .languages-dot.is-on {
   background: var(--color-accent);
+  color: rgba(11, 31, 58, 1);
 }
 
 .languages-dot.is-off {
