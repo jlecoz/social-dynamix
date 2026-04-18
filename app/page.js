@@ -20,68 +20,157 @@ const cv = {
     "Human-centered Design",
     "Customer Innovation",
   ],
-  experience: [
+  /** LinkedIn-aligned: one card per employer; multiple roles share logo + timeline rail */
+  experienceGroups: [
     {
-      role: "Director of Digital Experience Design",
-      org: "Imperial Brands",
+      key: "imperial",
       orgDisplay: "Imperial Brands PLC",
       orgUrl: "https://www.imperialbrandsplc.com",
       logoDomain: "imperialbrandsplc.com",
-      employmentType: "Full-time",
-      location: "Bristol, United Kingdom",
-      period: "2021 – Present",
-      bullets: [
-        "Advocate for design thinking and design linking, supporting Product Owners, Engineers and Designers throughout the NGP pillar to work smart and drive the vision for user experience across multiple product lines.",
-        "Develop, maintain and scale design processes and tools to drive efficiency and velocity internally and with external partners.",
-        "Review, assess and prioritize design activity with Delivery Managers, Product Owners and Engineers to ensure design supports the digital delivery roadmap.",
-        "Build out the internal design team — growing in-house capability across UX and UI; hire, nurture, stretch and challenge the team alongside existing design partners.",
-        "Own the vision and governance of the Breeze design system, delivering a multi-brand, white-label framework supporting day-to-day experimentation and optimization across CMS tools and multi-market localisation.",
+      companyTagline: "Full-time · 3 yrs 4 mos · Bristol, United Kingdom",
+      roles: [
+        {
+          title: "Director of Digital Experience",
+          periodLine: "Jan 2021 – Present · 3 yrs 4 mos",
+          workMode: "Hybrid",
+          bullets: [
+            "Advocate for design thinking and design linking. I support Product Owners, Engineers and Designers throughout the NGP pillar to work smart and deliver value for our experience across multiple product lines.",
+            "Establish, maintain and scale design processes and tools to drive efficiency and velocity internally and with external partners.",
+            "Review, assess and prioritise design activity with Delivery Managers and Product Owners so design supports the high-level delivery roadmap.",
+            "Lead and manage talented teams through the research and design process to produce high-quality work that materially impacts partners and customers.",
+            "Mentor the internal design team — hire, nurture, mentor and challenge a growing in-house team alongside external design partners.",
+            "Oversee vision and governance of the design system, supporting day-to-day communication and contribution across the business.",
+          ],
+        },
+        {
+          title: "Experience Design Lead",
+          periodLine: "Jan 2022 – Dec 2022 · 1 yr",
+          location: "Manchester Area, United Kingdom",
+          bullets: [],
+          skills: "Product Strategy, Web Design, and +8 skills",
+        },
       ],
     },
     {
-      role: "Experience Design Lead",
-      org: "Auto Trader UK",
+      key: "autotrader",
       orgDisplay: "Auto Trader UK",
       orgUrl: "https://www.autotrader.co.uk",
       logoDomain: "autotrader.co.uk",
-      employmentType: "Full-time",
-      location: "United Kingdom",
-      period: "2020 – 2021",
-      bullets: [
-        "Helped cross-functional teams understand and define pain points and potential gains for the Digital Retailing offer for retailers and customers.",
-        "Line-managed and mentored 3 product designers; led 7 other designers to deliver their best work and grow their careers.",
-        "Delivered designs/specifications for funnel experiences (Part Exchange, Finance, Reservation) and the MVP Digital Retailing experience piloted across retailers.",
+      companyTagline: "Full-time · 3 yrs 10 mos · United Kingdom",
+      roles: [
+        {
+          title: "Experience Design Lead",
+          periodLine: "Jul 2021 – Oct 2022 · 1 yr 4 mos",
+          bullets: [
+            "Helped cross-functional teams understand and define pain points and potential gains for the Digital Retailing offer for retailers and customers.",
+            "Line-managed and mentored product designers; supported designers to deliver their best work and grow their careers.",
+            "Delivered designs and specifications for funnel experiences (Part Exchange, Finance, Reservations) in parallel with squad delivery.",
+            "Led UX/UI direction for the Digital Retailing initiative piloted across retailers in the Auto Trader UK ecosystem.",
+          ],
+          skills: "Product Strategy, Web Design, and +8 skills",
+        },
+        {
+          title: "Principal Product Designer",
+          periodLine: "Nov 2020 – Jun 2021 · 8 mos",
+          location: "Manchester Area, United Kingdom",
+          summary:
+            "Digital Retailing and Onward Journey — CORE/B2B. Direction of the post-sale journey customers and suppliers engage with in the Auto Trader ecosystem.",
+          bullets: [],
+          skills: "Product Strategy, Web Design, +8 skills",
+        },
       ],
     },
     {
-      role: "Design Lead",
-      org: "Booking.com",
+      key: "booking",
       orgDisplay: "Booking.com",
       orgUrl: "https://www.booking.com",
       logoDomain: "booking.com",
-      employmentType: "Full-time",
-      location: "Netherlands",
-      period: "2018 – 2020",
-      bullets: [
-        "Steered discovery and experimentation to influence stakeholders and deliver customer-focused end-to-end experiences increasing convenience, loyalty and engagement.",
-        "Led 3 UX designers to define and deliver solutions for pain points across the ground transport business.",
-        "Partnered with product/engineering leads on epics, user stories, prioritisation and backlog refinement; contributed to C-level initiatives (Design Systems, processes, onboarding, recruitment).",
+      companyTagline: "Full-time · 2 yrs 2 mos · Manchester Area, United Kingdom",
+      roles: [
+        {
+          title: "Design Lead",
+          periodLine: "Oct 2018 – Nov 2020 · 2 yrs 2 mos",
+          bullets: [
+            "Used data-informed discovery and experimentation to influence stakeholders and turn systems thinking into experiences that improved convenience, loyalty and engagement.",
+            "Led two UX designers to define and deliver solutions for pain points across the ground transport business.",
+            "Partnered with product and engineering leads on epics, user stories, prioritisation and backlog refinement.",
+            "Contributed to cross-business initiatives including design systems, process training, onboarding and recruitment.",
+          ],
+          skills: "Product Strategy, Web Design, and +8 skills",
+          featured: "Featured project: Booking.com One Million — social wall campaign.",
+        },
       ],
     },
     {
-      role: "Principal Product Designer",
-      org: "Intuit France (QuickBooks)",
+      key: "intuit",
       orgDisplay: "Intuit",
-      orgUrl: "https://www.quickbooks.fr",
+      orgUrl: "https://www.intuit.com",
       logoDomain: "intuit.com",
-      employmentType: "Full-time",
-      location: "France",
-      period: "2017 – 2018",
-      bullets: [
-        "Uncovered customer problems around finances to help people save time, make money and gain confidence.",
-        "Led cross-functional teams through research-informed design studios to ideate, prototype and refine workflows (invoicing, expenses, reports, taxes).",
-        "Coordinated rapid experimentation to pressure-test assumptions and align solutions with expectations and local laws (GDPR, VAT anti-fraud, MTD UK).",
+      companyTagline: "Full-time · 1 yr 3 mos · Paris, France",
+      roles: [
+        {
+          title: "Principal Product Designer",
+          periodLine: "Jun 2017 – Aug 2018 · 1 yr 3 mos",
+          bullets: [
+            "Built deep customer empathy around financial problems so people could save time, make money and gain confidence.",
+            "Led cross-functional teams through design studios for invoicing, checkout and related workflows across markets.",
+            "Coordinated rapid experimentation and international design work across France, Germany, Australia and other locales.",
+          ],
+          skills: "Product Strategy, Web Design, and +8 skills",
+          featured: "Featured project: QuickBooks — customer-facing launch and localisation work.",
+        },
       ],
+    },
+    {
+      key: "jwt-paris",
+      orgDisplay: "JWT Paris",
+      orgUrl: "https://www.wundermanthompson.com",
+      logoDomain: "wpp.com",
+      companyTagline: "Oct 2015 – Apr 2017",
+      roles: [{ title: "Lead UX Designer", periodLine: "", bullets: [] }],
+    },
+    {
+      key: "graphite",
+      orgDisplay: "Graphite",
+      logoDomain: "graphite.com",
+      companyTagline: "Jun 2011 – Aug 2015",
+      roles: [{ title: "Senior UI/UX Designer", periodLine: "", bullets: [] }],
+    },
+    {
+      key: "goodman-heathcote",
+      orgDisplay: "Goodman Heathcote Management",
+      logoDomain: "linkedin.com",
+      companyTagline: "Sep 2010 – Jun 2011",
+      roles: [{ title: "Graphic and Web Designer", periodLine: "", bullets: [] }],
+    },
+    {
+      key: "vertigo",
+      orgDisplay: "Agence Vertigo",
+      logoDomain: "linkedin.com",
+      companyTagline: "Jan 2008 – Sep 2010",
+      roles: [{ title: "Freelance Consultant", periodLine: "", bullets: [] }],
+    },
+    {
+      key: "urban-medium",
+      orgDisplay: "Urban Medium",
+      logoDomain: "linkedin.com",
+      companyTagline: "Jul 2008 – Sep 2009",
+      roles: [
+        {
+          title: "Sr. Designer / Jr. Programmer",
+          periodLine: "",
+          summary:
+            "Graphic programming — Flash, Visual Basic, PHP, Photoshop, Illustrator, SQL.",
+          bullets: [],
+        },
+      ],
+    },
+    {
+      key: "hypnotic",
+      orgDisplay: "Hypnotic Talent Agency",
+      logoDomain: "linkedin.com",
+      companyTagline: "Sep 2006 – Sep 2007",
+      roles: [{ title: "Freelance Consultant", periodLine: "", bullets: [] }],
     },
   ],
   knowledge: [
@@ -181,13 +270,10 @@ function ExperienceSection() {
       </ScrollReveal>
 
       <ScrollReveal stagger className="cv-timeline">
-        {cv.experience.map((item) => {
-          const companyName = item.orgDisplay ?? item.org;
-          const metaBits = [item.employmentType ?? "Full-time", item.location].filter(Boolean);
-          const companyMeta = metaBits.join(" · ");
-          const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(item.logoDomain)}&sz=128`;
+        {cv.experienceGroups.map((group) => {
+          const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
           return (
-            <article key={`${item.role}-${item.org}`} className="cv-role cv-role--linkedin reveal">
+            <article key={group.key} className="cv-role cv-role--linkedin reveal">
               <div className="cv-role-layout">
                 <div className="cv-role-logo">
                   <img
@@ -202,26 +288,41 @@ function ExperienceSection() {
                 <div className="cv-role-main">
                   <div className="cv-role-company-block">
                     <h3 className="cv-role-company-heading">
-                      {item.orgUrl ? (
-                        <a className="cv-role-company" href={item.orgUrl} target="_blank" rel="noopener noreferrer">
-                          {companyName}
+                      {group.orgUrl ? (
+                        <a className="cv-role-company" href={group.orgUrl} target="_blank" rel="noopener noreferrer">
+                          {group.orgDisplay}
                         </a>
                       ) : (
-                        <span className="cv-role-company">{companyName}</span>
+                        <span className="cv-role-company">{group.orgDisplay}</span>
                       )}
                     </h3>
-                    <p className="cv-role-company-meta">{companyMeta}</p>
+                    {group.companyTagline ? (
+                      <p className="cv-role-company-meta">{group.companyTagline}</p>
+                    ) : null}
                   </div>
-                  <div className="cv-role-job-block">
-                    <h4 className="cv-role-job-title">{item.role}</h4>
-                    <p className="cv-role-job-dates">{item.period}</p>
-                    <div className="cv-role-timeline">
-                      <ul className="cv-bullets-timeline">
-                        {item.bullets.map((b) => (
-                          <li key={b}>{b}</li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="cv-role-positions-rail">
+                    {group.roles.map((role, idx) => (
+                      <div key={`${group.key}-${role.title}-${idx}`} className="cv-role-position">
+                        <div className="cv-role-job-block">
+                          <h4 className="cv-role-job-title">{role.title}</h4>
+                          {role.periodLine ? <p className="cv-role-job-dates">{role.periodLine}</p> : null}
+                          {role.location ? <p className="cv-role-work-mode">{role.location}</p> : null}
+                          {role.workMode ? <p className="cv-role-work-mode">{role.workMode}</p> : null}
+                          {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
+                          {role.bullets?.length ? (
+                            <div className="cv-role-timeline">
+                              <ul className="cv-bullets-timeline">
+                                {role.bullets.map((b) => (
+                                  <li key={b}>{b}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : null}
+                          {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
+                          {role.featured ? <p className="cv-role-featured">{role.featured}</p> : null}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

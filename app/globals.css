@@ -907,8 +907,20 @@ p {
   line-height: 1.45;
 }
 
-.cv-role-job-block {
+.cv-role-positions-rail {
   margin-top: 0.85rem;
+  padding-left: 0.95rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.cv-role-position + .cv-role-position {
+  margin-top: 1.15rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cv-role-job-block {
+  margin-top: 0;
 }
 
 .cv-role-job-title {
@@ -928,10 +940,47 @@ p {
   line-height: 1.45;
 }
 
+.cv-role-work-mode {
+  margin: 0.2rem 0 0;
+  font-size: var(--size-150);
+  color: rgba(255, 255, 255, 0.5);
+  max-width: none;
+}
+
+.cv-role-summary {
+  margin: 0.55rem 0 0;
+  font-size: var(--size-150);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: none;
+}
+
+.cv-role-skills {
+  margin: 0.65rem 0 0;
+  font-size: var(--size-150);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: none;
+}
+
+.cv-role-featured {
+  margin: 0.65rem 0 0;
+  font-size: var(--size-150);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: none;
+}
+
 .cv-role-timeline {
   margin-top: 0.65rem;
   padding-left: 0.85rem;
   border-left: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+.cv-role-positions-rail .cv-role-timeline {
+  margin-top: 0.55rem;
+  padding-left: 0;
+  border-left: none;
 }
 
 .cv-bullets-timeline {
