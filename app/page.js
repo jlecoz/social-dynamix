@@ -7,6 +7,14 @@ import ScrollReveal from "@/components/ScrollReveal";
 const linkedInExperienceUrl =
   "https://www.linkedin.com/in/jonathan-lecoz/?locale=en-US#experience";
 
+/** Received recommendations on LinkedIn */
+const linkedInRecommendationsUrl =
+  "https://www.linkedin.com/in/jonathan-lecoz/details/recommendations/";
+
+/** Education & schooling on LinkedIn */
+const linkedInEducationUrl =
+  "https://www.linkedin.com/in/jonathan-lecoz/details/education/";
+
 const cv = {
   name: "Jonathan Le Coz",
   title: "Experiential Designer",
@@ -149,6 +157,13 @@ const cv = {
     "Defining OKR/KPI metrics with product leaders to increase visibility to usage and conversion/retention linked to UX/CX contribution.",
     "Industry UI/UX principles coupled with modern web technologies for efficient and engaging end-to-end experiences that are usable, useful and desirable.",
   ],
+  certifications: [
+    {
+      school: "IxDF - The Interaction Design Foundation",
+      degree: "Professional Education, User Experience and Interaction Design",
+      period: "2016 – 2017",
+    },
+  ],
   education: [
     {
       school: "California State University, Chico",
@@ -158,34 +173,12 @@ const cv = {
       description: "Minor in Communication Design",
     },
     {
-      school: "IxDF - The Interaction Design Foundation",
-      degree: "Professional Education, User Experience and Interaction Design",
-      period: "2016 – 2027",
-    },
-    {
       school: "International Academy of Design",
       degree: "ACE, Design Multimédia",
       period: "2002 – 2003",
       activities:
         "Activities and societies: Création de la plaquette de l'école et le site internet.",
       description: "Design Multimédia",
-    },
-    {
-      school: "Santa Monica College",
-      degree: "Associate's degree, General Studies",
-      period: "1999 – 2001",
-      activities: "Activities and societies: Club de Snowboard 2000",
-      description: "Études générales",
-    },
-    {
-      school: "Crespi Carmelite Highschool",
-      degree: "Diploma, Études générales",
-      period: "1995 – 1999",
-      activities: "Activities and societies: Football, athlétisme, snowboard, kickboxing",
-      details: [
-        "Bénévolat aux marchés locaux",
-        "AP US History, AP French, AP Government, AP Calculus, AP Physics",
-      ],
     },
   ],
   recommendations: [
@@ -492,6 +485,24 @@ function EducationSection() {
       </ScrollReveal>
 
       <ScrollReveal stagger className="cv-edu">
+        <p className="cv-edu-subheading">Certifications</p>
+        {cv.certifications.map((e) => (
+          <div key={e.school} className="cv-edu-row reveal">
+            <div className="cv-edu-main">
+              <h3>{e.school}</h3>
+              <p className="cv-edu-degree">{e.degree}</p>
+              {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+              {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+              {e.details?.map((line) => (
+                <p key={line} className="cv-edu-detail">
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="cv-edu-period">{e.period}</div>
+          </div>
+        ))}
+        <p className="cv-edu-subheading">School</p>
         {cv.education.map((e) => (
           <div key={e.school} className="cv-edu-row reveal">
             <div className="cv-edu-main">
@@ -508,6 +519,23 @@ function EducationSection() {
             <div className="cv-edu-period">{e.period}</div>
           </div>
         ))}
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="cv-experience-more">
+          <a
+            className="cv-experience-more-link"
+            href={linkedInEducationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Show all education on LinkedIn"
+          >
+            <span>Show all</span>
+            <span className="cv-experience-more-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        </div>
       </ScrollReveal>
     </section>
   );
@@ -551,6 +579,23 @@ function RecommendationsSection() {
             </div>
           </div>
         ))}
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="cv-experience-more">
+          <a
+            className="cv-experience-more-link"
+            href={linkedInRecommendationsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Show all recommendations on LinkedIn"
+          >
+            <span>Show all</span>
+            <span className="cv-experience-more-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        </div>
       </ScrollReveal>
     </section>
   );

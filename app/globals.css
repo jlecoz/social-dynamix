@@ -672,6 +672,12 @@ p {
   padding-bottom: 32px;
 }
 
+/* Recommendations section — tighter vertical padding */
+#recommendations {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 #experience .section-headline .gold {
   color: #33464a;
 }
@@ -1122,6 +1128,21 @@ p {
   margin-top: 3rem;
   display: grid;
   gap: 0.9rem;
+}
+
+.cv-edu-subheading {
+  grid-column: 1 / -1;
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--size-150);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #33464a;
+  margin: 0;
+}
+
+.cv-edu-row + .cv-edu-subheading {
+  margin-top: 0.35rem;
 }
 
 .cv-edu-row {
