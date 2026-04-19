@@ -447,12 +447,9 @@ function SkillsSection() {
     <section className="section section-services" id="skills">
       <ScrollReveal>
         <p className="section-label">Knowledge &amp; Skills</p>
-        <h2 className="section-headline">
-          Creative, collaborative and efficient — focused on{" "}
-          <span className="gold">customer-driven innovation</span> and measurable outcomes.
-        </h2>
+        <h2 className="section-headline">Creative, collaborative and efficient</h2>
         <p className="section-intro">
-          Applied in the key skills, knowledge areas and languages below.
+          Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
         </p>
       </ScrollReveal>
 

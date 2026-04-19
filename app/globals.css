@@ -1254,6 +1254,21 @@ p {
   padding-inline: 32px;
 }
 
+#skills {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+#education {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+#languages {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 /* ── Languages ────────────────────────────────────────── */
 .languages-title {
   font-family: var(--font-display);
