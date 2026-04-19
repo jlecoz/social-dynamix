@@ -530,9 +530,9 @@ p {
   background:
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--color-bg), transparent 5%) 0%,
-      color-mix(in srgb, var(--color-bg), transparent 18%) 55%,
-      color-mix(in srgb, var(--color-bg), transparent 8%) 100%
+      color-mix(in srgb, var(--color-bg), transparent 0%) 0%,
+      color-mix(in srgb, var(--color-bg), transparent 10%) 55%,
+      color-mix(in srgb, var(--color-bg), transparent 2%) 100%
     );
 }
 

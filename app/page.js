@@ -134,6 +134,7 @@ const cv = {
       orgDisplay: "IMS Health",
       orgUrl: "https://www.iqvia.com",
       logoDomain: "iqvia.com",
+      logoSrc: "/logos/ims-health.png",
       companyTagline: "Full-time · 2 yrs 1 mo · Boulogne-Billancourt, Île-de-France, France",
       roles: [
         {
@@ -447,13 +448,14 @@ function ExperienceSection() {
       <ScrollReveal stagger className="cv-timeline">
         {cv.experienceGroups.map((group) => {
           const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
+          const logoSrc = group.logoSrc || faviconSrc;
           return (
             <article key={group.key} className="cv-role cv-role--linkedin reveal">
               <div className="cv-role-layout">
                 <div className="cv-role-logo">
                   <img
                     className="cv-role-logo-img"
-                    src={faviconSrc}
+                    src={logoSrc}
                     alt=""
                     width={48}
                     height={48}
