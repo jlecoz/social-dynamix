@@ -133,51 +133,53 @@ function Footer({ config }) {
   const siteConfig = config;
   return (
     <footer className="site-footer">
-      <div className="footer-inner">
-        <div className="footer-brand">
-          <img src="/img/digital_ronin.svg" alt="Jonathan Le Coz" className="footer-logo" />
-          <strong>{siteConfig.brand.logoText}</strong>
-          <p className="footer-tagline">{siteConfig.brand.tagline}</p>
-          {siteConfig.contact?.location || siteConfig.contactEmail || siteConfig.contact?.phoneLabel ? (
-            <p className="footer-contact">
-              {siteConfig.contact?.location ? (
-                <>
-                  {siteConfig.contact.location} <span aria-hidden="true">&bull;</span>{" "}
-                </>
-              ) : null}
-              {siteConfig.contact?.phoneLabel ? (
-                <a href={siteConfig.contact?.phoneHref || "#"}>{siteConfig.contact.phoneLabel}</a>
-              ) : null}
+      <div className="section-services-inner">
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <img src="/img/digital_ronin.svg" alt="Jonathan Le Coz" className="footer-logo" />
+            <strong>{siteConfig.brand.logoText}</strong>
+            <p className="footer-tagline">{siteConfig.brand.tagline}</p>
+            {siteConfig.contact?.location || siteConfig.contactEmail || siteConfig.contact?.phoneLabel ? (
+              <p className="footer-contact">
+                {siteConfig.contact?.location ? (
+                  <>
+                    {siteConfig.contact.location} <span aria-hidden="true">&bull;</span>{" "}
+                  </>
+                ) : null}
+                {siteConfig.contact?.phoneLabel ? (
+                  <a href={siteConfig.contact?.phoneHref || "#"}>{siteConfig.contact.phoneLabel}</a>
+                ) : null}
+              </p>
+            ) : null}
+            <p className="footer-legal">
+              &copy; {new Date().getFullYear()} Jonathan Le Coz. All rights reserved.
             </p>
-          ) : null}
-          <p className="footer-legal">
-            &copy; {new Date().getFullYear()} Jonathan Le Coz. All rights reserved.
-          </p>
-        </div>
+          </div>
 
-        <nav className="footer-nav">
-          <span className="footer-col-title">Navigation</span>
-          {siteConfig.nav.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="footer-nav">
+            <span className="footer-col-title">Navigation</span>
+            {siteConfig.nav.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="footer-social">
-          <span className="footer-col-title">Social</span>
-          <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
-          <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-          <a href={siteConfig.social.x} target="_blank" rel="noopener noreferrer">
-            X
-          </a>
-          <a href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer">
-            YouTube
-          </a>
+          <div className="footer-social">
+            <span className="footer-col-title">Social</span>
+            <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href={siteConfig.social.x} target="_blank" rel="noopener noreferrer">
+              X
+            </a>
+            <a href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer">
+              YouTube
+            </a>
+          </div>
         </div>
       </div>
 

@@ -388,10 +388,28 @@ p {
 
 .hero.hero-cv {
   min-height: auto;
-  padding: 6rem 0 3rem;
+  /* No vertical padding — keeps .hero-bg-embed flush to edges (padding lives on .hero-content) */
+  padding: 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+}
+
+.hero-cv .hero-content {
+  padding: calc(6rem + 30px) 1.5rem calc(3rem + 30px);
+}
+
+/* CV hero: keep section, scrim, iframe, and content block purely square (no card-like radius) */
+.hero.hero-cv,
+.hero.hero-cv .hero-bg-embed,
+.hero.hero-cv .hero-bg-iframe,
+.hero.hero-cv .hero-bg-dim,
+.hero-cv .hero-content {
+  border-radius: 0;
+}
+
+.hero.hero-cv .hero-bg-iframe {
+  outline: none;
 }
 
 /* ── Social Dynamix (main domain) ─────────────────────── */
@@ -536,6 +554,17 @@ p {
     );
 }
 
+/* CV hero (#overview): dark scrim over iframe — default .hero-bg-dim uses light wash */
+.hero-cv .hero-bg-dim {
+  background:
+    linear-gradient(
+      115deg,
+      color-mix(in srgb, var(--color-fg), transparent 12%) 0%,
+      color-mix(in srgb, var(--color-fg), transparent 48%) 52%,
+      color-mix(in srgb, var(--color-fg), transparent 30%) 100%
+    );
+}
+
 .hero-glow {
   position: absolute;
   top: -25%;
@@ -582,6 +611,26 @@ p {
   font-size: var(--size-200);
   color: var(--color-grey);
   margin-top: 0.9rem;
+}
+
+.hero-cv .hero-headline .gold {
+  color: var(--color-white);
+}
+
+.hero-cv .cv-core-tags {
+  color: color-mix(in srgb, var(--color-white), transparent 18%);
+}
+
+.hero-cv .button-secondary {
+  background: color-mix(in srgb, var(--color-white), transparent 88%);
+  border-color: color-mix(in srgb, var(--color-white), transparent 55%);
+  color: var(--color-white);
+}
+
+.hero-cv .button-secondary:hover {
+  background: color-mix(in srgb, var(--color-white), transparent 78%);
+  border-color: var(--color-accent);
+  color: var(--color-fg);
 }
 
 /* When only one meta card is present, don't force 2 cols */
@@ -660,20 +709,56 @@ p {
   padding: 0 1.4rem 1.5rem;
 }
 
-/* Works section — tighter vertical padding */
+/* Works section — full width */
 #works {
-  padding-top: 32px;
-  padding-bottom: 32px;
+  background-color: #33464a;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-top-color: color-mix(in srgb, var(--color-white), transparent 78%);
 }
 
-/* Experience section — tighter vertical padding; headline accent matches section label tone */
+#works .section-label {
+  color: var(--color-steel);
+}
+
+#works .section-headline {
+  color: var(--color-white);
+}
+
+#works .section-headline .gold {
+  color: var(--color-gold-light);
+}
+
+#works .section-intro {
+  color: color-mix(in srgb, var(--color-white), var(--color-steel) 22%);
+}
+
+/* Experience section — full width; tighter vertical padding; headline accent matches section label tone */
 #experience {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
-/* Recommendations section — tighter vertical padding */
+/* Recommendations section — full width; tighter vertical padding */
 #recommendations {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -1275,17 +1360,49 @@ p {
   padding-inline: 32px;
 }
 
+/* Full-viewport white band; content follows .page-shell width */
+#skills.section-services {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+
+.section-services-inner {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: 1.5rem;
+  padding-top: 64px;
+}
+
 #skills {
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
+/* Education section — full width; tighter vertical padding */
 #education {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
+/* Languages section — full width; tighter vertical padding */
 #languages {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -1456,18 +1573,31 @@ p {
 
 /* ── Contact CTA ──────────────────────────────────────── */
 .section-contact-cta {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   text-align: center;
   padding-bottom: 6rem;
+  background: #2a3133;
 }
 
 .section-contact-cta .section-headline {
   max-width: 22ch;
   margin-left: auto;
   margin-right: auto;
+  color: var(--color-white);
+}
+
+.section-contact-cta .section-headline .gold {
+  color: var(--color-accent);
 }
 
 .section-contact-cta .section-intro {
   margin: 0 auto 3rem;
+  color: color-mix(in srgb, var(--color-white), transparent 22%);
 }
 
 .contact-paths {
@@ -1514,9 +1644,15 @@ p {
 
 /* ── Footer ───────────────────────────────────────────── */
 .site-footer {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: 0;
+  box-sizing: border-box;
   background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  padding: 3.5rem 0 2rem;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
   margin-top: 2rem;
 }
 
@@ -1595,6 +1731,11 @@ p {
 }
 
 .footer-copy {
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  padding-inline: 1.5rem;
   font-family: var(--font-label);
   font-size: var(--size-150);
   text-transform: uppercase;
@@ -1673,8 +1814,12 @@ p {
   }
 
   .hero.hero-cv {
-    padding: 5rem 0 2.5rem;
+    padding: 0;
     min-height: auto;
+  }
+
+  .hero-cv .hero-content {
+    padding: calc(5rem + 30px) 1.5rem calc(2.5rem + 30px);
   }
 
   .hero-headline {

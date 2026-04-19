@@ -314,92 +314,94 @@ function HeroSection() {
 function ExperienceSection() {
   return (
     <section className="section" id="experience">
-      <ScrollReveal>
-        <p className="section-label">Experience</p>
-        <h2 className="section-headline">
-          Design leadership across <span className="gold">product and platform.</span>
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <p className="section-label">Experience</p>
+          <h2 className="section-headline">
+            Design leadership across <span className="gold">product and platform.</span>
+          </h2>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-timeline">
-        {cv.experienceGroups.map((group) => {
-          const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
-          const logoSrc = group.logoSrc || faviconSrc;
-          return (
-            <article key={group.key} className="cv-role cv-role--linkedin reveal">
-              <div className="cv-role-layout">
-                <div className="cv-role-logo">
-                  <img
-                    className="cv-role-logo-img"
-                    src={logoSrc}
-                    alt=""
-                    width={48}
-                    height={48}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="cv-role-main">
-                  <div className="cv-role-company-block">
-                    <h3 className="cv-role-company-heading">
-                      {group.orgUrl ? (
-                        <a className="cv-role-company" href={group.orgUrl} target="_blank" rel="noopener noreferrer">
-                          {group.orgDisplay}
-                        </a>
-                      ) : (
-                        <span className="cv-role-company">{group.orgDisplay}</span>
-                      )}
-                    </h3>
-                    {group.companyTagline ? (
-                      <p className="cv-role-company-meta">{group.companyTagline}</p>
-                    ) : null}
+        <ScrollReveal stagger className="cv-timeline">
+          {cv.experienceGroups.map((group) => {
+            const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
+            const logoSrc = group.logoSrc || faviconSrc;
+            return (
+              <article key={group.key} className="cv-role cv-role--linkedin reveal">
+                <div className="cv-role-layout">
+                  <div className="cv-role-logo">
+                    <img
+                      className="cv-role-logo-img"
+                      src={logoSrc}
+                      alt=""
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                    />
                   </div>
-                  <div className="cv-role-positions-rail">
-                    {group.roles.map((role, idx) => (
-                      <div key={`${group.key}-${role.title}-${idx}`} className="cv-role-position">
-                        <div className="cv-role-job-block">
-                          <h4 className="cv-role-job-title">{role.title}</h4>
-                          {role.periodLine ? <p className="cv-role-job-dates">{role.periodLine}</p> : null}
-                          {role.location ? <p className="cv-role-work-mode">{role.location}</p> : null}
-                          {role.workMode ? <p className="cv-role-work-mode">{role.workMode}</p> : null}
-                          {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
-                          {role.bullets?.length ? (
-                            <div className="cv-role-timeline">
-                              <ul className="cv-bullets-timeline">
-                                {role.bullets.map((b) => (
-                                  <li key={b}>{b}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          ) : null}
-                          {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
-                          {role.featured ? <p className="cv-role-featured">{role.featured}</p> : null}
+                  <div className="cv-role-main">
+                    <div className="cv-role-company-block">
+                      <h3 className="cv-role-company-heading">
+                        {group.orgUrl ? (
+                          <a className="cv-role-company" href={group.orgUrl} target="_blank" rel="noopener noreferrer">
+                            {group.orgDisplay}
+                          </a>
+                        ) : (
+                          <span className="cv-role-company">{group.orgDisplay}</span>
+                        )}
+                      </h3>
+                      {group.companyTagline ? (
+                        <p className="cv-role-company-meta">{group.companyTagline}</p>
+                      ) : null}
+                    </div>
+                    <div className="cv-role-positions-rail">
+                      {group.roles.map((role, idx) => (
+                        <div key={`${group.key}-${role.title}-${idx}`} className="cv-role-position">
+                          <div className="cv-role-job-block">
+                            <h4 className="cv-role-job-title">{role.title}</h4>
+                            {role.periodLine ? <p className="cv-role-job-dates">{role.periodLine}</p> : null}
+                            {role.location ? <p className="cv-role-work-mode">{role.location}</p> : null}
+                            {role.workMode ? <p className="cv-role-work-mode">{role.workMode}</p> : null}
+                            {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
+                            {role.bullets?.length ? (
+                              <div className="cv-role-timeline">
+                                <ul className="cv-bullets-timeline">
+                                  {role.bullets.map((b) => (
+                                    <li key={b}>{b}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ) : null}
+                            {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
+                            {role.featured ? <p className="cv-role-featured">{role.featured}</p> : null}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
-      </ScrollReveal>
+              </article>
+            );
+          })}
+        </ScrollReveal>
 
-      <ScrollReveal>
-        <div className="cv-experience-more">
-          <a
-            className="cv-experience-more-link"
-            href={linkedInExperienceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Show all experience on LinkedIn"
-          >
-            <span>Show all</span>
-            <span className="cv-experience-more-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </div>
-      </ScrollReveal>
+        <ScrollReveal>
+          <div className="cv-experience-more">
+            <a
+              className="cv-experience-more-link"
+              href={linkedInExperienceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Show all experience on LinkedIn"
+            >
+              <span>Show all</span>
+              <span className="cv-experience-more-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -407,30 +409,32 @@ function ExperienceSection() {
 function WorksSection() {
   return (
     <section className="section" id="works">
-      <ScrollReveal>
-        <p className="section-label">Works</p>
-        <h2 className="section-headline">
-          Selected collaborations across <span className="gold">product and platform.</span>
-        </h2>
-        <p className="section-intro">
-          A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
-        </p>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <p className="section-label">Works</p>
+          <h2 className="section-headline">
+            Selected collaborations across <span className="gold">product and platform.</span>
+          </h2>
+          <p className="section-intro">
+            A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
+          </p>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-work-grid">
-        {works.map((item) => (
-          <a
-            key={item.title}
-            className="cv-work-card reveal"
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h3>{item.title}</h3>
-            <p>{item.blurb}</p>
-          </a>
-        ))}
-      </ScrollReveal>
+        <ScrollReveal stagger className="cv-work-grid">
+          {works.map((item) => (
+            <a
+              key={item.title}
+              className="cv-work-card reveal"
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>{item.title}</h3>
+              <p>{item.blurb}</p>
+            </a>
+          ))}
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -438,37 +442,39 @@ function WorksSection() {
 function SkillsSection() {
   return (
     <section className="section section-services" id="skills">
-      <ScrollReveal>
-        <p className="section-label">Knowledge &amp; Skills</p>
-        <h2 className="section-headline">Creative, collaborative and efficient</h2>
-        <p className="section-intro">
-          Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
-        </p>
-      </ScrollReveal>
-
-      <div className="cv-split">
-        <ScrollReveal className="cv-split-left">
-          <h3 className="cv-subhead">Key skills</h3>
-          <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
-            <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
-          </div>
-          <div className="cv-tags">
-            {cv.skillTags.map((t) => (
-              <span key={t} className="cv-tag">
-                {t}
-              </span>
-            ))}
-          </div>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <p className="section-label">Knowledge &amp; Skills</p>
+          <h2 className="section-headline">Creative, collaborative and efficient</h2>
+          <p className="section-intro">
+            Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
+          </p>
         </ScrollReveal>
 
-        <ScrollReveal className="cv-split-right">
-          <h3 className="cv-subhead">Knowledge</h3>
-          <ul className="cv-knowledge">
-            {cv.knowledge.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
-        </ScrollReveal>
+        <div className="cv-split">
+          <ScrollReveal className="cv-split-left">
+            <h3 className="cv-subhead">Key skills</h3>
+            <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
+              <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
+            </div>
+            <div className="cv-tags">
+              {cv.skillTags.map((t) => (
+                <span key={t} className="cv-tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="cv-split-right">
+            <h3 className="cv-subhead">Knowledge</h3>
+            <ul className="cv-knowledge">
+              {cv.knowledge.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
@@ -477,66 +483,68 @@ function SkillsSection() {
 function EducationSection() {
   return (
     <section className="section" id="education">
-      <ScrollReveal>
-        <p className="section-label">Education</p>
-        <h2 className="section-headline">
-          Computer sciences, <span className="gold">communication design</span> and continuous learning.
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <p className="section-label">Education</p>
+          <h2 className="section-headline">
+            Computer sciences, <span className="gold">communication design</span> and continuous learning.
+          </h2>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-edu">
-        <p className="cv-edu-subheading">Certifications</p>
-        {cv.certifications.map((e) => (
-          <div key={e.school} className="cv-edu-row reveal">
-            <div className="cv-edu-main">
-              <h3>{e.school}</h3>
-              <p className="cv-edu-degree">{e.degree}</p>
-              {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
-              {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
-              {e.details?.map((line) => (
-                <p key={line} className="cv-edu-detail">
-                  {line}
-                </p>
-              ))}
+        <ScrollReveal stagger className="cv-edu">
+          <p className="cv-edu-subheading">Certifications</p>
+          {cv.certifications.map((e) => (
+            <div key={e.school} className="cv-edu-row reveal">
+              <div className="cv-edu-main">
+                <h3>{e.school}</h3>
+                <p className="cv-edu-degree">{e.degree}</p>
+                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+                {e.details?.map((line) => (
+                  <p key={line} className="cv-edu-detail">
+                    {line}
+                  </p>
+                ))}
+              </div>
+              <div className="cv-edu-period">{e.period}</div>
             </div>
-            <div className="cv-edu-period">{e.period}</div>
-          </div>
-        ))}
-        <p className="cv-edu-subheading">School</p>
-        {cv.education.map((e) => (
-          <div key={e.school} className="cv-edu-row reveal">
-            <div className="cv-edu-main">
-              <h3>{e.school}</h3>
-              <p className="cv-edu-degree">{e.degree}</p>
-              {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
-              {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
-              {e.details?.map((line) => (
-                <p key={line} className="cv-edu-detail">
-                  {line}
-                </p>
-              ))}
+          ))}
+          <p className="cv-edu-subheading">School</p>
+          {cv.education.map((e) => (
+            <div key={e.school} className="cv-edu-row reveal">
+              <div className="cv-edu-main">
+                <h3>{e.school}</h3>
+                <p className="cv-edu-degree">{e.degree}</p>
+                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+                {e.details?.map((line) => (
+                  <p key={line} className="cv-edu-detail">
+                    {line}
+                  </p>
+                ))}
+              </div>
+              <div className="cv-edu-period">{e.period}</div>
             </div>
-            <div className="cv-edu-period">{e.period}</div>
-          </div>
-        ))}
-      </ScrollReveal>
+          ))}
+        </ScrollReveal>
 
-      <ScrollReveal>
-        <div className="cv-experience-more">
-          <a
-            className="cv-experience-more-link"
-            href={linkedInEducationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Show all education on LinkedIn"
-          >
-            <span>Show all</span>
-            <span className="cv-experience-more-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </div>
-      </ScrollReveal>
+        <ScrollReveal>
+          <div className="cv-experience-more">
+            <a
+              className="cv-experience-more-link"
+              href={linkedInEducationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Show all education on LinkedIn"
+            >
+              <span>Show all</span>
+              <span className="cv-experience-more-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -544,59 +552,61 @@ function EducationSection() {
 function RecommendationsSection() {
   return (
     <section className="section" id="recommendations">
-      <ScrollReveal>
-        <p className="section-label">Recommendations</p>
-        <h2 className="section-headline">
-          What colleagues say about <span className="gold">working together.</span>
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <p className="section-label">Recommendations</p>
+          <h2 className="section-headline">
+            What colleagues say about <span className="gold">working together.</span>
+          </h2>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-edu">
-        {cv.recommendations.map((r) => (
-          <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
-            <div className="cv-rec-body">
-              {r.portrait ? (
-                <img
-                  className="cv-rec-avatar cv-rec-avatar--photo"
-                  src={r.portrait}
-                  alt={`${r.name} portrait`}
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <span className="cv-rec-avatar" aria-hidden="true">
-                  {r.initials}
-                </span>
-              )}
-              <div className="cv-rec-copy">
-                <h3>{r.name}</h3>
-                {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
-                <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
-                <p className="cv-rec-quote">{r.quote}</p>
+        <ScrollReveal stagger className="cv-edu">
+          {cv.recommendations.map((r) => (
+            <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
+              <div className="cv-rec-body">
+                {r.portrait ? (
+                  <img
+                    className="cv-rec-avatar cv-rec-avatar--photo"
+                    src={r.portrait}
+                    alt={`${r.name} portrait`}
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span className="cv-rec-avatar" aria-hidden="true">
+                    {r.initials}
+                  </span>
+                )}
+                <div className="cv-rec-copy">
+                  <h3>{r.name}</h3>
+                  {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
+                  <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
+                  <p className="cv-rec-quote">{r.quote}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </ScrollReveal>
+          ))}
+        </ScrollReveal>
 
-      <ScrollReveal>
-        <div className="cv-experience-more">
-          <a
-            className="cv-experience-more-link"
-            href={linkedInRecommendationsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Show all recommendations on LinkedIn"
-          >
-            <span>Show all</span>
-            <span className="cv-experience-more-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </div>
-      </ScrollReveal>
+        <ScrollReveal>
+          <div className="cv-experience-more">
+            <a
+              className="cv-experience-more-link"
+              href={linkedInRecommendationsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Show all recommendations on LinkedIn"
+            >
+              <span>Show all</span>
+              <span className="cv-experience-more-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -604,32 +614,34 @@ function RecommendationsSection() {
 function LanguagesSection() {
   return (
     <section className="section" id="languages">
-      <ScrollReveal>
-        <h2 className="languages-title">Languages</h2>
-        <div className="languages-rule" aria-hidden="true" />
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <h2 className="languages-title">Languages</h2>
+          <div className="languages-rule" aria-hidden="true" />
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="languages-list">
-        {cv.languages.map((lang) => (
-          <div key={lang.label} className="languages-row reveal">
-            <div className="languages-label">{lang.label}</div>
-            <div
-              className="languages-dots"
-              role="img"
-              aria-label={`${lang.label}: ${lang.level} out of 5`}
-            >
-              {Array.from({ length: 5 }, (_, i) => (
-                <span
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`${lang.label}-${i}`}
-                  className={`languages-dot ${i < lang.level ? "is-on" : "is-off"}`}
-                  aria-hidden="true"
-                />
-              ))}
+        <ScrollReveal stagger className="languages-list">
+          {cv.languages.map((lang) => (
+            <div key={lang.label} className="languages-row reveal">
+              <div className="languages-label">{lang.label}</div>
+              <div
+                className="languages-dots"
+                role="img"
+                aria-label={`${lang.label}: ${lang.level} out of 5`}
+              >
+                {Array.from({ length: 5 }, (_, i) => (
+                  <span
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`${lang.label}-${i}`}
+                    className={`languages-dot ${i < lang.level ? "is-on" : "is-off"}`}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </ScrollReveal>
+          ))}
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -637,19 +649,21 @@ function LanguagesSection() {
 function ContactCTA({ siteConfig }) {
   return (
     <section className="section section-contact-cta">
-      <ScrollReveal>
-        <h2 className="section-headline">
-          Available for <span className="gold">product design leadership</span> and advisory work.
-        </h2>
-        <p className="section-intro">
-          Based in {cv.location}. Reach out via email and I&rsquo;ll respond as soon as I can.
-        </p>
-        <div className="cta-row" style={{ justifyContent: "center" }}>
-          <Link className="button button-gold" href="/contact">
-            Contact
-          </Link>
-        </div>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <h2 className="section-headline">
+            Available for <span className="gold">product design leadership</span> and advisory work.
+          </h2>
+          <p className="section-intro">
+            Based in {cv.location}. Reach out via email and I&rsquo;ll respond as soon as I can.
+          </p>
+          <div className="cta-row" style={{ justifyContent: "center" }}>
+            <Link className="button button-gold" href="/contact">
+              Contact
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -730,17 +744,19 @@ function MainHome() {
       </section>
 
       <section className="section section-contact-cta">
-        <ScrollReveal>
-          <h2 className="section-headline">
-            Want to move faster with <span className="gold">less risk?</span>
-          </h2>
-          <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
-          <div className="cta-row" style={{ justifyContent: "center" }}>
-            <Link className="button button-gold" href="/contact">
-              Contact
-            </Link>
-          </div>
-        </ScrollReveal>
+        <div className="section-services-inner">
+          <ScrollReveal>
+            <h2 className="section-headline">
+              Want to move faster with <span className="gold">less risk?</span>
+            </h2>
+            <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
+            <div className="cta-row" style={{ justifyContent: "center" }}>
+              <Link className="button button-gold" href="/contact">
+                Contact
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
     </>
   );
