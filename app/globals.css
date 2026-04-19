@@ -1208,6 +1208,7 @@ p {
   line-height: 1.6;
   color: var(--color-grey);
   max-width: none;
+  white-space: pre-line;
 }
 
 .cv-edu-row--rec .cv-rec-meta {
