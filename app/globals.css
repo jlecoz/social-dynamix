@@ -660,7 +660,18 @@ p {
   padding: 0 1.4rem 1.5rem;
 }
 
-/* Experience section — headline accent matches section label tone */
+/* Works section — tighter vertical padding */
+#works {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* Experience section — tighter vertical padding; headline accent matches section label tone */
+#experience {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
 #experience .section-headline .gold {
   color: #33464a;
 }
@@ -803,28 +814,36 @@ p {
 
 .cv-experience-more {
   margin-top: 2rem;
-  font-size: var(--size-200);
-  line-height: 1.55;
-  color: var(--color-grey);
-  max-width: 52ch;
+  padding: 1.1rem 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: none;
 }
 
 .cv-experience-more-link {
-  font-weight: 600;
-  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: var(--size-200);
+  font-weight: 500;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--color-grey), var(--color-fg) 28%);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-accent), transparent 45%);
-  transition: color var(--duration-fast) var(--ease),
-    border-color var(--duration-fast) var(--ease);
+  transition: color var(--duration-fast) var(--ease);
 }
 
 .cv-experience-more-link:hover {
-  color: var(--color-gold-light);
-  border-bottom-color: color-mix(in srgb, var(--color-gold-light), transparent 35%);
+  color: var(--color-accent);
 }
 
-.cv-experience-more-note {
-  color: var(--color-grey-mid);
+.cv-experience-more-arrow {
+  font-size: 1.05em;
+  font-weight: 400;
+  line-height: 1;
+  translate: 0 0.02em;
 }
 
 .cv-work-grid {
@@ -1151,6 +1170,10 @@ p {
   max-width: none;
 }
 
+.cv-edu-row--rec .cv-edu-org {
+  white-space: pre-line;
+}
+
 .cv-edu-period {
   font-family: var(--font-label);
   font-size: var(--size-150);
@@ -1162,6 +1185,7 @@ p {
 
 /* Recommendations — same surface as Education, with avatar + quote */
 .cv-edu-row--rec {
+  grid-template-columns: 1fr;
   align-items: start;
   background: #ffffff;
 }
@@ -1212,14 +1236,15 @@ p {
 }
 
 .cv-edu-row--rec .cv-rec-meta {
+  margin: 0.35rem 0 0;
   text-transform: none;
   letter-spacing: 0.03em;
   font-family: var(--font-body);
   font-size: var(--size-150);
   color: var(--color-grey-mid);
   white-space: normal;
-  text-align: right;
-  max-width: 9rem;
+  text-align: left;
+  max-width: none;
   line-height: 1.4;
 }
 
@@ -1638,14 +1663,7 @@ p {
   }
 
   .cv-edu-row--rec {
-    grid-template-columns: 1fr;
     gap: 0.75rem;
-  }
-
-  .cv-edu-row--rec .cv-rec-meta {
-    text-align: left;
-    max-width: none;
-    justify-self: start;
   }
 
   .cv-split {

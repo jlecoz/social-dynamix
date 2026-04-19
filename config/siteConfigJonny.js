@@ -37,13 +37,11 @@ export const siteConfigJonny = {
   },
   contactEmail: "jonathan.lecoz@gmail.com",
   nav: [
-    { label: "Overview", href: "/#overview" },
     { label: "Experience", href: "/#experience" },
     { label: "Works", href: "/#works" },
     { label: "Skills", href: "/#skills" },
     { label: "Education", href: "/#education" },
     { label: "Recommendations", href: "/#recommendations" },
-    { label: "Contact", href: "/contact" },
   ],
   social: {
     instagram: "#",

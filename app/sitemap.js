@@ -11,13 +11,11 @@ export default async function sitemap() {
   const urls = isJonny
     ? [
         base,
-        `${base}/#overview`,
         `${base}/#experience`,
         `${base}/#skills`,
         `${base}/#education`,
         `${base}/#recommendations`,
         `${base}/#languages`,
-        `${base}/contact`,
       ]
     : [base, `${base}/#services`, `${base}/#work`, `${base}/contact`];
 

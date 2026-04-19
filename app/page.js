@@ -7,10 +7,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 const linkedInExperienceUrl =
   "https://www.linkedin.com/in/jonathan-lecoz/?locale=en-US#experience";
 
-/** LinkedIn export shows the same body text from Tim Van Damme on several older cards */
-const recommendationQuoteTimVanDamme =
-  "Jonny is a fantastic designer and a great human being. He's incredibly talented, a deep thinker, and a pleasure to work with. He's always pushing the boundaries of what's possible and is a constant source of inspiration. I'd highly recommend him for any design role.";
-
 const cv = {
   name: "Jonathan Le Coz",
   title: "Experiential Designer",
@@ -198,7 +194,7 @@ const cv = {
       initials: "JB",
       title: "Staff Product Designer - Brand & Marketing",
       meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
-      portrait: "/img/recommendations/jesse-bray.jpg",
+      portrait: "/img/recommendations/jesse-bray.png",
       quote:
         "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
     },
@@ -208,6 +204,7 @@ const cv = {
       title:
         "Strategic Advisor, ABsmartly & ConversieKracht • 📚 Author of “Design for Impact: Your Guide to Designing Effective Product Experiments”",
       meta: "May 8, 2020 · Erin was senior to Jonathan but didn’t manage Jonathan directly",
+      portrait: "/img/recommendations/erin-weigel.jpg",
       quote: `I've had the pleasure of working with Jonathan at Booking.com. I was leading the teams responsible for our design system and product accessibility when our paths crossed. 
 Jonathan is a designer who's gifted with seeing the bigger picture experience of the products he designs. He's also very user-centered and advocates for making products inclusive for all users. 
 He understands the importance of predictability in making products usable as well as fostering trust in a product through consistency and coherence. 
@@ -220,6 +217,7 @@ Not only is he impactful in his work, but he's also friendly, approachable, and 
       title:
         "Service Design Lead / Mentor & People Developer | (NN/g Certified : UX Manager), Next Gen Engineering at Accenture UK & Ireland",
       meta: "April 6, 2020 · Brent worked with Jonathan on the same team",
+      portrait: "/img/recommendations/brent-starling.jpg",
       quote: `Jonathan and I had the privilege of working together within the Taxi arm of the Ground Transport division.
 
 During these fantastic times, he exhibited a similar hunger as i do to drive knowledge and understanding from all stakeholders. He built long-lasting bridges with our counterparts within the wider business in Amsterdam allowing us to move quickly and drive great success in the fruits of our labours.
@@ -233,138 +231,24 @@ The greatest shame was when we had to go our separate ways when we both moved on
       initials: "KM",
       title: "User Researcher | Cross-Country Research | Innovation Practices",
       meta: "May 23, 2018 · Karolin worked with Jonathan on the same team",
+      portrait: "/img/recommendations/karolin-mulhaupt.jpg",
       quote: `Jonathan has a strategic mindset and loves solving big design challenges. He is great at narrowing in on the main customer pain points and centering his designs around them. 
 
 He and I worked together designing new features for QuickBooks, a cloud accounting software. With his infectious energy, Jonathan was able to rally cross-functional teams around projects. He used his vast knowledge of design thinking techniques to lead brainstorming sessions and advocate on behalf of customers. As a result, the team would move ahead with common goals, priorities and passion.`,
     },
     {
-      name: "Vanessa Robinson",
-      initials: "VR",
-      title: "Sr. Product Designer",
-      meta: "October 22, 2020 · Vanessa worked with Jonny on the same team",
-      portrait: "/img/recommendations/vanessa-robinson.jpg",
-      quote:
-        "Jonny is one of the most talented and thoughtful designers I've ever worked with. He has a unique ability to see the big picture and then dive into the details to create truly exceptional experiences. He's also a great mentor and a fantastic collaborator. I'd jump at the chance to work with him again.",
-    },
-    {
-      name: "Tim Van Damme",
-      initials: "TV",
-      title: "Principal Designer at Abstract",
-      meta: "September 10, 2020 · Tim worked with Jonny but on different teams",
-      portrait: "/img/recommendations/tim-van-damme.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Vera van de Seylberg",
-      initials: "VV",
-      title: "Design Lead at Zalando",
-      meta: "August 14, 2020",
-      portrait: "/img/recommendations/vera-van-de-seylberg.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Maya Penedo",
-      initials: "MP",
-      title: "Product Designer at Intuit",
-      meta: "July 29, 2020",
-      portrait: "/img/recommendations/maya-penedo.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Chris Peterson",
-      initials: "CP",
-      title: "Staff Product Designer at Intuit",
-      meta: "June 15, 2020",
-      portrait: "/img/recommendations/chris-peterson.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Sarah H.",
-      initials: "SH",
-      title: "Sr. Product Designer at Intuit",
-      meta: "May 20, 2020",
-      portrait: "/img/recommendations/sarah-h.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Gaby G.",
-      initials: "GG",
-      title: "Sr. Product Designer at Intuit",
-      meta: "April 15, 2020",
-      portrait: "/img/recommendations/gaby-g.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Jill C.",
-      initials: "JC",
-      title: "Sr. Content Designer at Intuit",
-      meta: "March 10, 2020",
-      portrait: "/img/recommendations/jill-c.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Bonnie S.",
-      initials: "BS",
-      title: "Sr. Product Manager at Intuit",
-      meta: "February 5, 2020",
-      portrait: "/img/recommendations/bonnie-s.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Aditya Agarwal",
-      initials: "AA",
-      title: "VP of Engineering at Dropbox",
-      meta: "January 15, 2020",
-      portrait: "/img/recommendations/aditya-agarwal.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Ruby P.",
-      initials: "RP",
-      title: "Product Designer at Intuit",
-      meta: "December 10, 2019",
-      portrait: "/img/recommendations/ruby-p.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Gaurav Mehta",
-      initials: "GM",
-      title: "Product Manager at Intuit",
-      meta: "November 5, 2019",
-      portrait: "/img/recommendations/gaurav-mehta.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Allie S.",
-      initials: "AS",
-      title: "Sr. Product Designer at Intuit",
-      meta: "October 15, 2019",
-      portrait: "/img/recommendations/allie-s.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Eric C.",
-      initials: "EC",
-      title: "Staff Product Designer at Intuit",
-      meta: "September 10, 2019",
-      portrait: "/img/recommendations/eric-c.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Bryan G.",
-      initials: "BG",
-      title: "Product Designer at Intuit",
-      meta: "August 15, 2019",
-      portrait: "/img/recommendations/bryan-g.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Jonathan L.",
-      initials: "JL",
-      title: "Product Manager at Intuit",
-      meta: "July 10, 2019",
-      portrait: "/img/recommendations/jonathan-l.jpg",
-      quote: recommendationQuoteTimVanDamme,
+      name: "Jiri Jerabek",
+      initials: "JJ",
+      title: "Product Design Director",
+      meta: "May 9, 2018 · Jiri worked with Jonathan on the same team",
+      portrait: "/img/recommendations/jiri-jerabek.jpg",
+      quote: `Jon is the very rare breed of interaction designer who has the ability to dive straight into details, and at the same time keep high altitude of strategic thinking.
+
+I used to work with Jon during his time at Intuit. We held similar roles, we both led product design in our respective countries, Jon in France and I in the UK. This allowed us to collaborate on a few critical projects-one related to the UK's Making Tax Digital, and the other being the GDPR.
+
+I witnessed Jon to contribute or lead with deep passion, digging into the problem space to really understand the root of customers' needs and problems. His mastery of design craft, together with the years of experience allowed him to untangle complex problems and deliver strong solutions. As a designer, Jon is truly user-centric. He has in-depth understanding of psychology that drives people's behaviour, and is well versed in methods of evaluating concepts and designs. But what's more, Jon has a a lot of passion and a great sense of humour, which makes him an awesome person to work with.
+
+I can't recommend Jon more. I hope that I'll have the chance to work with him again in the future!`,
     },
   ],
 };
@@ -508,20 +392,20 @@ function ExperienceSection() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <p className="cv-experience-more">
+        <div className="cv-experience-more">
           <a
             className="cv-experience-more-link"
             href={linkedInExperienceUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Show all experience on LinkedIn"
           >
-            See more
+            <span>Show all</span>
+            <span className="cv-experience-more-arrow" aria-hidden="true">
+              →
+            </span>
           </a>
-          <span className="cv-experience-more-note">
-            {" "}
-            — full work history on LinkedIn, including roles such as IMS Health.
-          </span>
-        </p>
+        </div>
       </ScrollReveal>
     </section>
   );
@@ -563,8 +447,12 @@ function SkillsSection() {
     <section className="section section-services" id="skills">
       <ScrollReveal>
         <p className="section-label">Knowledge &amp; Skills</p>
+        <h2 className="section-headline">
+          Creative, collaborative and efficient — focused on{" "}
+          <span className="gold">customer-driven innovation</span> and measurable outcomes.
+        </h2>
         <p className="section-intro">
-          Creative, collaborative and efficient — focused on customer-driven innovation and measurable outcomes.
+          Applied in the key skills, knowledge areas and languages below.
         </p>
       </ScrollReveal>
 
@@ -660,10 +548,10 @@ function RecommendationsSection() {
               <div className="cv-rec-copy">
                 <h3>{r.name}</h3>
                 {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
+                <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
                 <p className="cv-rec-quote">{r.quote}</p>
               </div>
             </div>
-            <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
           </div>
         ))}
       </ScrollReveal>
