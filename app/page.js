@@ -230,11 +230,11 @@ const cv = {
         "Jonny is an exceptional design leader. He has a rare ability to blend strategic thinking with creative execution, and he's a natural at building and leading high-performing teams. He's also a great collaborator and a pleasure to work with. I'd highly recommend him for any senior design or product leadership role.",
     },
     {
-      name: 'Jennifer "Jen" S.',
-      initials: "JN",
+      name: "Jesse Bray",
+      initials: "JB",
       title: "Staff Product Designer - Brand & Marketing",
       meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
-      portrait: "/img/recommendations/jennifer-jen-s.jpg",
+      portrait: "/img/recommendations/jesse-bray.jpg",
       quote:
         "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
     },
