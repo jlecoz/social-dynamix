@@ -183,6 +183,43 @@ p {
   line-height: 1.7;
 }
 
+/* Skills — headline: staggered accent cycle across words */
+#skills .skills-headline-cycle .skills-cycle-punct {
+  opacity: 0.88;
+}
+
+#skills .skills-headline-cycle .skills-cycle-word {
+  display: inline;
+  animation: skills-headline-cycle-word var(--skills-cycle-duration, 5.2s) ease-in-out infinite;
+  animation-delay: calc(var(--cycle-i) * -1.3s);
+  color: var(--color-fg);
+  opacity: 0.62;
+}
+
+@keyframes skills-headline-cycle-word {
+  0%,
+  22% {
+    color: var(--color-core-teal, #1a7a73);
+    opacity: 1;
+    text-shadow: 0 0 28px color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 72%);
+  }
+  28%,
+  100% {
+    color: var(--color-fg);
+    opacity: 0.62;
+    text-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #skills .skills-headline-cycle .skills-cycle-word {
+    animation: none;
+    color: inherit;
+    opacity: 1;
+    text-shadow: none;
+  }
+}
+
 /* ── Layout ───────────────────────────────────────────── */
 .page-shell {
   max-width: 1120px;
@@ -240,6 +277,44 @@ p {
   font-size: clamp(var(--size-200), 1rem + 1vw, var(--size-300));
   font-weight: 700;
   line-height: 1.05;
+}
+
+.logo-text strong.logo-text-shimmer {
+  background-image: linear-gradient(
+    105deg,
+    var(--color-fg) 0%,
+    var(--color-fg) 36%,
+    color-mix(in srgb, var(--color-accent), var(--color-fg) 48%) 50%,
+    var(--color-fg) 64%,
+    var(--color-fg) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: logo-text-shimmer 7.5s ease-in-out infinite;
+}
+
+@keyframes logo-text-shimmer {
+  0%,
+  100% {
+    background-position: 100% 50%;
+  }
+
+  50% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-text strong.logo-text-shimmer {
+    animation: none;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--color-fg);
+  }
 }
 
 /* Nav — ALL CAPS, wide tracking */
@@ -778,6 +853,10 @@ p {
   box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
+}
+
+#experience .section-services-inner {
+  padding-top: 64px;
 }
 
 #experience .section-headline .gold {
@@ -1397,7 +1476,7 @@ p {
 
 #skills {
   padding-top: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 64px;
 }
 
 /* Education section — full width; tighter vertical padding */
@@ -1410,6 +1489,7 @@ p {
   box-sizing: border-box;
   padding-top: 32px;
   padding-bottom: 32px;
+  background: #c1d6d5;
 }
 
 /* Languages section — full width; tighter vertical padding */
@@ -1421,6 +1501,11 @@ p {
   padding-inline: 0;
   box-sizing: border-box;
   padding-top: 32px;
+  padding-bottom: 32px;
+  background: #ffffff;
+}
+
+#languages .section-services-inner {
   padding-bottom: 32px;
 }
 
@@ -1610,6 +1695,52 @@ p {
 
 .section-contact-cta .section-headline .gold {
   color: var(--color-accent);
+}
+
+/* Animated color shimmer across the full headline (background-clip text) */
+.section-contact-cta .contact-cta-headline-shimmer {
+  background-image: linear-gradient(
+    105deg,
+    var(--color-white) 0%,
+    var(--color-white) 36%,
+    color-mix(in srgb, var(--color-accent), white 42%) 50%,
+    var(--color-white) 64%,
+    var(--color-white) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: contact-cta-headline-shimmer 7.5s ease-in-out infinite;
+}
+
+.section-contact-cta .contact-cta-headline-shimmer .gold {
+  color: transparent;
+}
+
+@keyframes contact-cta-headline-shimmer {
+  0%,
+  100% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-contact-cta .contact-cta-headline-shimmer {
+    animation: none;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--color-white);
+  }
+
+  .section-contact-cta .contact-cta-headline-shimmer .gold {
+    color: var(--color-accent);
+  }
 }
 
 .section-contact-cta .section-intro {

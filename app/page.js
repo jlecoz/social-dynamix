@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 import HeroOverviewSection from "@/components/HeroOverviewSection";
+import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 
 /** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
 const linkedInExperienceUrl =
@@ -281,9 +282,7 @@ function ExperienceSection() {
       <div className="section-services-inner">
         <ScrollReveal>
           <p className="section-label">Experience</p>
-          <h2 className="section-headline">
-            Design leadership across <span className="gold">product and platform.</span>
-          </h2>
+          <ExperienceHeadlineDecrypt />
         </ScrollReveal>
 
         <ScrollReveal stagger className="cv-timeline">
@@ -376,13 +375,11 @@ function WorksSection() {
       <div className="section-services-inner">
         <ScrollReveal>
           <p className="section-label">Works</p>
-          <h2 className="section-headline">
-            Selected collaborations across <span className="gold">product and platform.</span>
-          </h2>
-          <p className="section-intro">
-            A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
-          </p>
+          <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
         </ScrollReveal>
+        <p className="section-intro">
+          A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
+        </p>
 
         <ScrollReveal stagger className="cv-work-grid">
           {works.map((item) => (
@@ -409,7 +406,21 @@ function SkillsSection() {
       <div className="section-services-inner">
         <ScrollReveal>
           <p className="section-label">Knowledge &amp; Skills</p>
-          <h2 className="section-headline">Creative, collaborative and efficient</h2>
+          <h2 className="section-headline skills-headline-cycle">
+            <span className="skills-cycle-word" style={{ "--cycle-i": 0 }}>
+              Creative
+            </span>
+            <span className="skills-cycle-punct">,</span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 1 }}>
+              collaborative
+            </span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 2 }}>
+              and
+            </span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 3 }}>
+              efficient
+            </span>
+          </h2>
           <p className="section-intro">
             Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
           </p>
@@ -615,7 +626,7 @@ function ContactCTA({ siteConfig }) {
     <section className="section section-contact-cta">
       <div className="section-services-inner">
         <ScrollReveal>
-          <h2 className="section-headline">
+          <h2 className="section-headline contact-cta-headline-shimmer">
             Available for <span className="gold">product design leadership</span> and advisory work.
           </h2>
           <p className="section-intro">
@@ -714,7 +725,7 @@ function MainHome() {
       <section className="section section-contact-cta">
         <div className="section-services-inner">
           <ScrollReveal>
-            <h2 className="section-headline">
+            <h2 className="section-headline contact-cta-headline-shimmer">
               Want to move faster with <span className="gold">less risk?</span>
             </h2>
             <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
