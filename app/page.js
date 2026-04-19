@@ -3,6 +3,10 @@ import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 
+/** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
+const linkedInExperienceUrl =
+  "https://www.linkedin.com/in/jonathan-lecoz/?locale=en-US#experience";
+
 /** LinkedIn export shows the same body text from Tim Van Damme on several older cards */
 const recommendationQuoteTimVanDamme =
   "Jonny is a fantastic designer and a great human being. He's incredibly talented, a deep thinker, and a pleasure to work with. He's always pushing the boundaries of what's possible and is a constant source of inspiration. I'd highly recommend him for any design role.";
@@ -126,55 +130,19 @@ const cv = {
       ],
     },
     {
-      key: "jwt-paris",
-      orgDisplay: "JWT Paris",
-      orgUrl: "https://www.wundermanthompson.com",
-      logoDomain: "wpp.com",
-      companyTagline: "Oct 2015 – Apr 2017",
-      roles: [{ title: "Lead UX Designer", periodLine: "", bullets: [] }],
-    },
-    {
-      key: "graphite",
-      orgDisplay: "Graphite",
-      logoDomain: "graphite.com",
-      companyTagline: "Jun 2011 – Aug 2015",
-      roles: [{ title: "Senior UI/UX Designer", periodLine: "", bullets: [] }],
-    },
-    {
-      key: "goodman-heathcote",
-      orgDisplay: "Goodman Heathcote Management",
-      logoDomain: "linkedin.com",
-      companyTagline: "Sep 2010 – Jun 2011",
-      roles: [{ title: "Graphic and Web Designer", periodLine: "", bullets: [] }],
-    },
-    {
-      key: "vertigo",
-      orgDisplay: "Agence Vertigo",
-      logoDomain: "linkedin.com",
-      companyTagline: "Jan 2008 – Sep 2010",
-      roles: [{ title: "Freelance Consultant", periodLine: "", bullets: [] }],
-    },
-    {
-      key: "urban-medium",
-      orgDisplay: "Urban Medium",
-      logoDomain: "linkedin.com",
-      companyTagline: "Jul 2008 – Sep 2009",
+      key: "ims-health",
+      orgDisplay: "IMS Health",
+      orgUrl: "https://www.iqvia.com",
+      logoDomain: "iqvia.com",
+      companyTagline: "Full-time · 2 yrs 1 mo · Boulogne-Billancourt, Île-de-France, France",
       roles: [
         {
-          title: "Sr. Designer / Jr. Programmer",
-          periodLine: "",
-          summary:
-            "Graphic programming — Flash, Visual Basic, PHP, Photoshop, Illustrator, SQL.",
+          title: "Lead UX Designer",
+          periodLine: "Apr 2015 – Apr 2017",
           bullets: [],
+          skills: "Web Design, Design Thinking and +4 skills",
         },
       ],
-    },
-    {
-      key: "hypnotic",
-      orgDisplay: "Hypnotic Talent Agency",
-      logoDomain: "linkedin.com",
-      companyTagline: "Sep 2006 – Sep 2007",
-      roles: [{ title: "Freelance Consultant", periodLine: "", bullets: [] }],
     },
   ],
   knowledge: [
@@ -536,6 +504,23 @@ function ExperienceSection() {
             </article>
           );
         })}
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <p className="cv-experience-more">
+          <a
+            className="cv-experience-more-link"
+            href={linkedInExperienceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See more
+          </a>
+          <span className="cv-experience-more-note">
+            {" "}
+            — full work history on LinkedIn, including roles such as IMS Health.
+          </span>
+        </p>
       </ScrollReveal>
     </section>
   );

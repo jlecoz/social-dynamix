@@ -166,9 +166,9 @@ p {
   margin-bottom: 0.3rem;
 }
 
-/* Gold accent */
+/* Accent highlight — core teal (matches brand midtone) */
 .gold {
-  color: var(--color-accent);
+  color: var(--color-core-teal, #1a7a73);
 }
 
 .section-label {
@@ -794,6 +794,32 @@ p {
   margin-top: 3rem;
   display: grid;
   gap: 1.2rem;
+}
+
+.cv-experience-more {
+  margin-top: 2rem;
+  font-size: var(--size-200);
+  line-height: 1.55;
+  color: var(--color-grey);
+  max-width: 52ch;
+}
+
+.cv-experience-more-link {
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent), transparent 45%);
+  transition: color var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease);
+}
+
+.cv-experience-more-link:hover {
+  color: var(--color-gold-light);
+  border-bottom-color: color-mix(in srgb, var(--color-gold-light), transparent 35%);
+}
+
+.cv-experience-more-note {
+  color: var(--color-grey-mid);
 }
 
 .cv-work-grid {
