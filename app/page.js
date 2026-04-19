@@ -2,6 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
+import HeroOverviewSection from "@/components/HeroOverviewSection";
 
 /** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
 const linkedInExperienceUrl =
@@ -273,43 +274,6 @@ const works = [
     href: "https://www.imperialbrandsplc.com",
   },
 ];
-
-function HeroSection() {
-  return (
-    <section className="hero hero-cv" id="overview">
-      <div className="hero-bg-embed" aria-hidden="true">
-        <iframe
-          className="hero-bg-iframe"
-          src="/animations/digital_ronin_bg.html"
-          title=""
-          loading="eager"
-        />
-        <div className="hero-bg-dim" />
-      </div>
-      <div className="hero-content">
-        <p className="eyebrow">{cv.meta}</p>
-        <h1 className="hero-headline">
-          <span className="gold">{cv.title}</span>
-        </h1>
-        <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
-
-        <div className="cta-row">
-          <Link className="button button-gold" href="/contact">
-            Contact
-          </Link>
-          <a
-            className="button button-secondary"
-            href="https://www.linkedin.com/in/jonathan-lecoz/?locale=en_US"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ExperienceSection() {
   return (
@@ -671,7 +635,11 @@ function ContactCTA({ siteConfig }) {
 function JonnyHome({ siteConfig }) {
   return (
     <>
-      <HeroSection />
+      <HeroOverviewSection
+        meta={cv.meta}
+        title={cv.title}
+        skillTagsLine={cv.skillTags.join(" • ")}
+      />
       <ExperienceSection />
       <WorksSection />
       <SkillsSection />

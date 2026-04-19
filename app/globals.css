@@ -387,12 +387,29 @@ p {
 }
 
 .hero.hero-cv {
-  min-height: auto;
+  min-height: 100vh;
   /* No vertical padding — keeps .hero-bg-embed flush to edges (padding lives on .hero-content) */
   padding: 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  /* Grid overlay: bg layer gets a real box height (not only abspos), so iframe matches section */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(100vh, auto);
+}
+
+.hero.hero-cv > .hero-bg-embed {
+  grid-area: 1 / 1;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  min-height: 100%;
+}
+
+.hero.hero-cv > .hero-content {
+  grid-area: 1 / 1;
+  align-self: center;
 }
 
 .hero-cv .hero-content {
@@ -718,7 +735,7 @@ p {
   margin-right: calc(50% - 50vw);
   padding-inline: 0;
   box-sizing: border-box;
-  padding-top: 64px;
+  padding-top: 32px;
   padding-bottom: 64px;
   border-top-color: color-mix(in srgb, var(--color-white), transparent 78%);
 }
@@ -1815,7 +1832,7 @@ p {
 
   .hero.hero-cv {
     padding: 0;
-    min-height: auto;
+    min-height: 100vh;
   }
 
   .hero-cv .hero-content {
