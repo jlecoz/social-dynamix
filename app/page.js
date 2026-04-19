@@ -232,11 +232,11 @@ const cv = {
     {
       name: 'Jennifer "Jen" S.',
       initials: "JN",
-      title: "Head of Design Operations",
-      meta: "November 11, 2020 · Jen worked with Jonny but on different teams",
+      title: "Staff Product Designer - Brand & Marketing",
+      meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
       portrait: "/img/recommendations/jennifer-jen-s.jpg",
       quote:
-        "Jonny is a standout designer and leader. He's incredibly strategic, a great communicator, and a pleasure to work with. He has a unique ability to bridge the gap between design and technology, and he's always looking for ways to improve the team's processes and culture. I'd highly recommend him to any organization.",
+        "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
     },
     {
       name: "Vanessa Robinson",
