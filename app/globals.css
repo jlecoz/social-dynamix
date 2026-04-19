@@ -660,6 +660,11 @@ p {
   padding: 0 1.4rem 1.5rem;
 }
 
+/* Experience section — headline accent matches section label tone */
+#experience .section-headline .gold {
+  color: #33464a;
+}
+
 /* Work section — gold headline line uses full content width */
 #work .section-headline .gold {
   display: block;
@@ -1109,6 +1114,10 @@ p {
   border: 1px solid var(--color-border);
   border-radius: 0.8rem;
   padding: 1.2rem 1.4rem;
+}
+
+#education .cv-edu-row {
+  background: #ffffff;
 }
 
 .cv-edu-main {
