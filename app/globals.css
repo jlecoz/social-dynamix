@@ -839,7 +839,7 @@ p {
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  background: var(--color-surface);
+  background: #ffffff;
   border: 1px solid color-mix(in srgb, var(--color-border), transparent 40%);
   border-radius: 0.8rem;
   padding: 1.35rem 1.25rem;
@@ -874,11 +874,11 @@ p {
 
 /* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */
 .cv-role--linkedin {
-  background: #0b1f3a;
-  border: 1px solid color-mix(in srgb, #0b1f3a, white 14%);
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, #0b1f3a, white 82%);
   border-radius: 0.75rem;
   padding: 1rem 1.15rem 1.15rem;
-  color: #fff;
+  color: var(--color-fg);
 }
 
 .cv-role-layout {
@@ -893,7 +893,7 @@ p {
   height: 3rem;
   border-radius: 0.25rem;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, #0b1f3a, white 96%);
   flex-shrink: 0;
 }
 
@@ -914,7 +914,7 @@ p {
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--color-fg);
 }
 
 .cv-role-company {
@@ -925,7 +925,7 @@ p {
 }
 
 .cv-role-company:hover {
-  color: #fff;
+  color: var(--color-fg);
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
@@ -933,7 +933,7 @@ p {
 .cv-role-company-meta {
   margin: 0.25rem 0 0;
   font-size: var(--size-150);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-grey);
   max-width: none;
   line-height: 1.45;
 }
@@ -941,13 +941,13 @@ p {
 .cv-role-positions-rail {
   margin-top: 0.85rem;
   padding-left: 0.95rem;
-  border-left: 2px solid rgba(255, 255, 255, 0.22);
+  border-left: 2px solid color-mix(in srgb, #0b1f3a, white 78%);
 }
 
 .cv-role-position + .cv-role-position {
   margin-top: 1.15rem;
   padding-top: 1.15rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid color-mix(in srgb, #0b1f3a, white 90%);
 }
 
 .cv-role-job-block {
@@ -958,7 +958,7 @@ p {
   margin: 0;
   font-size: var(--size-200);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-fg);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -966,7 +966,7 @@ p {
 .cv-role-job-dates {
   margin: 0.25rem 0 0;
   font-size: var(--size-150);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-grey);
   max-width: none;
   line-height: 1.45;
 }
@@ -974,7 +974,7 @@ p {
 .cv-role-work-mode {
   margin: 0.2rem 0 0;
   font-size: var(--size-150);
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-grey);
   max-width: none;
 }
 
@@ -982,7 +982,7 @@ p {
   margin: 0.55rem 0 0;
   font-size: var(--size-150);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-grey);
   max-width: none;
 }
 
@@ -990,7 +990,7 @@ p {
   margin: 0.65rem 0 0;
   font-size: var(--size-150);
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-grey);
   max-width: none;
 }
 
@@ -998,14 +998,14 @@ p {
   margin: 0.65rem 0 0;
   font-size: var(--size-150);
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-grey);
   max-width: none;
 }
 
 .cv-role-timeline {
   margin-top: 0.65rem;
   padding-left: 0.85rem;
-  border-left: 2px solid rgba(255, 255, 255, 0.22);
+  border-left: 2px solid color-mix(in srgb, #0b1f3a, white 78%);
 }
 
 .cv-role-positions-rail .cv-role-timeline {
@@ -1028,7 +1028,7 @@ p {
   padding-left: 0.7rem;
   font-size: var(--size-150);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-grey);
   max-width: none;
 }
 
@@ -1036,7 +1036,7 @@ p {
   content: "•";
   position: absolute;
   left: 0;
-  color: rgba(255, 255, 255, 0.45);
+  color: color-mix(in srgb, #0b1f3a, white 55%);
   font-weight: 700;
 }
 
@@ -1163,6 +1163,7 @@ p {
 /* Recommendations — same surface as Education, with avatar + quote */
 .cv-edu-row--rec {
   align-items: start;
+  background: #ffffff;
 }
 
 .cv-rec-body {
@@ -1223,7 +1224,7 @@ p {
 
 /* ── Services ─────────────────────────────────────────── */
 .section-services {
-  background: var(--color-surface);
+  background: #ffffff;
   padding-inline: 32px;
 }
 
