@@ -203,31 +203,39 @@ const cv = {
         "Jonny is a world-class product designer. I had the pleasure of working with him at Intuit for several years and was always impressed by his ability to tackle complex problems with simple, elegant solutions. He's a great collaborator, a deep thinker, and a wonderful person to have on any team. I'd highly recommend him for any product leadership or design role.",
     },
     {
-      name: "Sami M.",
-      initials: "SM",
-      title: "Design Lead @ Intuit",
-      meta: "April 20, 2021 · Sami worked with Jonny but on different teams",
-      portrait: "/img/recommendations/sami-m.jpg",
-      quote:
-        "Jonny is a rare breed of designer who is equally comfortable in the world of high-level strategy and pixel-perfect execution. He's a fantastic collaborator, a great mentor, and a truly talented human being. I feel lucky to have worked with him and would jump at the chance to do so again.",
+      name: "Erin Weigel",
+      initials: "EW",
+      title:
+        "Strategic Advisor, ABsmartly & ConversieKracht • 📚 Author of “Design for Impact: Your Guide to Designing Effective Product Experiments”",
+      meta: "May 8, 2020 · Erin was senior to Jonathan but didn’t manage Jonathan directly",
+      quote: `I've had the pleasure of working with Jonathan at Booking.com. I was leading the teams responsible for our design system and product accessibility when our paths crossed. 
+Jonathan is a designer who's gifted with seeing the bigger picture experience of the products he designs. He's also very user-centered and advocates for making products inclusive for all users. 
+He understands the importance of predictability in making products usable as well as fostering trust in a product through consistency and coherence. 
+Jonathan also is a kind of organizational glue. He fosters broad networks to help connect the right people to ensure products don't suffer from the gaps that can get caused by ineffective communication. 
+Not only is he impactful in his work, but he's also friendly, approachable, and collaborative.`,
     },
     {
-      name: "Karen Chappell, ACC",
-      initials: "KC",
-      title: "Executive Coach & Leadership Consultant",
-      meta: "February 24, 2021 · Karen was Jonny's coach",
-      portrait: "/img/recommendations/karen-chappell.jpg",
-      quote:
-        "Jonny is a deeply thoughtful and intentional leader. He has a unique ability to hold the big picture vision while also attending to the human elements that make a team thrive. He's a joy to work with and I've learned so much from him. I highly recommend him to any organization looking for a compassionate and strategic leader.",
+      name: "Brent Starling",
+      initials: "BS",
+      title:
+        "Service Design Lead / Mentor & People Developer | (NN/g Certified : UX Manager), Next Gen Engineering at Accenture UK & Ireland",
+      meta: "April 6, 2020 · Brent worked with Jonathan on the same team",
+      quote: `Jonathan and I had the privilege of working together within the Taxi arm of the Ground Transport division.
+
+During these fantastic times, he exhibited a similar hunger as i do to drive knowledge and understanding from all stakeholders. He built long-lasting bridges with our counterparts within the wider business in Amsterdam allowing us to move quickly and drive great success in the fruits of our labours.
+
+He was a rock when needed and was able to provide insightful recommendations to problems posed or just an outlet to enable us to focus our attention on work problems, colleague challenges, peer relationships, or just how to steer managers and Product Owners.
+
+The greatest shame was when we had to go our separate ways when we both moved onto new challenges within the business but we certainly keep in touch and I love to hear the progress he is making as a specialist in his field.`,
     },
     {
-      name: "Justin Spriet",
-      initials: "JS",
-      title: "Director of Design at Intuit",
-      meta: "December 21, 2020 · Justin managed Jonny directly",
-      portrait: "/img/recommendations/justin-spriet.jpg",
-      quote:
-        "Jonny is an exceptional design leader. He has a rare ability to blend strategic thinking with creative execution, and he's a natural at building and leading high-performing teams. He's also a great collaborator and a pleasure to work with. I'd highly recommend him for any senior design or product leadership role.",
+      name: "Karolin Mulhaupt",
+      initials: "KM",
+      title: "User Researcher | Cross-Country Research | Innovation Practices",
+      meta: "May 23, 2018 · Karolin worked with Jonathan on the same team",
+      quote: `Jonathan has a strategic mindset and loves solving big design challenges. He is great at narrowing in on the main customer pain points and centering his designs around them. 
+
+He and I worked together designing new features for QuickBooks, a cloud accounting software. With his infectious energy, Jonathan was able to rally cross-functional teams around projects. He used his vast knowledge of design thinking techniques to lead brainstorming sessions and advocate on behalf of customers. As a result, the team would move ahead with common goals, priorities and passion.`,
     },
     {
       name: "Jesse Bray",
