@@ -194,13 +194,13 @@ const cv = {
   ],
   recommendations: [
     {
-      name: "Jason Jovicich",
-      initials: "JJ",
-      title: "Principal Product Manager at Intuit",
-      meta: "May 3, 2021 · Jason managed Jonny directly",
-      portrait: "/img/recommendations/jason-jovicich.jpg",
+      name: "Jesse Bray",
+      initials: "JB",
+      title: "Staff Product Designer - Brand & Marketing",
+      meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
+      portrait: "/img/recommendations/jesse-bray.jpg",
       quote:
-        "Jonny is a world-class product designer. I had the pleasure of working with him at Intuit for several years and was always impressed by his ability to tackle complex problems with simple, elegant solutions. He's a great collaborator, a deep thinker, and a wonderful person to have on any team. I'd highly recommend him for any product leadership or design role.",
+        "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
     },
     {
       name: "Erin Weigel",
@@ -236,15 +236,6 @@ The greatest shame was when we had to go our separate ways when we both moved on
       quote: `Jonathan has a strategic mindset and loves solving big design challenges. He is great at narrowing in on the main customer pain points and centering his designs around them. 
 
 He and I worked together designing new features for QuickBooks, a cloud accounting software. With his infectious energy, Jonathan was able to rally cross-functional teams around projects. He used his vast knowledge of design thinking techniques to lead brainstorming sessions and advocate on behalf of customers. As a result, the team would move ahead with common goals, priorities and passion.`,
-    },
-    {
-      name: "Jesse Bray",
-      initials: "JB",
-      title: "Staff Product Designer - Brand & Marketing",
-      meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
-      portrait: "/img/recommendations/jesse-bray.jpg",
-      quote:
-        "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
     },
     {
       name: "Vanessa Robinson",
