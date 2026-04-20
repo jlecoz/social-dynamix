@@ -563,7 +563,7 @@ p {
 }
 
 .hero-cv .hero-content {
-  padding: calc(6rem + 30px) 1.5rem calc(3rem + 30px);
+  padding: 0 1.5rem;
   text-align: center;
 }
 
@@ -1511,7 +1511,7 @@ p {
 
 .cv-rec-quote {
   margin: 0.65rem 0 0;
-  font-size: var(--size-150);
+  font-size: 14px;
   line-height: 1.6;
   color: var(--color-grey);
   max-width: none;
