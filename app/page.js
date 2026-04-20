@@ -42,11 +42,11 @@ const cv = {
       orgDisplay: "Imperial Brands PLC",
       orgUrl: "https://www.imperialbrandsplc.com",
       logoDomain: "imperialbrandsplc.com",
-      companyTagline: "Full-time · 4 yrs · Bristol, United Kingdom",
+      companyTagline: "Full-time · 4 yrs 4 mos · Bristol, United Kingdom",
       roles: [
         {
           title: "Director of Digital Experience",
-          periodLine: "Jan 2021 – Present · 4 yrs",
+          periodLine: "Jan 2021 – Present · 3 yrs and 4 months",
           workMode: "Hybrid",
           bullets: [
             "Advocate for design thinking and design linking. I support Product Owners, Engineers and Designers throughout the NGP pillar to work smart and deliver value for our experience across multiple product lines.",
@@ -116,42 +116,6 @@ const cv = {
         },
       ],
     },
-    {
-      key: "intuit",
-      orgDisplay: "Intuit",
-      orgUrl: "https://www.intuit.com",
-      logoDomain: "intuit.com",
-      companyTagline: "Full-time · 1 yr 3 mos · Paris, France",
-      roles: [
-        {
-          title: "Principal Product Designer",
-          periodLine: "Jun 2017 – Aug 2018 · 1 yr 3 mos",
-          bullets: [
-            "Built deep customer empathy around financial problems so people could save time, make money and gain confidence.",
-            "Led cross-functional teams through design studios for invoicing, checkout and related workflows across markets.",
-            "Coordinated rapid experimentation and international design work across France, Germany, Australia and other locales.",
-          ],
-          skills: "Product Strategy, Web Design, and +8 skills",
-          featured: "Featured project: QuickBooks — customer-facing launch and localisation work.",
-        },
-      ],
-    },
-    {
-      key: "ims-health",
-      orgDisplay: "IMS Health",
-      orgUrl: "https://www.iqvia.com",
-      logoDomain: "iqvia.com",
-      logoSrc: "/logos/ims-health.png",
-      companyTagline: "Full-time · 2 yrs 1 mo · Boulogne-Billancourt, Île-de-France, France",
-      roles: [
-        {
-          title: "Lead UX Designer",
-          periodLine: "Apr 2015 – Apr 2017",
-          bullets: [],
-          skills: "Web Design, Design Thinking and +4 skills",
-        },
-      ],
-    },
   ],
   knowledge: [
     "Focusing on customer-driven innovation through an outside-in approach to user-centered design and design thinking methodology, driving ideation to the best possible solutions to customers’ wicked problems.",
@@ -186,15 +150,6 @@ const cv = {
   ],
   recommendations: [
     {
-      name: "Jesse Bray",
-      initials: "JB",
-      title: "Staff Product Designer - Brand & Marketing",
-      meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
-      portrait: "/img/recommendations/jesse-bray.png",
-      quote:
-        "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
-    },
-    {
       name: "Erin Weigel",
       initials: "EW",
       title:
@@ -223,16 +178,6 @@ He was a rock when needed and was able to provide insightful recommendations to 
 The greatest shame was when we had to go our separate ways when we both moved onto new challenges within the business but we certainly keep in touch and I love to hear the progress he is making as a specialist in his field.`,
     },
     {
-      name: "Karolin Mulhaupt",
-      initials: "KM",
-      title: "User Researcher | Cross-Country Research | Innovation Practices",
-      meta: "May 23, 2018 · Karolin worked with Jonathan on the same team",
-      portrait: "/img/recommendations/karolin-mulhaupt.jpg",
-      quote: `Jonathan has a strategic mindset and loves solving big design challenges. He is great at narrowing in on the main customer pain points and centering his designs around them. 
-
-He and I worked together designing new features for QuickBooks, a cloud accounting software. With his infectious energy, Jonathan was able to rally cross-functional teams around projects. He used his vast knowledge of design thinking techniques to lead brainstorming sessions and advocate on behalf of customers. As a result, the team would move ahead with common goals, priorities and passion.`,
-    },
-    {
       name: "Jiri Jerabek",
       initials: "JJ",
       title: "Product Design Director",
@@ -251,29 +196,16 @@ I can't recommend Jon more. I hope that I'll have the chance to work with him ag
 
 const works = [
   {
-    title: "Ser.vi",
-    blurb: "Product design and digital experience.",
-    href: "https://get.ser.vi",
-  },
-  {
-    title: "QuickBooks",
-    blurb: "Intuit — invoicing, expenses, and SMB finance workflows.",
-    href: "https://www.quickbooks.fr",
-  },
-  {
-    title: "Booking.com",
-    blurb: "Ground transport — discovery, experimentation, and delivery.",
-    href: "https://www.booking.com",
-  },
-  {
-    title: "Auto Trader UK",
-    blurb: "Digital retailing — funnels and dealer-facing journeys.",
-    href: "https://www.autotrader.co.uk",
-  },
-  {
-    title: "Imperial NGP",
-    blurb: "Next-generation products — design systems and multi-brand platforms.",
+    title: "Breeze Design Systems",
+    client: "Imperial Brands",
+    blurb: "Multi-brand whitelabel systems and platforms for next-generation smoking products",
     href: "https://www.imperialbrandsplc.com",
+  },
+  {
+    title: "Hospitality App",
+    client: "Ser.vi",
+    blurb: "Consumer restaurant menu self-service to in-kitchen printing for staff",
+    href: "https://get.ser.vi",
   },
 ];
 
@@ -385,13 +317,14 @@ function WorksSection() {
         <ScrollReveal stagger className="cv-work-grid">
           {works.map((item) => (
             <a
-              key={item.title}
+              key={`${item.title}-${item.client ?? ""}`}
               className="cv-work-card reveal"
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
             >
               <h3>{item.title}</h3>
+              {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
               <p>{item.blurb}</p>
             </a>
           ))}

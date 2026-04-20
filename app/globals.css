@@ -1149,6 +1149,15 @@ p {
   color: var(--color-fg);
 }
 
+.cv-work-client {
+  margin: 0 0 0.75rem;
+  font-size: var(--size-150);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-grey-mid);
+}
+
 .cv-work-card p {
   margin: 0;
   margin-top: auto;
