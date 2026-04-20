@@ -1242,7 +1242,7 @@ p {
 .cv-bullets-timeline li {
   position: relative;
   padding-left: 0.7rem;
-  font-size: var(--size-150);
+  font-size: 14px;
   line-height: 1.55;
   color: var(--color-grey);
   max-width: none;
