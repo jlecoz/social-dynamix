@@ -1277,6 +1277,7 @@ p {
   font-size: var(--size-150);
   line-height: 1.45;
   color: var(--color-grey);
+  font-weight: 700;
   max-width: none;
 }
 
