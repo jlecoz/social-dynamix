@@ -282,7 +282,7 @@ function ExperienceSection() {
     <section className="section" id="experience">
       <div className="section-services-inner">
         <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EXPERIENCE" />
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EXPERIENCE" decrypt />
           <ExperienceHeadlineDecrypt />
         </ScrollReveal>
 
@@ -375,7 +375,7 @@ function WorksSection() {
     <section className="section" id="works">
       <div className="section-services-inner">
         <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" />
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" decrypt />
           <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
         </ScrollReveal>
         <p className="section-intro">
@@ -406,7 +406,7 @@ function SkillsSection() {
     <section className="section section-services" id="skills">
       <div className="section-services-inner">
         <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="KNOWLEDGE & SKILLS" />
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="KNOWLEDGE & SKILLS" decrypt />
           <h2 className="section-headline skills-headline-cycle">
             <span className="skills-cycle-word" style={{ "--cycle-i": 0 }}>
               Creative
@@ -461,7 +461,7 @@ function EducationSection() {
     <section className="section" id="education">
       <div className="section-services-inner">
         <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EDUCATION" />
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EDUCATION" decrypt />
           <h2 className="section-headline">
             Computer sciences, <span className="gold">communication design</span> and continuous learning.
           </h2>
@@ -530,7 +530,7 @@ function RecommendationsSection() {
     <section className="section" id="recommendations">
       <div className="section-services-inner">
         <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="RECOMMENDATIONS" />
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="RECOMMENDATIONS" decrypt />
           <h2 className="section-headline">
             What colleagues say about <span className="gold">working together.</span>
           </h2>
