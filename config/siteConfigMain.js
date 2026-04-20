@@ -1,6 +1,9 @@
 export const siteConfigMain = {
   /** Production origin — used for canonical URLs, OG images, sitemap */
   siteUrl: "https://www.socialdynamix.co",
+
+  /** @see siteConfigJonny.adobeFontsKitIds */
+  adobeFontsKitIds: ["ejw0fwc"],
   brand: {
     logoText: "SOCIAL DYNAMIX",
     tagline: "Design-led product strategy & delivery",

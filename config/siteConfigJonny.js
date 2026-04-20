@@ -1,6 +1,13 @@
 export const siteConfigJonny = {
   /** Production origin — used for canonical URLs, OG images, sitemap */
   siteUrl: "https://jonny.socialdynamix.co",
+
+  /**
+   * Adobe Fonts (Typekit) kit IDs → https://use.typekit.net/{id}.css (Nexa + nh-grotesk + termina).
+   * If fonts fail on production only: Web Project domain settings must allow this host (e.g.
+   * jonny.socialdynamix.co, *.vercel.app).
+   */
+  adobeFontsKitIds: ["ejw0fwc"],
   brand: {
     logoText: "JONATHAN LE COZ",
     tagline: "Experiential Designer",

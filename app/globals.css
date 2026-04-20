@@ -15,14 +15,19 @@
 :root {
   color-scheme: light;
 
-  /* Primary brand font: Nexa (add local files or webfont to load it) */
-  --font-display: "Nexa", "termina", "neue-haas-grotesk-display", "Helvetica Neue", system-ui, sans-serif;
+  /* Nexa via Adobe Fonts (layout → adobeFontsKitIds): kit publishes font-family "nexa"
+     (display) and "nexa-text" (longer copy). Names match Typekit @font-face. */
+  --font-display: "nexa", "Nexa", "termina", "neue-haas-grotesk-display", "Helvetica Neue", system-ui,
+    sans-serif;
 
-  --font-heading: "Nexa", "termina", "neue-haas-grotesk-text", "Helvetica Neue", system-ui, sans-serif;
+  --font-heading: "nexa", "Nexa", "termina", "neue-haas-grotesk-text", "Helvetica Neue", system-ui,
+    sans-serif;
 
-  --font-body: "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-body: "nexa-text", "nexa", "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial,
+    system-ui, sans-serif;
 
-  --font-label: "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-label: "nexa-text", "nexa", "Nexa", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial,
+    system-ui, sans-serif;
 
   /* Code */
   --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;

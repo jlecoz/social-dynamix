@@ -73,6 +73,8 @@ export default async function RootLayout({ children }) {
   const host = (await headers()).get("host") || "";
   const siteConfig = getSiteConfig(host);
   const t = siteConfig.theme;
+  const typekitKitIds = siteConfig.adobeFontsKitIds ?? ["ejw0fwc"];
+
   const themeVars = {
     "--color-bg": t.background,
     "--color-fg": t.foreground,
@@ -106,7 +108,9 @@ export default async function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/img/favicon-180.png" />
         <link rel="preconnect" href="https://use.typekit.net" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://use.typekit.net/ejw0fwc.css" />
+        {typekitKitIds.map((kitId) => (
+          <link key={kitId} rel="stylesheet" href={`https://use.typekit.net/${kitId}.css`} />
+        ))}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
