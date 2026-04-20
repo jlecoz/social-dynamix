@@ -4,6 +4,7 @@ import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 import HeroOverviewSection from "@/components/HeroOverviewSection";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
+import ContactCtaBackground from "@/components/ContactCtaBackground";
 
 /** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
 const linkedInExperienceUrl =
@@ -598,7 +599,46 @@ function LanguagesSection() {
         <ScrollReveal stagger className="languages-list">
           {cv.languages.map((lang) => (
             <div key={lang.label} className="languages-row reveal">
-              <div className="languages-label">{lang.label}</div>
+              <div className="languages-label">
+                {lang.label === "English" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--uk"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/uk_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : lang.label === "French" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--fr"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/french_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : lang.label === "Spanish" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--es"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/spanish_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : null}
+                {lang.label}
+              </div>
               <div
                 className="languages-dots"
                 role="img"
@@ -624,7 +664,8 @@ function LanguagesSection() {
 function ContactCTA({ siteConfig }) {
   return (
     <section className="section section-contact-cta">
-      <div className="section-services-inner">
+      <ContactCtaBackground />
+      <div className="section-services-inner section-contact-cta-inner">
         <ScrollReveal>
           <h2 className="section-headline contact-cta-headline-shimmer">
             Available for <span className="gold">product design leadership</span> and advisory work.
@@ -723,7 +764,8 @@ function MainHome() {
       </section>
 
       <section className="section section-contact-cta">
-        <div className="section-services-inner">
+        <ContactCtaBackground />
+        <div className="section-services-inner section-contact-cta-inner">
           <ScrollReveal>
             <h2 className="section-headline contact-cta-headline-shimmer">
               Want to move faster with <span className="gold">less risk?</span>

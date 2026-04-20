@@ -489,6 +489,11 @@ p {
 
 .hero-cv .hero-content {
   padding: calc(6rem + 30px) 1.5rem calc(3rem + 30px);
+  text-align: center;
+}
+
+.hero-cv .cta-row {
+  justify-content: center;
 }
 
 /* CV hero: keep section, scrim, iframe, and content block purely square (no card-like radius) */
@@ -1547,9 +1552,60 @@ p {
 }
 
 .languages-label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: var(--size-300);
   line-height: 1.2;
   color: color-mix(in srgb, var(--color-fg), transparent 15%);
+}
+
+.languages-flag {
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.languages-flag--canvas {
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+  min-width: 32px;
+  min-height: 22px;
+}
+
+.languages-flag-iframe {
+  width: 32px;
+  height: 22px;
+  border: 0;
+  display: block;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .languages-flag--canvas .languages-flag-iframe {
+    display: none;
+  }
+
+  .languages-flag--canvas.languages-flag--uk::after,
+  .languages-flag--canvas.languages-flag--fr::after,
+  .languages-flag--canvas.languages-flag--es::after {
+    display: inline-block;
+    font-size: 1.35em;
+    line-height: 22px;
+    vertical-align: middle;
+  }
+
+  .languages-flag--canvas.languages-flag--uk::after {
+    content: "\1F1EC\1F1E7";
+  }
+
+  .languages-flag--canvas.languages-flag--fr::after {
+    content: "\1F1EB\1F1F7";
+  }
+
+  .languages-flag--canvas.languages-flag--es::after {
+    content: "\1F1EA\1F1F8";
+  }
 }
 
 .languages-dots {
@@ -1572,6 +1628,61 @@ p {
 
 .languages-dot.is-off {
   background: color-mix(in srgb, var(--color-accent), transparent 78%);
+}
+
+/* Proficiency dots: sequential fill when row scrolls into view */
+#languages .languages-row.reveal:not(.visible) .languages-dot.is-on {
+  background: color-mix(in srgb, var(--color-accent), transparent 78%);
+  transform: scale(0.88);
+  opacity: 0.85;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on {
+  animation: languages-dot-fill-in 0.48s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on:nth-child(3) {
+  animation-delay: 0.23s;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+#languages .languages-row.reveal.visible .languages-dot.is-on:nth-child(5) {
+  animation-delay: 0.41s;
+}
+
+@keyframes languages-dot-fill-in {
+  from {
+    background: color-mix(in srgb, var(--color-accent), transparent 78%);
+    transform: scale(0.88);
+    opacity: 0.85;
+  }
+
+  to {
+    background: var(--color-accent);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #languages .languages-row.reveal:not(.visible) .languages-dot.is-on,
+  #languages .languages-row.reveal.visible .languages-dot.is-on {
+    animation: none;
+    background: var(--color-accent);
+    transform: none;
+    opacity: 1;
+  }
 }
 
 #services .section-label {
@@ -1675,6 +1786,8 @@ p {
 
 /* ── Contact CTA ──────────────────────────────────────── */
 .section-contact-cta {
+  position: relative;
+  overflow: hidden;
   width: 100vw;
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -1683,7 +1796,50 @@ p {
   box-sizing: border-box;
   text-align: center;
   padding-bottom: 6rem;
-  background: #2a3133;
+  background: #1a2224;
+}
+
+.contact-cta-bg-embed {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact-cta-bg-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Dark scrim so headline / intro stay readable over fiber animation */
+.contact-cta-bg-dim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 22, 26, 0.75) 0%,
+    rgba(35, 42, 45, 0.82) 48%,
+    rgba(26, 34, 36, 0.9) 100%
+  );
+}
+
+.section-contact-cta .section-services-inner.section-contact-cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-cta-bg-embed {
+    display: none;
+  }
+
+  .section-contact-cta {
+    background: #2a3133;
+  }
 }
 
 .section-contact-cta .section-headline {
