@@ -42,11 +42,11 @@ const cv = {
       orgDisplay: "Imperial Brands PLC",
       orgUrl: "https://www.imperialbrandsplc.com",
       logoDomain: "imperialbrandsplc.com",
-      companyTagline: "Full-time · 3 yrs 4 mos · Bristol, United Kingdom",
+      companyTagline: "Full-time · 4 yrs · Bristol, United Kingdom",
       roles: [
         {
           title: "Director of Digital Experience",
-          periodLine: "Jan 2021 – Present · 3 yrs 4 mos",
+          periodLine: "Jan 2021 – Present · 4 yrs",
           workMode: "Hybrid",
           bullets: [
             "Advocate for design thinking and design linking. I support Product Owners, Engineers and Designers throughout the NGP pillar to work smart and deliver value for our experience across multiple product lines.",
