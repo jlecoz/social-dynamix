@@ -32,15 +32,10 @@ export default function ExperienceHeadlineDecrypt({
     offset: ["start 0.9", "start 0.18"],
   });
 
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(() => scrollYProgress.get());
   const [tick, setTick] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => setProgress(v));
-
-  useEffect(() => {
-    if (reduceMotion === true) return;
-    setProgress(scrollYProgress.get());
-  }, [scrollYProgress, reduceMotion]);
 
   useEffect(() => {
     if (reduceMotion === true || progress >= 0.999) return undefined;

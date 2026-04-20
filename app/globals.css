@@ -254,6 +254,18 @@ p {
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
   background: color-mix(in srgb, var(--color-bg), transparent 10%);
   border-bottom: 1px solid var(--color-border);
+  animation: site-header-fade-up var(--duration-mid) var(--ease) both;
+}
+
+@keyframes site-header-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .logo-link {
@@ -313,6 +325,15 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-header {
+    animation: none;
+  }
+
+  #overview .hero-headline .gold {
+    animation: none;
+    opacity: 1;
+  }
+
   .logo-text strong.logo-text-shimmer {
     animation: none;
     background: none;
@@ -442,9 +463,42 @@ p {
     transform var(--duration-slow) var(--ease);
 }
 
+.reveal.reveal-fade {
+  transform: none;
+}
+
+.reveal.reveal-down {
+  transform: translateY(-18px);
+}
+
+.reveal.reveal-left {
+  transform: translateX(-18px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(18px);
+}
+
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* X variants should also settle to neutral */
+.reveal.visible.reveal-left,
+.reveal.visible.reveal-right {
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal-down,
+  .reveal.reveal-left,
+  .reveal.reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
@@ -464,6 +518,22 @@ p {
   min-height: 90vh;
   display: flex;
   align-items: center;
+}
+
+/* CV hero: fade-in on the gold title (no scramble) */
+#overview .hero-headline .gold {
+  display: inline-block;
+  opacity: 0;
+  animation: hero-gold-fade-in var(--duration-slow) var(--ease) 120ms both;
+}
+
+@keyframes hero-gold-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .hero.hero-cv {
@@ -1960,7 +2030,7 @@ p {
   padding-inline: 0;
   box-sizing: border-box;
   background: var(--color-bg);
-  padding-top: 3.5rem;
+  padding-top: 0px;
   padding-bottom: 2rem;
   margin-top: 2rem;
 }

@@ -282,7 +282,7 @@ function ExperienceSection() {
     <section className="section" id="experience">
       <div className="section-services-inner">
         <ScrollReveal>
-          <p className="section-label">Experience</p>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EXPERIENCE" />
           <ExperienceHeadlineDecrypt />
         </ScrollReveal>
 
@@ -375,7 +375,7 @@ function WorksSection() {
     <section className="section" id="works">
       <div className="section-services-inner">
         <ScrollReveal>
-          <p className="section-label">Works</p>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" />
           <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
         </ScrollReveal>
         <p className="section-intro">
@@ -406,7 +406,7 @@ function SkillsSection() {
     <section className="section section-services" id="skills">
       <div className="section-services-inner">
         <ScrollReveal>
-          <p className="section-label">Knowledge &amp; Skills</p>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="KNOWLEDGE & SKILLS" />
           <h2 className="section-headline skills-headline-cycle">
             <span className="skills-cycle-word" style={{ "--cycle-i": 0 }}>
               Creative
@@ -461,7 +461,7 @@ function EducationSection() {
     <section className="section" id="education">
       <div className="section-services-inner">
         <ScrollReveal>
-          <p className="section-label">Education</p>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EDUCATION" />
           <h2 className="section-headline">
             Computer sciences, <span className="gold">communication design</span> and continuous learning.
           </h2>
@@ -530,7 +530,7 @@ function RecommendationsSection() {
     <section className="section" id="recommendations">
       <div className="section-services-inner">
         <ScrollReveal>
-          <p className="section-label">Recommendations</p>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="RECOMMENDATIONS" />
           <h2 className="section-headline">
             What colleagues say about <span className="gold">working together.</span>
           </h2>
@@ -666,14 +666,14 @@ function ContactCTA({ siteConfig }) {
     <section className="section section-contact-cta">
       <ContactCtaBackground />
       <div className="section-services-inner section-contact-cta-inner">
-        <ScrollReveal>
-          <h2 className="section-headline contact-cta-headline-shimmer">
+        <ScrollReveal stagger>
+          <h2 className="section-headline contact-cta-headline-shimmer reveal reveal-fade">
             Available for <span className="gold">product design leadership</span> and advisory work.
           </h2>
-          <p className="section-intro">
+          <p className="section-intro reveal reveal-down">
             Based in {cv.location}. Reach out via email and I&rsquo;ll respond as soon as I can.
           </p>
-          <div className="cta-row" style={{ justifyContent: "center" }}>
+          <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
             <Link className="button button-gold" href="/contact">
               Contact
             </Link>
@@ -766,12 +766,14 @@ function MainHome() {
       <section className="section section-contact-cta">
         <ContactCtaBackground />
         <div className="section-services-inner section-contact-cta-inner">
-          <ScrollReveal>
-            <h2 className="section-headline contact-cta-headline-shimmer">
+          <ScrollReveal stagger>
+            <h2 className="section-headline contact-cta-headline-shimmer reveal reveal-fade">
               Want to move faster with <span className="gold">less risk?</span>
             </h2>
-            <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
-            <div className="cta-row" style={{ justifyContent: "center" }}>
+            <p className="section-intro reveal reveal-down">
+              Tell us what you&rsquo;re building and where you&rsquo;re stuck.
+            </p>
+            <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
               <Link className="button button-gold" href="/contact">
                 Contact
               </Link>
