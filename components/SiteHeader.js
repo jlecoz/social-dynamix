@@ -13,7 +13,7 @@ export default function SiteHeader({ config }) {
       <Link href="/" className="logo-link" aria-label="Home">
         <img src="/img/digital_ronin.svg" alt="" className="logo-mark" aria-hidden="true" />
         <div className="logo-text">
-          <strong>{siteConfig.brand.logoText}</strong>
+          <strong className="logo-text-shimmer">{siteConfig.brand.logoText}</strong>
         </div>
       </Link>
 

@@ -2,14 +2,21 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
+import HeroOverviewSection from "@/components/HeroOverviewSection";
+import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
+import ContactCtaBackground from "@/components/ContactCtaBackground";
+import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
+import MainSectionParallax from "@/components/MainSectionParallax";
+import WorksCardsTimeline from "@/components/WorksCardsTimeline";
+import { worksProjects } from "@/config/worksProjects";
 
 /** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
 const linkedInExperienceUrl =
   "https://www.linkedin.com/in/jonathan-lecoz/?locale=en-US#experience";
 
-/** LinkedIn export shows the same body text from Tim Van Damme on several older cards */
-const recommendationQuoteTimVanDamme =
-  "Jonny is a fantastic designer and a great human being. He's incredibly talented, a deep thinker, and a pleasure to work with. He's always pushing the boundaries of what's possible and is a constant source of inspiration. I'd highly recommend him for any design role.";
+/** Received recommendations on LinkedIn */
+const linkedInRecommendationsUrl =
+  "https://www.linkedin.com/in/jonathan-lecoz/details/recommendations/";
 
 const cv = {
   name: "Jonathan Le Coz",
@@ -35,11 +42,11 @@ const cv = {
       orgDisplay: "Imperial Brands PLC",
       orgUrl: "https://www.imperialbrandsplc.com",
       logoDomain: "imperialbrandsplc.com",
-      companyTagline: "Full-time · 3 yrs 4 mos · Bristol, United Kingdom",
+      companyTagline: "Full-time · 4 yrs 4 mos · Bristol, United Kingdom",
       roles: [
         {
           title: "Director of Digital Experience",
-          periodLine: "Jan 2021 – Present · 3 yrs 4 mos",
+          periodLine: "Jan 2021 – Present · 3 yrs and 4 months",
           workMode: "Hybrid",
           bullets: [
             "Advocate for design thinking and design linking. I support Product Owners, Engineers and Designers throughout the NGP pillar to work smart and deliver value for our experience across multiple product lines.",
@@ -109,42 +116,6 @@ const cv = {
         },
       ],
     },
-    {
-      key: "intuit",
-      orgDisplay: "Intuit",
-      orgUrl: "https://www.intuit.com",
-      logoDomain: "intuit.com",
-      companyTagline: "Full-time · 1 yr 3 mos · Paris, France",
-      roles: [
-        {
-          title: "Principal Product Designer",
-          periodLine: "Jun 2017 – Aug 2018 · 1 yr 3 mos",
-          bullets: [
-            "Built deep customer empathy around financial problems so people could save time, make money and gain confidence.",
-            "Led cross-functional teams through design studios for invoicing, checkout and related workflows across markets.",
-            "Coordinated rapid experimentation and international design work across France, Germany, Australia and other locales.",
-          ],
-          skills: "Product Strategy, Web Design, and +8 skills",
-          featured: "Featured project: QuickBooks — customer-facing launch and localisation work.",
-        },
-      ],
-    },
-    {
-      key: "ims-health",
-      orgDisplay: "IMS Health",
-      orgUrl: "https://www.iqvia.com",
-      logoDomain: "iqvia.com",
-      logoSrc: "/logos/ims-health.png",
-      companyTagline: "Full-time · 2 yrs 1 mo · Boulogne-Billancourt, Île-de-France, France",
-      roles: [
-        {
-          title: "Lead UX Designer",
-          periodLine: "Apr 2015 – Apr 2017",
-          bullets: [],
-          skills: "Web Design, Design Thinking and +4 skills",
-        },
-      ],
-    },
   ],
   knowledge: [
     "Focusing on customer-driven innovation through an outside-in approach to user-centered design and design thinking methodology, driving ideation to the best possible solutions to customers’ wicked problems.",
@@ -152,6 +123,13 @@ const cv = {
     "Helping align product roadmaps with business objectives by collaborating with local and central teams to produce seamless end-to-end experiences that bolster global brand strategy and standards.",
     "Defining OKR/KPI metrics with product leaders to increase visibility to usage and conversion/retention linked to UX/CX contribution.",
     "Industry UI/UX principles coupled with modern web technologies for efficient and engaging end-to-end experiences that are usable, useful and desirable.",
+  ],
+  certifications: [
+    {
+      school: "IxDF - The Interaction Design Foundation",
+      degree: "Professional Education, User Experience and Interaction Design",
+      period: "2016 – 2017",
+    },
   ],
   education: [
     {
@@ -162,11 +140,6 @@ const cv = {
       description: "Minor in Communication Design",
     },
     {
-      school: "IxDF - The Interaction Design Foundation",
-      degree: "Professional Education, User Experience and Interaction Design",
-      period: "2016 – 2027",
-    },
-    {
       school: "International Academy of Design",
       degree: "ACE, Design Multimédia",
       period: "2002 – 2003",
@@ -174,40 +147,15 @@ const cv = {
         "Activities and societies: Création de la plaquette de l'école et le site internet.",
       description: "Design Multimédia",
     },
-    {
-      school: "Santa Monica College",
-      degree: "Associate's degree, General Studies",
-      period: "1999 – 2001",
-      activities: "Activities and societies: Club de Snowboard 2000",
-      description: "Études générales",
-    },
-    {
-      school: "Crespi Carmelite Highschool",
-      degree: "Diploma, Études générales",
-      period: "1995 – 1999",
-      activities: "Activities and societies: Football, athlétisme, snowboard, kickboxing",
-      details: [
-        "Bénévolat aux marchés locaux",
-        "AP US History, AP French, AP Government, AP Calculus, AP Physics",
-      ],
-    },
   ],
   recommendations: [
-    {
-      name: "Jesse Bray",
-      initials: "JB",
-      title: "Staff Product Designer - Brand & Marketing",
-      meta: "March 16, 2021 · Jesse worked with Jonathan on the same team",
-      portrait: "/img/recommendations/jesse-bray.jpg",
-      quote:
-        "Jon is a passionate and detailed UX lead that brings a lot of great energy! He has a high understanding of psychology and design thinking that play a big role in how he understands the customer.",
-    },
     {
       name: "Erin Weigel",
       initials: "EW",
       title:
         "Strategic Advisor, ABsmartly & ConversieKracht • 📚 Author of “Design for Impact: Your Guide to Designing Effective Product Experiments”",
       meta: "May 8, 2020 · Erin was senior to Jonathan but didn’t manage Jonathan directly",
+      portrait: "/img/recommendations/erin-weigel.jpg",
       quote: `I've had the pleasure of working with Jonathan at Booking.com. I was leading the teams responsible for our design system and product accessibility when our paths crossed. 
 Jonathan is a designer who's gifted with seeing the bigger picture experience of the products he designs. He's also very user-centered and advocates for making products inclusive for all users. 
 He understands the importance of predictability in making products usable as well as fostering trust in a product through consistency and coherence. 
@@ -220,6 +168,7 @@ Not only is he impactful in his work, but he's also friendly, approachable, and 
       title:
         "Service Design Lead / Mentor & People Developer | (NN/g Certified : UX Manager), Next Gen Engineering at Accenture UK & Ireland",
       meta: "April 6, 2020 · Brent worked with Jonathan on the same team",
+      portrait: "/img/recommendations/brent-starling.jpg",
       quote: `Jonathan and I had the privilege of working together within the Taxi arm of the Ground Transport division.
 
 During these fantastic times, he exhibited a similar hunger as i do to drive knowledge and understanding from all stakeholders. He built long-lasting bridges with our counterparts within the wider business in Amsterdam allowing us to move quickly and drive great success in the fruits of our labours.
@@ -229,300 +178,113 @@ He was a rock when needed and was able to provide insightful recommendations to 
 The greatest shame was when we had to go our separate ways when we both moved onto new challenges within the business but we certainly keep in touch and I love to hear the progress he is making as a specialist in his field.`,
     },
     {
-      name: "Karolin Mulhaupt",
-      initials: "KM",
-      title: "User Researcher | Cross-Country Research | Innovation Practices",
-      meta: "May 23, 2018 · Karolin worked with Jonathan on the same team",
-      quote: `Jonathan has a strategic mindset and loves solving big design challenges. He is great at narrowing in on the main customer pain points and centering his designs around them. 
+      name: "Jiri Jerabek",
+      initials: "JJ",
+      title: "Product Design Director",
+      meta: "May 9, 2018 · Jiri worked with Jonathan on the same team",
+      portrait: "/img/recommendations/jiri-jerabek.jpg",
+      quote: `Jon is the very rare breed of interaction designer who has the ability to dive straight into details, and at the same time keep high altitude of strategic thinking.
 
-He and I worked together designing new features for QuickBooks, a cloud accounting software. With his infectious energy, Jonathan was able to rally cross-functional teams around projects. He used his vast knowledge of design thinking techniques to lead brainstorming sessions and advocate on behalf of customers. As a result, the team would move ahead with common goals, priorities and passion.`,
-    },
-    {
-      name: "Vanessa Robinson",
-      initials: "VR",
-      title: "Sr. Product Designer",
-      meta: "October 22, 2020 · Vanessa worked with Jonny on the same team",
-      portrait: "/img/recommendations/vanessa-robinson.jpg",
-      quote:
-        "Jonny is one of the most talented and thoughtful designers I've ever worked with. He has a unique ability to see the big picture and then dive into the details to create truly exceptional experiences. He's also a great mentor and a fantastic collaborator. I'd jump at the chance to work with him again.",
-    },
-    {
-      name: "Tim Van Damme",
-      initials: "TV",
-      title: "Principal Designer at Abstract",
-      meta: "September 10, 2020 · Tim worked with Jonny but on different teams",
-      portrait: "/img/recommendations/tim-van-damme.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Vera van de Seylberg",
-      initials: "VV",
-      title: "Design Lead at Zalando",
-      meta: "August 14, 2020",
-      portrait: "/img/recommendations/vera-van-de-seylberg.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Maya Penedo",
-      initials: "MP",
-      title: "Product Designer at Intuit",
-      meta: "July 29, 2020",
-      portrait: "/img/recommendations/maya-penedo.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Chris Peterson",
-      initials: "CP",
-      title: "Staff Product Designer at Intuit",
-      meta: "June 15, 2020",
-      portrait: "/img/recommendations/chris-peterson.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Sarah H.",
-      initials: "SH",
-      title: "Sr. Product Designer at Intuit",
-      meta: "May 20, 2020",
-      portrait: "/img/recommendations/sarah-h.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Gaby G.",
-      initials: "GG",
-      title: "Sr. Product Designer at Intuit",
-      meta: "April 15, 2020",
-      portrait: "/img/recommendations/gaby-g.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Jill C.",
-      initials: "JC",
-      title: "Sr. Content Designer at Intuit",
-      meta: "March 10, 2020",
-      portrait: "/img/recommendations/jill-c.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Bonnie S.",
-      initials: "BS",
-      title: "Sr. Product Manager at Intuit",
-      meta: "February 5, 2020",
-      portrait: "/img/recommendations/bonnie-s.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Aditya Agarwal",
-      initials: "AA",
-      title: "VP of Engineering at Dropbox",
-      meta: "January 15, 2020",
-      portrait: "/img/recommendations/aditya-agarwal.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Ruby P.",
-      initials: "RP",
-      title: "Product Designer at Intuit",
-      meta: "December 10, 2019",
-      portrait: "/img/recommendations/ruby-p.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Gaurav Mehta",
-      initials: "GM",
-      title: "Product Manager at Intuit",
-      meta: "November 5, 2019",
-      portrait: "/img/recommendations/gaurav-mehta.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Allie S.",
-      initials: "AS",
-      title: "Sr. Product Designer at Intuit",
-      meta: "October 15, 2019",
-      portrait: "/img/recommendations/allie-s.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Eric C.",
-      initials: "EC",
-      title: "Staff Product Designer at Intuit",
-      meta: "September 10, 2019",
-      portrait: "/img/recommendations/eric-c.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Bryan G.",
-      initials: "BG",
-      title: "Product Designer at Intuit",
-      meta: "August 15, 2019",
-      portrait: "/img/recommendations/bryan-g.jpg",
-      quote: recommendationQuoteTimVanDamme,
-    },
-    {
-      name: "Jonathan L.",
-      initials: "JL",
-      title: "Product Manager at Intuit",
-      meta: "July 10, 2019",
-      portrait: "/img/recommendations/jonathan-l.jpg",
-      quote: recommendationQuoteTimVanDamme,
+I used to work with Jon during his time at Intuit. We held similar roles, we both led product design in our respective countries, Jon in France and I in the UK. This allowed us to collaborate on a few critical projects-one related to the UK's Making Tax Digital, and the other being the GDPR.
+
+I witnessed Jon to contribute or lead with deep passion, digging into the problem space to really understand the root of customers' needs and problems. His mastery of design craft, together with the years of experience allowed him to untangle complex problems and deliver strong solutions. As a designer, Jon is truly user-centric. He has in-depth understanding of psychology that drives people's behaviour, and is well versed in methods of evaluating concepts and designs. But what's more, Jon has a a lot of passion and a great sense of humour, which makes him an awesome person to work with.
+
+I can't recommend Jon more. I hope that I'll have the chance to work with him again in the future!`,
     },
   ],
 };
 
-const works = [
-  {
-    title: "Ser.vi",
-    blurb: "Product design and digital experience.",
-    href: "https://get.ser.vi",
-  },
-  {
-    title: "QuickBooks",
-    blurb: "Intuit — invoicing, expenses, and SMB finance workflows.",
-    href: "https://www.quickbooks.fr",
-  },
-  {
-    title: "Booking.com",
-    blurb: "Ground transport — discovery, experimentation, and delivery.",
-    href: "https://www.booking.com",
-  },
-  {
-    title: "Auto Trader UK",
-    blurb: "Digital retailing — funnels and dealer-facing journeys.",
-    href: "https://www.autotrader.co.uk",
-  },
-  {
-    title: "Imperial NGP",
-    blurb: "Next-generation products — design systems and multi-brand platforms.",
-    href: "https://www.imperialbrandsplc.com",
-  },
-];
-
-function HeroSection() {
-  return (
-    <section className="hero hero-cv" id="overview">
-      <div className="hero-bg-embed" aria-hidden="true">
-        <iframe
-          className="hero-bg-iframe"
-          src="/animations/digital_ronin_bg.html"
-          title=""
-          loading="eager"
-        />
-        <div className="hero-bg-dim" />
-      </div>
-      <div className="hero-content">
-        <p className="eyebrow">{cv.meta}</p>
-        <h1 className="hero-headline">
-          <span className="gold">{cv.title}</span>
-        </h1>
-        <p className="cv-core-tags">{cv.skillTags.join(" • ")}</p>
-
-        <div className="cta-row">
-          <Link className="button button-gold" href="/contact">
-            Contact
-          </Link>
-          <a
-            className="button button-secondary"
-            href="https://www.linkedin.com/in/jonathan-lecoz/?locale=en_US"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+const works = worksProjects;
 
 function ExperienceSection() {
   return (
     <section className="section" id="experience">
-      <ScrollReveal>
-        <p className="section-label">Experience</p>
-        <h2 className="section-headline">
-          Design leadership across <span className="gold">product and platform.</span>
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EXPERIENCE" decrypt />
+          <ExperienceHeadlineDecrypt />
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-timeline">
-        {cv.experienceGroups.map((group) => {
-          const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
-          const logoSrc = group.logoSrc || faviconSrc;
-          return (
-            <article key={group.key} className="cv-role cv-role--linkedin reveal">
-              <div className="cv-role-layout">
-                <div className="cv-role-logo">
-                  <img
-                    className="cv-role-logo-img"
-                    src={logoSrc}
-                    alt=""
-                    width={48}
-                    height={48}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="cv-role-main">
-                  <div className="cv-role-company-block">
-                    <h3 className="cv-role-company-heading">
-                      {group.orgUrl ? (
-                        <a className="cv-role-company" href={group.orgUrl} target="_blank" rel="noopener noreferrer">
-                          {group.orgDisplay}
-                        </a>
-                      ) : (
-                        <span className="cv-role-company">{group.orgDisplay}</span>
-                      )}
-                    </h3>
-                    {group.companyTagline ? (
-                      <p className="cv-role-company-meta">{group.companyTagline}</p>
-                    ) : null}
+        <ScrollReveal stagger className="cv-timeline">
+          {cv.experienceGroups.map((group) => {
+            const faviconSrc = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(group.logoDomain)}&sz=128`;
+            const logoSrc = group.logoSrc || faviconSrc;
+            return (
+              <article key={group.key} className="cv-role cv-role--linkedin reveal">
+                <div className="cv-role-layout">
+                  <div className="cv-role-logo">
+                    <img
+                      className="cv-role-logo-img"
+                      src={logoSrc}
+                      alt=""
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                    />
                   </div>
-                  <div className="cv-role-positions-rail">
-                    {group.roles.map((role, idx) => (
-                      <div key={`${group.key}-${role.title}-${idx}`} className="cv-role-position">
-                        <div className="cv-role-job-block">
-                          <h4 className="cv-role-job-title">{role.title}</h4>
-                          {role.periodLine ? <p className="cv-role-job-dates">{role.periodLine}</p> : null}
-                          {role.location ? <p className="cv-role-work-mode">{role.location}</p> : null}
-                          {role.workMode ? <p className="cv-role-work-mode">{role.workMode}</p> : null}
-                          {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
-                          {role.bullets?.length ? (
-                            <div className="cv-role-timeline">
-                              <ul className="cv-bullets-timeline">
-                                {role.bullets.map((b) => (
-                                  <li key={b}>{b}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          ) : null}
-                          {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
-                          {role.featured ? <p className="cv-role-featured">{role.featured}</p> : null}
+                  <div className="cv-role-main">
+                    <div className="cv-role-company-block">
+                      <h3 className="cv-role-company-heading">
+                        {group.orgUrl ? (
+                          <a className="cv-role-company" href={group.orgUrl} target="_blank" rel="noopener noreferrer">
+                            {group.orgDisplay}
+                          </a>
+                        ) : (
+                          <span className="cv-role-company">{group.orgDisplay}</span>
+                        )}
+                      </h3>
+                      {group.companyTagline ? (
+                        <p className="cv-role-company-meta">{group.companyTagline}</p>
+                      ) : null}
+                    </div>
+                    <div className="cv-role-positions-rail">
+                      {group.roles.map((role, idx) => (
+                        <div key={`${group.key}-${role.title}-${idx}`} className="cv-role-position">
+                          <div className="cv-role-job-block">
+                            <h4 className="cv-role-job-title">{role.title}</h4>
+                            {role.periodLine ? <p className="cv-role-job-dates">{role.periodLine}</p> : null}
+                            {role.location ? <p className="cv-role-work-mode">{role.location}</p> : null}
+                            {role.workMode ? <p className="cv-role-work-mode">{role.workMode}</p> : null}
+                            {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
+                            {role.bullets?.length ? (
+                              <div className="cv-role-timeline">
+                                <ul className="cv-bullets-timeline">
+                                  {role.bullets.map((b) => (
+                                    <li key={b}>{b}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ) : null}
+                            {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
+                            {role.featured ? <p className="cv-role-featured">{role.featured}</p> : null}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
-      </ScrollReveal>
+              </article>
+            );
+          })}
+        </ScrollReveal>
 
-      <ScrollReveal>
-        <p className="cv-experience-more">
-          <a
-            className="cv-experience-more-link"
-            href={linkedInExperienceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            See more
-          </a>
-          <span className="cv-experience-more-note">
-            {" "}
-            — full work history on LinkedIn, including roles such as IMS Health.
-          </span>
-        </p>
-      </ScrollReveal>
+        <ScrollReveal>
+          <div className="cv-experience-more">
+            <a
+              className="cv-experience-more-link"
+              href={linkedInExperienceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Show all experience on LinkedIn"
+            >
+              <span>Show all</span>
+              <span className="cv-experience-more-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -530,30 +292,79 @@ function ExperienceSection() {
 function WorksSection() {
   return (
     <section className="section" id="works">
-      <ScrollReveal>
-        <p className="section-label">Works</p>
-        <h2 className="section-headline">
-          Selected collaborations across <span className="gold">product and platform.</span>
-        </h2>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" decrypt />
+          <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
+        </ScrollReveal>
         <p className="section-intro">
           A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
         </p>
-      </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-work-grid">
-        {works.map((item) => (
-          <a
-            key={item.title}
-            className="cv-work-card reveal"
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h3>{item.title}</h3>
-            <p>{item.blurb}</p>
-          </a>
-        ))}
-      </ScrollReveal>
+        <WorksCardsTimeline>
+          <ScrollReveal stagger className="cv-work-grid">
+            {works.map((item) => (
+              <article
+                key={`${item.title}-${item.client ?? ""}`}
+                className={`cv-work-card card__content reveal${item.coverImage ? " cv-work-card--split" : ""}`}
+              >
+                {item.coverImage ? (
+                  <>
+                    <div className="cv-work-card-copy">
+                      <h3>{item.title}</h3>
+                      {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
+                      <p>{item.blurb}</p>
+                      <div className="cv-work-card-actions">
+                        <Link href={`/works/${item.slug}`} className="button button-secondary">
+                          Learn more
+                        </Link>
+                        <a
+                          className="cv-work-card-external"
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Client site →
+                        </a>
+                      </div>
+                    </div>
+                    <div className="cv-work-card-cover">
+                      <img
+                        className="cv-work-card-cover-img"
+                        src={item.coverImage}
+                        alt={item.coverAlt || ""}
+                        loading="lazy"
+                        decoding="async"
+                        width={440}
+                        height={440}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3>{item.title}</h3>
+                    {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
+                    <p>{item.blurb}</p>
+                    <div className="cv-work-card-actions">
+                      <Link href={`/works/${item.slug}`} className="button button-secondary">
+                        Learn more
+                      </Link>
+                      <a
+                        className="cv-work-card-external"
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Client site →
+                      </a>
+                    </div>
+                  </>
+                )}
+              </article>
+            ))}
+          </ScrollReveal>
+        </WorksCardsTimeline>
+      </div>
     </section>
   );
 }
@@ -561,36 +372,55 @@ function WorksSection() {
 function SkillsSection() {
   return (
     <section className="section section-services" id="skills">
-      <ScrollReveal>
-        <p className="section-label">Knowledge &amp; Skills</p>
-        <p className="section-intro">
-          Creative, collaborative and efficient — focused on customer-driven innovation and measurable outcomes.
-        </p>
-      </ScrollReveal>
-
-      <div className="cv-split">
-        <ScrollReveal className="cv-split-left">
-          <h3 className="cv-subhead">Key skills</h3>
-          <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
-            <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
-          </div>
-          <div className="cv-tags">
-            {cv.skillTags.map((t) => (
-              <span key={t} className="cv-tag">
-                {t}
-              </span>
-            ))}
-          </div>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="KNOWLEDGE & SKILLS" decrypt />
+          <h2 className="section-headline skills-headline-cycle">
+            <span className="skills-cycle-word" style={{ "--cycle-i": 0 }}>
+              Creative
+            </span>
+            <span className="skills-cycle-punct">,</span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 1 }}>
+              collaborative
+            </span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 2 }}>
+              and
+            </span>{" "}
+            <span className="skills-cycle-word" style={{ "--cycle-i": 3 }}>
+              efficient
+            </span>
+          </h2>
+          <p className="section-intro">
+            Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
+          </p>
         </ScrollReveal>
 
-        <ScrollReveal className="cv-split-right">
-          <h3 className="cv-subhead">Knowledge</h3>
-          <ul className="cv-knowledge">
-            {cv.knowledge.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
-        </ScrollReveal>
+        <div className="cv-split">
+          <ScrollReveal className="cv-split-left">
+            <h3 className="cv-subhead">Key skills</h3>
+            <div className="skills-wheel-row">
+              <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
+                <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
+              </div>
+              <div className="cv-tags">
+                {cv.skillTags.map((t) => (
+                  <span key={t} className="cv-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="cv-split-right">
+            <h3 className="cv-subhead">Knowledge</h3>
+            <ul className="cv-knowledge">
+              {cv.knowledge.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
@@ -599,74 +429,127 @@ function SkillsSection() {
 function EducationSection() {
   return (
     <section className="section" id="education">
-      <ScrollReveal>
-        <p className="section-label">Education</p>
-        <h2 className="section-headline">
-          Computer sciences, <span className="gold">communication design</span> and continuous learning.
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EDUCATION" decrypt />
+          <h2 className="section-headline">
+            Computer sciences, <span className="gold">communication design</span> and continuous learning.
+          </h2>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-edu">
-        {cv.education.map((e) => (
-          <div key={e.school} className="cv-edu-row reveal">
-            <div className="cv-edu-main">
-              <h3>{e.school}</h3>
-              <p className="cv-edu-degree">{e.degree}</p>
-              {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
-              {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
-              {e.details?.map((line) => (
-                <p key={line} className="cv-edu-detail">
-                  {line}
-                </p>
-              ))}
+        <ScrollReveal stagger className="cv-edu">
+          <p className="cv-edu-subheading">Certifications</p>
+          {cv.certifications.map((e) => (
+            <div key={e.school} className="cv-edu-row reveal">
+              <div className="cv-edu-main">
+                <h3>{e.school}</h3>
+                <p className="cv-edu-degree">{e.degree}</p>
+                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+                {e.details?.map((line) => (
+                  <p key={line} className="cv-edu-detail">
+                    {line}
+                  </p>
+                ))}
+              </div>
+              <div className="cv-edu-period">{e.period}</div>
             </div>
-            <div className="cv-edu-period">{e.period}</div>
-          </div>
-        ))}
-      </ScrollReveal>
+          ))}
+          <p className="cv-edu-subheading">School</p>
+          {cv.education.map((e) => (
+            <div key={e.school} className="cv-edu-row reveal">
+              <div className="cv-edu-main">
+                <h3>{e.school}</h3>
+                <p className="cv-edu-degree">{e.degree}</p>
+                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
+                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
+                {e.details?.map((line) => (
+                  <p key={line} className="cv-edu-detail">
+                    {line}
+                  </p>
+                ))}
+              </div>
+              <div className="cv-edu-period">{e.period}</div>
+            </div>
+          ))}
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
 
 function RecommendationsSection() {
+  const recCount = cv.recommendations.length;
+
   return (
     <section className="section" id="recommendations">
-      <ScrollReveal>
-        <p className="section-label">Recommendations</p>
-        <h2 className="section-headline">
-          What colleagues say about <span className="gold">working together.</span>
-        </h2>
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <ExperienceHeadlineDecrypt as="p" className="section-label" text="RECOMMENDATIONS" decrypt />
+          <h2 className="section-headline">
+            What colleagues say about <span className="gold">working together.</span>
+          </h2>
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="cv-edu">
-        {cv.recommendations.map((r) => (
-          <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
-            <div className="cv-rec-body">
-              {r.portrait ? (
-                <img
-                  className="cv-rec-avatar cv-rec-avatar--photo"
-                  src={r.portrait}
-                  alt={`${r.name} portrait`}
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <span className="cv-rec-avatar" aria-hidden="true">
-                  {r.initials}
-                </span>
-              )}
-              <div className="cv-rec-copy">
-                <h3>{r.name}</h3>
-                {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
-                <p className="cv-rec-quote">{r.quote}</p>
+        <div
+          id="recommendation-cards"
+          className="rec-stack-cards"
+          style={{ "--numcards": recCount }}
+        >
+          {cv.recommendations.map((r, i) => (
+            <div
+              key={r.name}
+              className="rec-stack-card"
+              style={{ "--index": i + 1 }}
+            >
+              <div className="rec-stack-card__content cv-edu-row cv-edu-row--rec">
+                <div className="cv-rec-body">
+                  {r.portrait ? (
+                    <img
+                      className="cv-rec-avatar cv-rec-avatar--photo"
+                      src={r.portrait}
+                      alt={`${r.name} portrait`}
+                      width={56}
+                      height={56}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span className="cv-rec-avatar" aria-hidden="true">
+                      {r.initials}
+                    </span>
+                  )}
+                  <div className="cv-rec-copy">
+                    <h3>{r.name}</h3>
+                    {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
+                    <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
+                    <p className="cv-rec-quote">{r.quote}</p>
+                  </div>
+                </div>
               </div>
+              {/* Scroll runway below quote; overlap happens here so the next card stacks without covering text */}
+              <div className="rec-stack-card__slack" aria-hidden="true" />
             </div>
-            <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
+          ))}
+        </div>
+
+        <ScrollReveal>
+          <div className="cv-experience-more">
+            <a
+              className="cv-experience-more-link"
+              href={linkedInRecommendationsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Show all recommendations on LinkedIn"
+            >
+              <span>Show all</span>
+              <span className="cv-experience-more-arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
           </div>
-        ))}
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -674,32 +557,73 @@ function RecommendationsSection() {
 function LanguagesSection() {
   return (
     <section className="section" id="languages">
-      <ScrollReveal>
-        <h2 className="languages-title">Languages</h2>
-        <div className="languages-rule" aria-hidden="true" />
-      </ScrollReveal>
+      <div className="section-services-inner">
+        <ScrollReveal>
+          <h2 className="languages-title">Languages</h2>
+          <div className="languages-rule" aria-hidden="true" />
+        </ScrollReveal>
 
-      <ScrollReveal stagger className="languages-list">
-        {cv.languages.map((lang) => (
-          <div key={lang.label} className="languages-row reveal">
-            <div className="languages-label">{lang.label}</div>
-            <div
-              className="languages-dots"
-              role="img"
-              aria-label={`${lang.label}: ${lang.level} out of 5`}
-            >
-              {Array.from({ length: 5 }, (_, i) => (
-                <span
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={`${lang.label}-${i}`}
-                  className={`languages-dot ${i < lang.level ? "is-on" : "is-off"}`}
-                  aria-hidden="true"
-                />
-              ))}
+        <ScrollReveal stagger className="languages-list">
+          {cv.languages.map((lang) => (
+            <div key={lang.label} className="languages-row reveal">
+              <div className="languages-label">
+                {lang.label === "English" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--uk"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/uk_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : lang.label === "French" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--fr"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/french_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : lang.label === "Spanish" ? (
+                  <span
+                    className="languages-flag languages-flag--canvas languages-flag--es"
+                    aria-hidden="true"
+                  >
+                    <iframe
+                      className="languages-flag-iframe"
+                      src="/animations/spanish_flag_icon.html"
+                      title=""
+                      loading="lazy"
+                    />
+                  </span>
+                ) : null}
+                {lang.label}
+              </div>
+              <div
+                className="languages-dots"
+                role="img"
+                aria-label={`${lang.label}: ${lang.level} out of 5`}
+              >
+                {Array.from({ length: 5 }, (_, i) => (
+                  <span
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`${lang.label}-${i}`}
+                    className={`languages-dot ${i < lang.level ? "is-on" : "is-off"}`}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </ScrollReveal>
+          ))}
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -707,19 +631,22 @@ function LanguagesSection() {
 function ContactCTA({ siteConfig }) {
   return (
     <section className="section section-contact-cta">
-      <ScrollReveal>
-        <h2 className="section-headline">
-          Available for <span className="gold">product design leadership</span> and advisory work.
-        </h2>
-        <p className="section-intro">
-          Based in {cv.location}. Reach out via email and I&rsquo;ll respond as soon as I can.
-        </p>
-        <div className="cta-row" style={{ justifyContent: "center" }}>
-          <Link className="button button-gold" href="/contact">
-            Contact
-          </Link>
-        </div>
-      </ScrollReveal>
+      <ContactCtaBackground />
+      <div className="section-services-inner section-contact-cta-inner">
+        <ScrollReveal stagger>
+          <h2 className="section-headline contact-cta-headline-shimmer reveal reveal-fade">
+            Available for <span className="gold">product design leadership</span> and advisory work.
+          </h2>
+          <p className="section-intro reveal reveal-down">
+            Based in {cv.location}. Reach out about product design leadership via email and I&rsquo;ll respond as soon as I can.
+          </p>
+          <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
+            <Link className="button button-gold" href="/contact">
+              Contact
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }
@@ -727,11 +654,17 @@ function ContactCTA({ siteConfig }) {
 function JonnyHome({ siteConfig }) {
   return (
     <>
-      <HeroSection />
+      <MainSectionParallax />
+      <HeroOverviewSection
+        meta={cv.meta}
+        title={cv.title}
+        skillTagsLine={cv.skillTags.join(" • ")}
+      />
       <ExperienceSection />
       <WorksSection />
       <SkillsSection />
       <EducationSection />
+      <IxdfCertificationsSection />
       <RecommendationsSection />
       <LanguagesSection />
       <ContactCTA siteConfig={siteConfig} />
@@ -742,6 +675,7 @@ function JonnyHome({ siteConfig }) {
 function MainHome() {
   return (
     <>
+      <MainSectionParallax />
       <section className="sdx-hero">
         <div className="sdx-hero-inner">
           <p className="sdx-kicker">Social Dynamix</p>
@@ -787,6 +721,8 @@ function MainHome() {
         </ScrollReveal>
       </section>
 
+      <SkillsSection />
+
       <section className="section" id="work">
         <ScrollReveal>
           <p className="section-label">Work</p>
@@ -800,17 +736,22 @@ function MainHome() {
       </section>
 
       <section className="section section-contact-cta">
-        <ScrollReveal>
-          <h2 className="section-headline">
-            Want to move faster with <span className="gold">less risk?</span>
-          </h2>
-          <p className="section-intro">Tell us what you&rsquo;re building and where you&rsquo;re stuck.</p>
-          <div className="cta-row" style={{ justifyContent: "center" }}>
-            <Link className="button button-gold" href="/contact">
-              Contact
-            </Link>
-          </div>
-        </ScrollReveal>
+        <ContactCtaBackground />
+        <div className="section-services-inner section-contact-cta-inner">
+          <ScrollReveal stagger>
+            <h2 className="section-headline contact-cta-headline-shimmer reveal reveal-fade">
+              Want to move faster with <span className="gold">less risk?</span>
+            </h2>
+            <p className="section-intro reveal reveal-down">
+              Tell us what you&rsquo;re building and where you&rsquo;re stuck.
+            </p>
+            <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
+              <Link className="button button-gold" href="/contact">
+                Contact
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
     </>
   );
