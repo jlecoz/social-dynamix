@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Scroll-driven card scaling via View Timeline API (see web.dev scroll-driven animations).
- * Sets --numcards on #cards for layout padding so the stack exits cleanly.
+ * Sets --numcards on #cards (reserved for layout hooks; scroll runway padding removed from CSS).
  */
 export default function WorksCardsTimeline({ children }) {
   const cardsWrapperRef = useRef(null);
