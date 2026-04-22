@@ -34,6 +34,17 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
         <div className="hero-bg-dim" />
       </div>
       <div className="hero-content">
+        <div className="hero-cv-avatar">
+          <img
+            className="hero-cv-avatar-img"
+            src="/img/hero-jonathan-portrait.png"
+            alt="Jonathan Le Coz, Experiential Designer"
+            width={330}
+            height={330}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
         <ScrollReveal>
           <p className="eyebrow">{meta}</p>
         </ScrollReveal>

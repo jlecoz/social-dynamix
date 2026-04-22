@@ -644,6 +644,27 @@ body:has(.parallax-container) {
   text-align: center;
 }
 
+/* Centered headshot — square source, circular display */
+.hero-cv-avatar {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1.35rem;
+  width: 100%;
+}
+
+.hero-cv-avatar-img {
+  display: block;
+  width: clamp(9.375rem, 24vw, 14.25rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--color-white), transparent 40%);
+  box-shadow: 0 12px 40px color-mix(in srgb, #0a0b0c, transparent 45%);
+  flex-shrink: 0;
+}
+
 .hero-cv .cta-row {
   justify-content: center;
 }
