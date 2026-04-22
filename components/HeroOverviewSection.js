@@ -1,10 +1,29 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
 import HeroGoldScramble from "@/components/HeroGoldScramble";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useScrollParallax } from "@/lib/useScrollParallax";
 
 export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
+  const sectionRef = useRef(null);
+
+  useScrollParallax(
+    () => {
+      const root = sectionRef.current;
+      if (!root) return null;
+      return {
+        root,
+        bg: root.querySelector(".hero-bg-embed"),
+        fg: root.querySelector(".hero-content"),
+      };
+    },
+    { bgRate: 0.22, fgRate: -0.075, bgScale: 1.08, maxTravel: 200 }
+  );
+
   return (
-    <section className="hero hero-cv" id="overview">
+    <section ref={sectionRef} className="hero hero-cv" id="overview">
       <div className="hero-bg-embed" aria-hidden="true">
         <iframe
           className="hero-bg-iframe"

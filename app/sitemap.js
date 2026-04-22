@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
+import { worksProjects } from "@/config/worksProjects";
 
 export default async function sitemap() {
   const host = (await headers()).get("host") || "";
@@ -7,17 +8,20 @@ export default async function sitemap() {
   const base = siteConfig.siteUrl;
   const now = new Date();
 
+  const workUrls = worksProjects.map((w) => `${base}/works/${w.slug}`);
+
   const isJonny = host.toLowerCase().startsWith("jonny.");
   const urls = isJonny
     ? [
         base,
+        ...workUrls,
         `${base}/#experience`,
         `${base}/#skills`,
         `${base}/#education`,
         `${base}/#recommendations`,
         `${base}/#languages`,
       ]
-    : [base, `${base}/#services`, `${base}/#work`, `${base}/contact`];
+    : [base, ...workUrls, `${base}/#services`, `${base}/#work`, `${base}/contact`];
 
   return urls.map((url, i) => ({
     url,

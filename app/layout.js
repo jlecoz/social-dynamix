@@ -114,7 +114,7 @@ export default async function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -123,10 +123,15 @@ export default async function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdForSite(siteConfig, host)) }}
         />
-        <div className="page-shell">
-          <SiteHeader config={siteConfig} />
-          <main>{children}</main>
-          <Footer config={siteConfig} />
+        <div className="parallax-container">
+          <div className="parallax-bg" aria-hidden="true" />
+          <div className="parallax-content">
+            <div className="page-shell">
+              <SiteHeader config={siteConfig} />
+              <main>{children}</main>
+              <Footer config={siteConfig} />
+            </div>
+          </div>
         </div>
       </body>
     </html>

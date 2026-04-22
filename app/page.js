@@ -5,6 +5,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 import HeroOverviewSection from "@/components/HeroOverviewSection";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 import ContactCtaBackground from "@/components/ContactCtaBackground";
+import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
+import MainSectionParallax from "@/components/MainSectionParallax";
+import WorksCardsTimeline from "@/components/WorksCardsTimeline";
+import { worksProjects } from "@/config/worksProjects";
 
 /** Profile experience section on LinkedIn (earlier roles such as IMS Health) */
 const linkedInExperienceUrl =
@@ -13,10 +17,6 @@ const linkedInExperienceUrl =
 /** Received recommendations on LinkedIn */
 const linkedInRecommendationsUrl =
   "https://www.linkedin.com/in/jonathan-lecoz/details/recommendations/";
-
-/** Education & schooling on LinkedIn */
-const linkedInEducationUrl =
-  "https://www.linkedin.com/in/jonathan-lecoz/details/education/";
 
 const cv = {
   name: "Jonathan Le Coz",
@@ -194,20 +194,7 @@ I can't recommend Jon more. I hope that I'll have the chance to work with him ag
   ],
 };
 
-const works = [
-  {
-    title: "Breeze Design Systems",
-    client: "Imperial Brands",
-    blurb: "Multi-brand whitelabel systems and platforms for next-generation smoking products",
-    href: "https://www.imperialbrandsplc.com",
-  },
-  {
-    title: "Hospitality App",
-    client: "Ser.vi",
-    blurb: "Consumer restaurant menu self-service to in-kitchen printing for staff",
-    href: "https://get.ser.vi",
-  },
-];
+const works = worksProjects;
 
 function ExperienceSection() {
   return (
@@ -314,21 +301,69 @@ function WorksSection() {
           A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
         </p>
 
-        <ScrollReveal stagger className="cv-work-grid">
-          {works.map((item) => (
-            <a
-              key={`${item.title}-${item.client ?? ""}`}
-              className="cv-work-card reveal"
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>{item.title}</h3>
-              {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
-              <p>{item.blurb}</p>
-            </a>
-          ))}
-        </ScrollReveal>
+        <WorksCardsTimeline>
+          <ScrollReveal stagger className="cv-work-grid">
+            {works.map((item) => (
+              <article
+                key={`${item.title}-${item.client ?? ""}`}
+                className={`cv-work-card card__content reveal${item.coverImage ? " cv-work-card--split" : ""}`}
+              >
+                {item.coverImage ? (
+                  <>
+                    <div className="cv-work-card-copy">
+                      <h3>{item.title}</h3>
+                      {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
+                      <p>{item.blurb}</p>
+                      <div className="cv-work-card-actions">
+                        <Link href={`/works/${item.slug}`} className="button button-secondary">
+                          Learn more
+                        </Link>
+                        <a
+                          className="cv-work-card-external"
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Client site →
+                        </a>
+                      </div>
+                    </div>
+                    <div className="cv-work-card-cover">
+                      <img
+                        className="cv-work-card-cover-img"
+                        src={item.coverImage}
+                        alt={item.coverAlt || ""}
+                        loading="lazy"
+                        decoding="async"
+                        width={440}
+                        height={440}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3>{item.title}</h3>
+                    {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
+                    <p>{item.blurb}</p>
+                    <div className="cv-work-card-actions">
+                      <Link href={`/works/${item.slug}`} className="button button-secondary">
+                        Learn more
+                      </Link>
+                      <a
+                        className="cv-work-card-external"
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Client site →
+                      </a>
+                    </div>
+                  </>
+                )}
+              </article>
+            ))}
+          </ScrollReveal>
+        </WorksCardsTimeline>
       </div>
     </section>
   );
@@ -363,15 +398,17 @@ function SkillsSection() {
         <div className="cv-split">
           <ScrollReveal className="cv-split-left">
             <h3 className="cv-subhead">Key skills</h3>
-            <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
-              <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
-            </div>
-            <div className="cv-tags">
-              {cv.skillTags.map((t) => (
-                <span key={t} className="cv-tag">
-                  {t}
-                </span>
-              ))}
+            <div className="skills-wheel-row">
+              <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
+                <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
+              </div>
+              <div className="cv-tags">
+                {cv.skillTags.map((t) => (
+                  <span key={t} className="cv-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 
@@ -436,29 +473,14 @@ function EducationSection() {
             </div>
           ))}
         </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="cv-experience-more">
-            <a
-              className="cv-experience-more-link"
-              href={linkedInEducationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Show all education on LinkedIn"
-            >
-              <span>Show all</span>
-              <span className="cv-experience-more-arrow" aria-hidden="true">
-                →
-              </span>
-            </a>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
 }
 
 function RecommendationsSection() {
+  const recCount = cv.recommendations.length;
+
   return (
     <section className="section" id="recommendations">
       <div className="section-services-inner">
@@ -469,35 +491,47 @@ function RecommendationsSection() {
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal stagger className="cv-edu">
-          {cv.recommendations.map((r) => (
-            <div key={r.name} className="cv-edu-row cv-edu-row--rec reveal">
-              <div className="cv-rec-body">
-                {r.portrait ? (
-                  <img
-                    className="cv-rec-avatar cv-rec-avatar--photo"
-                    src={r.portrait}
-                    alt={`${r.name} portrait`}
-                    width={56}
-                    height={56}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <span className="cv-rec-avatar" aria-hidden="true">
-                    {r.initials}
-                  </span>
-                )}
-                <div className="cv-rec-copy">
-                  <h3>{r.name}</h3>
-                  {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
-                  <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
-                  <p className="cv-rec-quote">{r.quote}</p>
+        <div
+          id="recommendation-cards"
+          className="rec-stack-cards"
+          style={{ "--numcards": recCount }}
+        >
+          {cv.recommendations.map((r, i) => (
+            <div
+              key={r.name}
+              className="rec-stack-card"
+              style={{ "--index": i + 1 }}
+            >
+              <div className="rec-stack-card__content cv-edu-row cv-edu-row--rec">
+                <div className="cv-rec-body">
+                  {r.portrait ? (
+                    <img
+                      className="cv-rec-avatar cv-rec-avatar--photo"
+                      src={r.portrait}
+                      alt={`${r.name} portrait`}
+                      width={56}
+                      height={56}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span className="cv-rec-avatar" aria-hidden="true">
+                      {r.initials}
+                    </span>
+                  )}
+                  <div className="cv-rec-copy">
+                    <h3>{r.name}</h3>
+                    {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
+                    <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
+                    <p className="cv-rec-quote">{r.quote}</p>
+                  </div>
                 </div>
               </div>
+              {/* Scroll runway below quote; overlap happens here so the next card stacks without covering text */}
+              <div className="rec-stack-card__slack" aria-hidden="true" />
             </div>
           ))}
-        </ScrollReveal>
+        </div>
 
         <ScrollReveal>
           <div className="cv-experience-more">
@@ -604,7 +638,7 @@ function ContactCTA({ siteConfig }) {
             Available for <span className="gold">product design leadership</span> and advisory work.
           </h2>
           <p className="section-intro reveal reveal-down">
-            Based in {cv.location}. Reach out via email and I&rsquo;ll respond as soon as I can.
+            Based in {cv.location}. Reach out about product design leadership via email and I&rsquo;ll respond as soon as I can.
           </p>
           <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
             <Link className="button button-gold" href="/contact">
@@ -620,6 +654,7 @@ function ContactCTA({ siteConfig }) {
 function JonnyHome({ siteConfig }) {
   return (
     <>
+      <MainSectionParallax />
       <HeroOverviewSection
         meta={cv.meta}
         title={cv.title}
@@ -629,6 +664,7 @@ function JonnyHome({ siteConfig }) {
       <WorksSection />
       <SkillsSection />
       <EducationSection />
+      <IxdfCertificationsSection />
       <RecommendationsSection />
       <LanguagesSection />
       <ContactCTA siteConfig={siteConfig} />
@@ -639,6 +675,7 @@ function JonnyHome({ siteConfig }) {
 function MainHome() {
   return (
     <>
+      <MainSectionParallax />
       <section className="sdx-hero">
         <div className="sdx-hero-inner">
           <p className="sdx-kicker">Social Dynamix</p>
@@ -683,6 +720,8 @@ function MainHome() {
           ))}
         </ScrollReveal>
       </section>
+
+      <SkillsSection />
 
       <section className="section" id="work">
         <ScrollReveal>
