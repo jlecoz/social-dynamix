@@ -6,6 +6,8 @@ import HeroOverviewSection from "@/components/HeroOverviewSection";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 import ContactCtaBackground from "@/components/ContactCtaBackground";
 import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
+import ShowMoreBullets from "@/components/ShowMoreBullets";
+import FlippableWorkCover from "@/components/FlippableWorkCover";
 import MainSectionParallax from "@/components/MainSectionParallax";
 import WorksCardsTimeline from "@/components/WorksCardsTimeline";
 import { worksProjects } from "@/config/worksProjects";
@@ -129,6 +131,7 @@ const cv = {
       school: "IxDF - The Interaction Design Foundation",
       degree: "Professional Education, User Experience and Interaction Design",
       period: "2016 – 2017",
+      details: ["Online course Certifications"],
     },
   ],
   education: [
@@ -144,7 +147,7 @@ const cv = {
       degree: "ACE, Design Multimédia",
       period: "2002 – 2003",
       activities:
-        "Activities and societies: Création de la plaquette de l'école et le site internet.",
+        "Activities and societies: Creating the school factsheet and website.",
       description: "Design Multimédia",
     },
   ],
@@ -248,11 +251,7 @@ function ExperienceSection() {
                             {role.summary ? <p className="cv-role-summary">{role.summary}</p> : null}
                             {role.bullets?.length ? (
                               <div className="cv-role-timeline">
-                                <ul className="cv-bullets-timeline">
-                                  {role.bullets.map((b) => (
-                                    <li key={b}>{b}</li>
-                                  ))}
-                                </ul>
+                                <ShowMoreBullets bullets={role.bullets} initiallyVisibleCount={1} className="cv-bullets-timeline" />
                               </div>
                             ) : null}
                             {role.skills ? <p className="cv-role-skills">Skills: {role.skills}</p> : null}
@@ -328,17 +327,7 @@ function WorksSection() {
                         </a>
                       </div>
                     </div>
-                    <div className="cv-work-card-cover">
-                      <img
-                        className="cv-work-card-cover-img"
-                        src={item.coverImage}
-                        alt={item.coverAlt || ""}
-                        loading="lazy"
-                        decoding="async"
-                        width={440}
-                        height={440}
-                      />
-                    </div>
+                    <FlippableWorkCover item={item} />
                   </>
                 ) : (
                   <>

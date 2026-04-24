@@ -33,5 +33,17 @@ export default async function WorkCaseStudyRoute({ params }) {
   const project = getWorkBySlug(slug);
   if (!project) notFound();
 
+  if (slug === "breeze-ds") {
+    return (
+      <div style={{ width: "100%", height: "100vh" }}>
+        <iframe
+          title="Breeze DS case study"
+          src="/breeze-ds-case-study.html"
+          style={{ width: "100%", height: "100%", border: 0 }}
+        />
+      </div>
+    );
+  }
+
   return <CaseStudyPage project={project} />;
 }

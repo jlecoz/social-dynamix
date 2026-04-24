@@ -68,6 +68,36 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
             LinkedIn
           </a>
         </ScrollReveal>
+
+        <ScrollReveal className="hero-overview-bio reveal-down">
+          <div className="hero-overview-bio-inner">
+            <p>
+              For as long as I can recall, <strong>visuals, interaction and technology</strong> have been{" "}
+              <strong>constant source of inspiration in my life!</strong>
+            </p>
+            <p>
+              From as early on as my first <strong>Atari</strong> desktop when I was 4, to my <strong>NES</strong> at 9
+              with Ninja Turtles and Mario Bros, <strong>SEGA</strong> with Sonic, Mortal Kombat and Streets of Rage, to
+              the <strong>Playstation 2</strong> and <strong>N64</strong> when I was 16.
+            </p>
+            <p>
+              I was fortune enough to grow up and be <strong>bathed in digital motion graphics and human-computer interactions</strong>
+              for so many of my formative years; where coming now to this point in my career (and life), I seek to forge
+              into a professional pathway that <strong>truly unlocks the power of my imagination and curiosity</strong>.
+            </p>
+            <p>
+              In today’s society, our <strong>digital channels have become the primary sense input</strong> through which
+              people communicate, relate and bond. As <strong>we all need to feel that connection</strong>; the design to
+              those experiences truly is the glue that binds us.
+            </p>
+            <p>
+              I am currently exploring <strong>several passion areas</strong> that touch XD such as{" "}
+              <strong>AR/VR</strong> experiences, cognitive neural behaviours, motion capturing, machine learning, haptic
+              wearable, multimodal I/O and sensory immersion.
+            </p>
+            <p>Our mind's true innovation drives us to make what is unbelievable into real.</p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

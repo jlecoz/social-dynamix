@@ -48,7 +48,6 @@ export const siteConfigJonny = {
     { label: "Works", href: "/#works" },
     { label: "Skills", href: "/#skills" },
     { label: "Education", href: "/#education" },
-    { label: "Certifications", href: "/#certifications" },
     { label: "Recommendations", href: "/#recommendations" },
   ],
   social: {
