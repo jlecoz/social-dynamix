@@ -69,7 +69,10 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
           </a>
         </ScrollReveal>
 
-        <ScrollReveal className="hero-overview-bio reveal-down">
+      </div>
+
+      <ScrollReveal className="hero-overview-bio-band reveal-down">
+        <div className="hero-overview-bio">
           <div className="hero-overview-bio-inner">
             <p>
               For as long as I can recall, <strong>visuals, interaction and technology</strong> have been{" "}
@@ -81,9 +84,10 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
               the <strong>Playstation 2</strong> and <strong>N64</strong> when I was 16.
             </p>
             <p>
-              I was fortune enough to grow up and be <strong>bathed in digital motion graphics and human-computer interactions</strong>
-              for so many of my formative years; where coming now to this point in my career (and life), I seek to forge
-              into a professional pathway that <strong>truly unlocks the power of my imagination and curiosity</strong>.
+              I was fortune enough to grow up and be{" "}
+              <strong>bathed in digital motion graphics and human-computer interactions</strong> for so many of my
+              formative years; where coming now to this point in my career (and life), I seek to forge into a
+              professional pathway that <strong>truly unlocks the power of my imagination and curiosity</strong>.
             </p>
             <p>
               In today’s society, our <strong>digital channels have become the primary sense input</strong> through which
@@ -97,8 +101,8 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
             </p>
             <p>Our mind's true innovation drives us to make what is unbelievable into real.</p>
           </div>
-        </ScrollReveal>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }
