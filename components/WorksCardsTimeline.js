@@ -17,6 +17,7 @@ export default function WorksCardsTimeline({ children }) {
     if (!cardsWrapper) return undefined;
 
     const viewport = cardsWrapper.querySelector(".works-horizontal-viewport");
+    const intro = cardsWrapper.querySelector(".section-intro");
     const track = cardsWrapper.querySelector(".cv-work-grid");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -25,10 +26,13 @@ export default function WorksCardsTimeline({ children }) {
     let raf = 0;
     let measureRaf = 0;
     let scrollDistance = 0;
+    let horizontalStartOffset = 0;
 
     const clear = () => {
       scrollDistance = 0;
+      horizontalStartOffset = 0;
       cardsWrapper.style.removeProperty("--works-scroll-distance");
+      cardsWrapper.style.removeProperty("--works-horizontal-start-offset");
       cardsWrapper.style.removeProperty("--works-sticky-height");
       cardsWrapper.style.removeProperty("--works-scroll-runway");
       track.style.transform = "";
@@ -43,7 +47,10 @@ export default function WorksCardsTimeline({ children }) {
 
       const rect = cardsWrapper.getBoundingClientRect();
       const stickyTop = parseFloat(window.getComputedStyle(viewport).top) || 0;
-      const progress = Math.min(1, Math.max(0, (stickyTop - rect.top) / scrollDistance));
+      const progress = Math.min(
+        1,
+        Math.max(0, (stickyTop - rect.top - horizontalStartOffset) / scrollDistance),
+      );
       track.style.transform = `translate3d(${-scrollDistance * progress}px, 0, 0)`;
     };
 
@@ -62,9 +69,21 @@ export default function WorksCardsTimeline({ children }) {
       const stickyHeight = window.innerHeight;
       cardsWrapper.style.setProperty("--works-sticky-height", `${stickyHeight}px`);
 
+      if (intro) {
+        const introRect = intro.getBoundingClientRect();
+        const viewportRect = viewport.getBoundingClientRect();
+        horizontalStartOffset = Math.max(0, introRect.bottom - viewportRect.top);
+      } else {
+        horizontalStartOffset = 0;
+      }
+
       scrollDistance = Math.max(0, track.scrollWidth - viewport.clientWidth);
       cardsWrapper.style.setProperty("--works-scroll-distance", `${scrollDistance}px`);
-      cardsWrapper.style.setProperty("--works-scroll-runway", `${scrollDistance + stickyHeight}px`);
+      cardsWrapper.style.setProperty("--works-horizontal-start-offset", `${horizontalStartOffset}px`);
+      cardsWrapper.style.setProperty(
+        "--works-scroll-runway",
+        `${scrollDistance + horizontalStartOffset + stickyHeight}px`,
+      );
       run();
     };
 
@@ -80,6 +99,7 @@ export default function WorksCardsTimeline({ children }) {
 
     const resizeObserver = new ResizeObserver(scheduleMeasure);
     resizeObserver.observe(viewport);
+    if (intro) resizeObserver.observe(intro);
     resizeObserver.observe(track);
 
     return () => {

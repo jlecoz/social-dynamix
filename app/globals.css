@@ -1236,8 +1236,8 @@ body:has(.parallax-container) {
   margin-right: calc(50% - 50vw);
   padding-inline: 0;
   box-sizing: border-box;
-  padding-top: 32px;
-  padding-bottom: 64px;
+  padding-top: 128px;
+  padding-bottom: 128px;
   border-top-color: color-mix(in srgb, var(--color-white), transparent 78%);
 }
 
