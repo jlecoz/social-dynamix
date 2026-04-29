@@ -1,11 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { headers } from "next/headers";
 import { getSiteConfig } from "@/config/getSiteConfig";
 import ScrollReveal from "@/components/ScrollReveal";
 import HeroOverviewSection from "@/components/HeroOverviewSection";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 import ContactCtaBackground from "@/components/ContactCtaBackground";
-import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
 import ShowMoreBullets from "@/components/ShowMoreBullets";
 import FlippableWorkCover from "@/components/FlippableWorkCover";
 import MainSectionParallax from "@/components/MainSectionParallax";
@@ -141,6 +141,7 @@ const cv = {
       period: "2004 – 2006",
       activities: "Activities and societies: Option in Applied Computer Graphics",
       description: "Minor in Communication Design",
+      logo: "/img/csu-chico-seal.png",
     },
     {
       school: "International Academy of Design",
@@ -291,16 +292,16 @@ function ExperienceSection() {
 function WorksSection() {
   return (
     <section className="section" id="works">
-      <div className="section-services-inner">
-        <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" decrypt />
-          <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
-        </ScrollReveal>
-        <p className="section-intro">
-          A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
-        </p>
+      <WorksCardsTimeline>
+        <div className="section-services-inner">
+          <ScrollReveal>
+            <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" decrypt />
+            <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
+          </ScrollReveal>
+          <p className="section-intro">
+            A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
+          </p>
 
-        <WorksCardsTimeline>
           <ScrollReveal stagger className="cv-work-grid">
             {works.map((item) => (
               <article
@@ -352,117 +353,8 @@ function WorksSection() {
               </article>
             ))}
           </ScrollReveal>
-        </WorksCardsTimeline>
-      </div>
-    </section>
-  );
-}
-
-function SkillsSection() {
-  return (
-    <section className="section section-services" id="skills">
-      <div className="section-services-inner">
-        <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="KNOWLEDGE & SKILLS" decrypt />
-          <h2 className="section-headline skills-headline-cycle">
-            <span className="skills-cycle-word" style={{ "--cycle-i": 0 }}>
-              Creative
-            </span>
-            <span className="skills-cycle-punct">,</span>{" "}
-            <span className="skills-cycle-word" style={{ "--cycle-i": 1 }}>
-              collaborative
-            </span>{" "}
-            <span className="skills-cycle-word" style={{ "--cycle-i": 2 }}>
-              and
-            </span>{" "}
-            <span className="skills-cycle-word" style={{ "--cycle-i": 3 }}>
-              efficient
-            </span>
-          </h2>
-          <p className="section-intro">
-            Focused on <span className="gold">customer-driven innovation</span> and measurable outcomes.
-          </p>
-        </ScrollReveal>
-
-        <div className="cv-split">
-          <ScrollReveal className="cv-split-left">
-            <h3 className="cv-subhead">Key skills</h3>
-            <div className="skills-wheel-row">
-              <div className="skills-wheel" aria-label="Skills attributes: passionate, bold, social, funny">
-                <img src="/img/profile.svg" alt="Skills profile" className="skills-wheel-img" />
-              </div>
-              <div className="cv-tags">
-                {cv.skillTags.map((t) => (
-                  <span key={t} className="cv-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal className="cv-split-right">
-            <h3 className="cv-subhead">Knowledge</h3>
-            <ul className="cv-knowledge">
-              {cv.knowledge.map((p) => (
-                <li key={p}>{p}</li>
-              ))}
-            </ul>
-          </ScrollReveal>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function EducationSection() {
-  return (
-    <section className="section" id="education">
-      <div className="section-services-inner">
-        <ScrollReveal>
-          <ExperienceHeadlineDecrypt as="p" className="section-label" text="EDUCATION" decrypt />
-          <h2 className="section-headline">
-            Computer sciences, <span className="gold">communication design</span> and continuous learning.
-          </h2>
-        </ScrollReveal>
-
-        <ScrollReveal stagger className="cv-edu">
-          <p className="cv-edu-subheading">Certifications</p>
-          {cv.certifications.map((e) => (
-            <div key={e.school} className="cv-edu-row reveal">
-              <div className="cv-edu-main">
-                <h3>{e.school}</h3>
-                <p className="cv-edu-degree">{e.degree}</p>
-                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
-                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
-                {e.details?.map((line) => (
-                  <p key={line} className="cv-edu-detail">
-                    {line}
-                  </p>
-                ))}
-              </div>
-              <div className="cv-edu-period">{e.period}</div>
-            </div>
-          ))}
-          <p className="cv-edu-subheading">School</p>
-          {cv.education.map((e) => (
-            <div key={e.school} className="cv-edu-row reveal">
-              <div className="cv-edu-main">
-                <h3>{e.school}</h3>
-                <p className="cv-edu-degree">{e.degree}</p>
-                {e.activities ? <p className="cv-edu-detail">{e.activities}</p> : null}
-                {e.description ? <p className="cv-edu-detail">{e.description}</p> : null}
-                {e.details?.map((line) => (
-                  <p key={line} className="cv-edu-detail">
-                    {line}
-                  </p>
-                ))}
-              </div>
-              <div className="cv-edu-period">{e.period}</div>
-            </div>
-          ))}
-        </ScrollReveal>
-      </div>
+      </WorksCardsTimeline>
     </section>
   );
 }
@@ -543,74 +435,23 @@ function RecommendationsSection() {
   );
 }
 
-function LanguagesSection() {
+function PitchSection() {
   return (
-    <section className="section" id="languages">
+    <section className="section cv-pitch-section" id="pitch">
       <div className="section-services-inner">
-        <ScrollReveal>
-          <h2 className="languages-title">Languages</h2>
-          <div className="languages-rule" aria-hidden="true" />
-        </ScrollReveal>
-
-        <ScrollReveal stagger className="languages-list">
-          {cv.languages.map((lang) => (
-            <div key={lang.label} className="languages-row reveal">
-              <div className="languages-label">
-                {lang.label === "English" ? (
-                  <span
-                    className="languages-flag languages-flag--canvas languages-flag--uk"
-                    aria-hidden="true"
-                  >
-                    <iframe
-                      className="languages-flag-iframe"
-                      src="/animations/uk_flag_icon.html"
-                      title=""
-                      loading="lazy"
-                    />
-                  </span>
-                ) : lang.label === "French" ? (
-                  <span
-                    className="languages-flag languages-flag--canvas languages-flag--fr"
-                    aria-hidden="true"
-                  >
-                    <iframe
-                      className="languages-flag-iframe"
-                      src="/animations/french_flag_icon.html"
-                      title=""
-                      loading="lazy"
-                    />
-                  </span>
-                ) : lang.label === "Spanish" ? (
-                  <span
-                    className="languages-flag languages-flag--canvas languages-flag--es"
-                    aria-hidden="true"
-                  >
-                    <iframe
-                      className="languages-flag-iframe"
-                      src="/animations/spanish_flag_icon.html"
-                      title=""
-                      loading="lazy"
-                    />
-                  </span>
-                ) : null}
-                {lang.label}
-              </div>
-              <div
-                className="languages-dots"
-                role="img"
-                aria-label={`${lang.label}: ${lang.level} out of 5`}
-              >
-                {Array.from({ length: 5 }, (_, i) => (
-                  <span
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={`${lang.label}-${i}`}
-                    className={`languages-dot ${i < lang.level ? "is-on" : "is-off"}`}
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+        <ScrollReveal className="cv-pitch-card reveal-down">
+          <h2 className="cv-pitch-headline">
+            I build teams that make
+            <br />
+            complex things feel simple.
+          </h2>
+          <p className="cv-pitch-copy">
+            10 years leading UX across SaaS, ecommerce, and digital products - from pixels to strategy, from solo
+            contributor to team builder.
+          </p>
+          <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
+            <Image src="/img/hero-jonathan-portrait.png" alt="" width={330} height={330} loading="lazy" />
+          </div>
         </ScrollReveal>
       </div>
     </section>
@@ -649,13 +490,10 @@ function JonnyHome({ siteConfig }) {
         title={cv.title}
         skillTagsLine={cv.skillTags.join(" • ")}
       />
-      <ExperienceSection />
+      <PitchSection />
       <WorksSection />
-      <SkillsSection />
-      <EducationSection />
-      <IxdfCertificationsSection />
+      <ExperienceSection />
       <RecommendationsSection />
-      <LanguagesSection />
       <ContactCTA siteConfig={siteConfig} />
     </>
   );
@@ -709,8 +547,6 @@ function MainHome() {
           ))}
         </ScrollReveal>
       </section>
-
-      <SkillsSection />
 
       <section className="section" id="work">
         <ScrollReveal>

@@ -223,6 +223,15 @@ p {
     opacity: 1;
     text-shadow: none;
   }
+
+  .hero-cv-avatar-flight {
+    display: none !important;
+  }
+
+  .cv-pitch-avatar-target {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Whole-page section parallax targets (see MainSectionParallax.js) */
@@ -619,6 +628,9 @@ body:has(.parallax-container) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(100vh, auto);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.94) 0 18%, transparent 38%),
+    linear-gradient(180deg, #f6f1eb 0%, #ffffff 82%);
 }
 
 .hero.hero-cv > .hero-bg-embed {
@@ -642,74 +654,164 @@ body:has(.parallax-container) {
 }
 
 .hero-cv .hero-content {
-  padding: 0 1.5rem;
+  padding: clamp(5rem, 9vw, 7.5rem) 1.5rem 3.5rem;
   text-align: center;
+}
+
+.hero-duality {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(1rem, 5vw, 4rem);
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hero-role {
+  color: var(--color-white, #f2f8fa);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.32);
+  transition: color var(--duration-mid) var(--ease), transform var(--duration-mid) var(--ease);
+}
+
+.hero-role--designer {
+  text-align: right;
+}
+
+.hero-role--coder {
+  text-align: left;
+}
+
+.hero-role-title {
+  max-width: none;
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(var(--size-500), 7.6vw, var(--size-1000));
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.hero-role-copy {
+  max-width: 24ch;
+  margin: 0;
+  color: color-mix(in srgb, var(--color-white, #f2f8fa), transparent 14%);
+  font-size: var(--size-150);
+  line-height: 1.55;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-role--designer .hero-role-copy {
+  margin-left: auto;
+}
+
+.hero-role--designer:hover,
+.hero-duality.is-avatar-designer .hero-role--designer {
+  color: var(--color-accent);
+  transform: translate3d(-0.35rem, 0, 0);
+}
+
+.hero-role--coder:hover,
+.hero-duality.is-avatar-coder .hero-role--coder {
+  color: var(--color-accent);
+  transform: translate3d(0.35rem, 0, 0);
 }
 
 /* Centered headshot — square source, circular display */
 .hero-cv-avatar {
   display: flex;
   justify-content: center;
-  margin: 0 auto 1.35rem;
+  margin: 0 auto;
   width: 100%;
+  perspective: 1000px;
 }
 
-.hero-cv-avatar-img {
-  display: block;
-  width: clamp(9.375rem, 24vw, 14.25rem);
-  height: auto;
+.hero-avatar-flip {
+  position: relative;
+  width: clamp(10rem, 24vw, 18rem);
   aspect-ratio: 1;
+  transform-style: preserve-3d;
+  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-cv-avatar:hover .hero-avatar-flip,
+.hero-duality.is-avatar-designer .hero-avatar-flip {
+  transform: rotateY(180deg);
+}
+
+.hero-duality.is-avatar-coder .hero-avatar-flip {
+  transform: rotateY(540deg);
+}
+
+.hero-avatar-flip-face {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center center;
   border-radius: 50%;
-  border: 2px solid color-mix(in srgb, var(--color-white), transparent 40%);
-  box-shadow: 0 12px 40px color-mix(in srgb, #0a0b0c, transparent 45%);
+  border: 4px solid #ffffff;
+  box-shadow: 0 22px 70px color-mix(in srgb, #0a0b0c, transparent 70%);
+  backface-visibility: hidden;
   flex-shrink: 0;
+}
+
+.hero-avatar-flip-face--illustration {
+  background: #f7e9dc;
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.hero-cv-avatar:hover .hero-avatar-illustration--designer,
+.hero-duality.is-avatar-designer .hero-avatar-illustration--designer,
+.hero-duality.is-avatar-coder .hero-avatar-illustration--coder {
+  opacity: 1;
+}
+
+.hero-avatar-flip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 28%, transparent 0 33%, rgba(26, 122, 115, 0.18) 34% 35%, transparent 36%),
+    repeating-linear-gradient(135deg, rgba(26, 122, 115, 0.14) 0 1px, transparent 1px 7px);
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: opacity var(--duration-mid) var(--ease);
+}
+
+.hero-cv-avatar:hover .hero-avatar-flip::after,
+.hero-duality.is-avatar-designer .hero-avatar-flip::after,
+.hero-duality.is-avatar-coder .hero-avatar-flip::after {
+  opacity: 0.46;
+}
+
+.hero-cv-avatar-flight {
+  display: none;
+  position: fixed;
+  z-index: 80;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 24px 80px color-mix(in srgb, #0a0b0c, transparent 42%);
+  pointer-events: none;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+#overview .hero-content > :not(.hero-cv-avatar) {
+  will-change: opacity, transform;
 }
 
 .hero-cv .cta-row {
   justify-content: center;
-}
-
-.hero-cv .hero-overview-bio-band {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-inline: 1.5rem;
-  box-sizing: border-box;
-}
-
-.hero-cv .hero-overview-bio {
-  margin-top: 1.25rem;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 1.25rem 1.1rem;
-  border-radius: 0.75rem;
-}
-
-.hero-cv .hero-overview-bio-inner {
-  max-width: 72ch;
-  margin-inline: auto;
-}
-
-.hero-cv .hero-overview-bio-inner p {
-  margin: 0.95rem auto 0;
-  color: color-mix(in srgb, var(--color-white), transparent 22%);
-  font-size: var(--size-200);
-  line-height: 1.75;
-}
-
-.hero-cv .hero-overview-bio-inner p:first-child {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.hero-cv .hero-overview-bio-inner p:nth-child(2) {
-  font-size: 18px;
-}
-
-.hero-cv .hero-overview-bio-inner p:last-child {
-  font-size: 18px;
-  font-weight: 700;
 }
 
 /* CV hero: keep section, scrim, iframe, and content block purely square (no card-like radius) */
@@ -870,12 +972,14 @@ body:has(.parallax-container) {
 /* CV hero (#overview): dark scrim over iframe — default .hero-bg-dim uses light wash */
 .hero-cv .hero-bg-dim {
   background:
+    radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.14) 0 18%, transparent 40%),
     linear-gradient(
       115deg,
-      color-mix(in srgb, var(--color-fg), transparent 12%) 0%,
-      color-mix(in srgb, var(--color-fg), transparent 48%) 52%,
-      color-mix(in srgb, var(--color-fg), transparent 30%) 100%
+      color-mix(in srgb, var(--color-fg), transparent 8%) 0%,
+      color-mix(in srgb, var(--color-fg), transparent 38%) 52%,
+      color-mix(in srgb, var(--color-fg), transparent 18%) 100%
     );
+  backdrop-filter: saturate(0.72) blur(1px);
 }
 
 .hero-glow {
@@ -927,23 +1031,111 @@ body:has(.parallax-container) {
 }
 
 .hero-cv .hero-headline .gold {
-  color: var(--color-white);
+  color: var(--color-core-teal, #1a7a73);
 }
 
 .hero-cv .cv-core-tags {
-  color: color-mix(in srgb, var(--color-white), transparent 18%);
+  display: inline-block;
+  width: fit-content;
+  max-width: min(100%, 70ch);
+  padding: 0.42rem 0.8rem;
+  color: var(--color-white, #f2f8fa);
+  background: color-mix(in srgb, var(--color-void, #0a0b0c), transparent 10%);
+  border: 1px solid color-mix(in srgb, var(--color-white, #f2f8fa), transparent 78%);
+  border-radius: 999px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.32);
 }
 
 .hero-cv .button-secondary {
-  background: color-mix(in srgb, var(--color-white), transparent 88%);
-  border-color: color-mix(in srgb, var(--color-white), transparent 55%);
-  color: var(--color-white);
+  background: color-mix(in srgb, var(--color-void, #0a0b0c), transparent 8%);
+  border-color: color-mix(in srgb, var(--color-white, #f2f8fa), transparent 68%);
+  color: var(--color-white, #f2f8fa);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
 }
 
 .hero-cv .button-secondary:hover {
-  background: color-mix(in srgb, var(--color-white), transparent 78%);
-  border-color: var(--color-accent);
-  color: var(--color-fg);
+  background: color-mix(in srgb, var(--color-core-teal, #1a7a73), black 18%);
+  border-color: var(--color-white, #f2f8fa);
+  color: var(--color-white, #f2f8fa);
+}
+
+.hero-cv .button-secondary:focus-visible {
+  outline: 3px solid var(--color-cyan-light, #7ddff2);
+  outline-offset: 3px;
+}
+
+.cv-pitch-section {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 4rem 0;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.cv-pitch-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 14rem);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  background:
+    radial-gradient(
+      560px 360px at 88% 0%,
+      color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 84%) 0%,
+      transparent 65%
+    ),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+}
+
+.cv-pitch-headline {
+  grid-column: 1;
+  max-width: 11ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--size-500), 7vw, var(--size-900));
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.cv-pitch-copy {
+  grid-column: 1;
+  max-width: 58ch;
+  margin: 1.4rem 0 0;
+  color: var(--color-grey);
+  font-size: clamp(var(--size-200), 2.2vw, var(--size-300));
+  line-height: 1.55;
+}
+
+.cv-pitch-avatar-target {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  justify-self: end;
+  width: clamp(8rem, 18vw, 14rem);
+  aspect-ratio: 1;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0) scale(0.96);
+  transition: opacity var(--duration-mid) var(--ease), transform var(--duration-mid) var(--ease);
+}
+
+.cv-pitch-avatar-target.is-settled {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.cv-pitch-avatar-target img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--color-white), transparent 40%);
+  box-shadow: 0 20px 64px color-mix(in srgb, #0a0b0c, transparent 52%);
 }
 
 /* When only one meta card is present, don't force 2 cols */
@@ -1025,7 +1217,7 @@ body:has(.parallax-container) {
 /* Works section — full width + mountain illustration (multi-layer SVG-style depth); scrim keeps copy legible */
 #works {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-color: #1a2b38;
   background-image:
     linear-gradient(
@@ -1079,8 +1271,9 @@ body:has(.parallax-container) {
   margin-right: calc(50% - 50vw);
   padding-inline: 0;
   box-sizing: border-box;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 /* Recommendations section — full width; tighter vertical padding */
@@ -1188,7 +1381,6 @@ body:has(.parallax-container) {
 
 #experience .section-services-inner {
   padding-top: 64px;
-  background: rgba(255, 255, 255, 0.6);
 }
 
 #experience .section-headline .gold {
@@ -1365,34 +1557,44 @@ body:has(.parallax-container) {
   translate: 0 0.02em;
 }
 
-/* Works — View Timeline scroll stack (#cards, .card__content set in WorksCardsTimeline.js) */
+/* Works — vertical page scroll drives a pinned horizontal card track (see WorksCardsTimeline.js) */
 #works #cards.cards-scroll-driver {
-  --numcards: 1;
+  --works-sticky-height: 100vh;
+  --works-scroll-runway: var(--works-sticky-height);
   position: relative;
-  /* Height follows the grid; no artificial scroll runway (was numcards × 28vh) */
-  padding-bottom: 0;
+  min-height: var(--works-scroll-runway);
+}
+
+#works #cards.cards-scroll-driver .works-horizontal-viewport {
+  position: sticky;
+  top: 0;
+  height: var(--works-sticky-height);
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 #works #cards.cards-scroll-driver .cv-work-grid {
+  --works-track-pad: clamp(1.5rem, 6vw, 4rem);
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: min(72rem, 100%);
-  margin-inline: auto;
+  display: flex;
+  align-items: stretch;
   gap: 1.2rem;
-}
-
-@media (max-width: 720px) {
-  #works #cards.cards-scroll-driver .cv-work-grid {
-    grid-template-columns: 1fr;
-    max-width: min(42rem, 100%);
-  }
+  padding-inline: var(--works-track-pad);
+  width: max-content;
+  max-width: none;
+  will-change: transform;
 }
 
 #works #cards.cards-scroll-driver .card__content {
-  position: sticky;
-  top: max(5.5rem, 12vh);
-  transform-origin: center top;
+  flex: 0 0 clamp(20rem, 72vw, 34rem);
+  min-height: clamp(24rem, 44vh, 34rem);
+}
+
+#works #cards.cards-scroll-driver .card__content.cv-work-card--split {
+  flex-basis: clamp(30rem, 78vw, 46rem);
 }
 
 .cv-work-grid {
@@ -1423,36 +1625,59 @@ body:has(.parallax-container) {
   box-shadow: 0 12px 36px color-mix(in srgb, var(--color-navy), transparent 92%);
 }
 
-/* Scroll timeline owns transform on stacked work cards — avoid fighting WAAPI */
-#works #cards.cards-scroll-driver .cv-work-card:hover {
-  transform: none;
-  box-shadow: 0 16px 40px color-mix(in srgb, var(--color-navy), transparent 88%);
-}
-
 @media (prefers-reduced-motion: reduce) {
   #works #cards.cards-scroll-driver {
-    padding-bottom: 0;
+    min-height: auto;
   }
 
-  #works #cards.cards-scroll-driver .card__content {
+  #works #cards.cards-scroll-driver .works-horizontal-viewport {
     position: relative;
     top: auto;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    display: block;
   }
-}
 
-@media (prefers-reduced-motion: reduce) and (min-width: 721px) {
   #works #cards.cards-scroll-driver .cv-work-grid {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: min(72rem, 100%);
     margin-inline: auto;
+    width: auto;
+    transform: none !important;
+  }
+
+  #works #cards.cards-scroll-driver .card__content {
+    min-height: 7.5rem;
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 720px) {
+@media (max-width: 720px) {
+  #works #cards.cards-scroll-driver {
+    min-height: auto;
+  }
+
+  #works #cards.cards-scroll-driver .works-horizontal-viewport {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    display: block;
+  }
+
   #works #cards.cards-scroll-driver .cv-work-grid {
+    display: grid;
     grid-template-columns: 1fr;
     max-width: min(42rem, 100%);
     margin-inline: auto;
+    width: auto;
+    transform: none !important;
+  }
+
+  #works #cards.cards-scroll-driver .card__content {
+    min-height: 7.5rem;
   }
 }
 
@@ -2218,12 +2443,25 @@ body:has(.parallax-container) {
   padding: 1.2rem 1.4rem;
 }
 
+.cv-edu-row--with-logo {
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 14rem) auto;
+  align-items: center;
+}
+
 #education .cv-edu-row {
   background: #ffffff;
 }
 
 .cv-edu-main {
   min-width: 0;
+}
+
+.cv-edu-logo {
+  justify-self: end;
+  width: clamp(8rem, 18vw, 14rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .cv-edu-row h3 {
@@ -3005,6 +3243,44 @@ body:has(.parallax-container) {
     padding: calc(5rem + 30px) 1.5rem calc(2.5rem + 30px);
   }
 
+  .hero-duality {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-role,
+  .hero-role--designer,
+  .hero-role--coder {
+    text-align: center;
+  }
+
+  .hero-role--designer {
+    order: 1;
+  }
+
+  .hero-cv-avatar {
+    order: 2;
+  }
+
+  .hero-role--coder {
+    order: 3;
+  }
+
+  .hero-role-copy,
+  .hero-role--designer .hero-role-copy {
+    margin-inline: auto;
+  }
+
+  .cv-pitch-card {
+    grid-template-columns: minmax(0, 1fr) minmax(5.75rem, 7rem);
+    gap: 1rem;
+  }
+
+  .cv-pitch-avatar-target {
+    width: clamp(5.75rem, 24vw, 7rem);
+  }
+
   .hero-headline {
     font-size: clamp(var(--size-400), 9vw, var(--size-700));
   }
@@ -3028,6 +3304,21 @@ body:has(.parallax-container) {
 
   .cv-edu-row--rec {
     gap: 0.75rem;
+  }
+
+  .cv-edu-row--with-logo {
+    grid-template-columns: minmax(0, 1fr) minmax(4.75rem, 6rem);
+    align-items: center;
+  }
+
+  .cv-edu-logo {
+    justify-self: end;
+    width: clamp(4.75rem, 24vw, 6rem);
+  }
+
+  .cv-edu-row--with-logo .cv-edu-period {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 
   .cv-split {

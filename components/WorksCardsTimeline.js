@@ -1,80 +1,101 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { attachScrollAndResize } from "@/lib/scrollRoot";
 
 /**
- * Scroll-driven card scaling via View Timeline API (see web.dev scroll-driven animations).
- * Sets --numcards on #cards (reserved for layout hooks; scroll runway padding removed from CSS).
+ * Pins the Works cards while vertical scrolling drives the cards horizontally.
+ * Uses JS instead of CSS scroll timelines so it works with the app's custom scroll root.
  */
 export default function WorksCardsTimeline({ children }) {
   const cardsWrapperRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
 
-    const ViewTimelineCtor = window.ViewTimeline;
     const cardsWrapper = cardsWrapperRef.current;
-    if (!cardsWrapper || !ViewTimelineCtor || typeof CSS === "undefined" || typeof CSS.percent !== "function") {
-      return undefined;
-    }
+    if (!cardsWrapper) return undefined;
 
-    const cards = cardsWrapper.querySelectorAll(".card__content");
-    if (!cards.length) return undefined;
+    const viewport = cardsWrapper.querySelector(".works-horizontal-viewport");
+    const track = cardsWrapper.querySelector(".cv-work-grid");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    const numCards = cards.length;
-    cardsWrapper.style.setProperty("--numcards", String(numCards));
+    if (!viewport || !track) return undefined;
 
-    let viewTimeline;
-    try {
-      viewTimeline = new ViewTimelineCtor({
-        subject: cardsWrapper,
-        axis: "block",
-      });
-    } catch {
-      return undefined;
-    }
+    let raf = 0;
+    let measureRaf = 0;
+    let scrollDistance = 0;
 
-    const animations = [];
+    const clear = () => {
+      scrollDistance = 0;
+      cardsWrapper.style.removeProperty("--works-scroll-distance");
+      cardsWrapper.style.removeProperty("--works-sticky-height");
+      cardsWrapper.style.removeProperty("--works-scroll-runway");
+      track.style.transform = "";
+    };
 
-    cards.forEach((card, index0) => {
-      const index = index0 + 1;
-      const reverseIndex0 = numCards - index;
-
-      let anim;
-      try {
-        anim = card.animate(
-          {
-            transform: [`scale(1)`, `scale(${1 - 0.1 * reverseIndex0})`],
-          },
-          {
-            timeline: viewTimeline,
-            fill: "forwards",
-            rangeStart: `exit-crossing ${CSS.percent((index0 / numCards) * 100)}`,
-            rangeEnd: `exit-crossing ${CSS.percent((index / numCards) * 100)}`,
-          }
-        );
-      } catch {
+    const run = () => {
+      raf = 0;
+      if (reduceMotion.matches || window.innerWidth <= 720 || scrollDistance <= 1) {
+        track.style.transform = "";
         return;
       }
-      if (anim) animations.push(anim);
-    });
+
+      const rect = cardsWrapper.getBoundingClientRect();
+      const stickyTop = parseFloat(window.getComputedStyle(viewport).top) || 0;
+      const progress = Math.min(1, Math.max(0, (stickyTop - rect.top) / scrollDistance));
+      track.style.transform = `translate3d(${-scrollDistance * progress}px, 0, 0)`;
+    };
+
+    const schedule = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(run);
+    };
+
+    const measure = () => {
+      measureRaf = 0;
+      if (reduceMotion.matches || window.innerWidth <= 720) {
+        clear();
+        return;
+      }
+
+      const stickyHeight = window.innerHeight;
+      cardsWrapper.style.setProperty("--works-sticky-height", `${stickyHeight}px`);
+
+      scrollDistance = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      cardsWrapper.style.setProperty("--works-scroll-distance", `${scrollDistance}px`);
+      cardsWrapper.style.setProperty("--works-scroll-runway", `${scrollDistance + stickyHeight}px`);
+      run();
+    };
+
+    const scheduleMeasure = () => {
+      if (measureRaf) return;
+      measureRaf = requestAnimationFrame(measure);
+    };
+
+    scheduleMeasure();
+    const detachScrollResize = attachScrollAndResize(schedule);
+    window.addEventListener("resize", scheduleMeasure);
+    reduceMotion.addEventListener("change", scheduleMeasure);
+
+    const resizeObserver = new ResizeObserver(scheduleMeasure);
+    resizeObserver.observe(viewport);
+    resizeObserver.observe(track);
 
     return () => {
-      animations.forEach((a) => {
-        try {
-          a.cancel();
-        } catch {
-          /* ignore */
-        }
-      });
-      cardsWrapper.style.removeProperty("--numcards");
+      detachScrollResize();
+      window.removeEventListener("resize", scheduleMeasure);
+      reduceMotion.removeEventListener("change", scheduleMeasure);
+      resizeObserver.disconnect();
+      cancelAnimationFrame(raf);
+      cancelAnimationFrame(measureRaf);
+      clear();
     };
   }, []);
 
   return (
     <div id="cards" ref={cardsWrapperRef} className="cards-scroll-driver">
-      {children}
+      <div className="works-horizontal-viewport">{children}</div>
     </div>
   );
 }
