@@ -9,6 +9,7 @@ import ContactCtaBackground from "@/components/ContactCtaBackground";
 import ShowMoreBullets from "@/components/ShowMoreBullets";
 import FlippableWorkCover from "@/components/FlippableWorkCover";
 import MainSectionParallax from "@/components/MainSectionParallax";
+import PitchPresenceImage from "@/components/PitchPresenceImage";
 import WorksCardsTimeline from "@/components/WorksCardsTimeline";
 import { worksProjects } from "@/config/worksProjects";
 
@@ -309,7 +310,7 @@ function WorksSection() {
                 className={`cv-work-card card__content reveal${item.coverImage ? " cv-work-card--split" : ""}`}
               >
                 {item.coverImage ? (
-                  <>
+                  <FlippableWorkCover item={item}>
                     <div className="cv-work-card-copy">
                       <h3>{item.title}</h3>
                       {item.client ? <h4 className="cv-work-client">{item.client}</h4> : null}
@@ -328,8 +329,7 @@ function WorksSection() {
                         </a>
                       </div>
                     </div>
-                    <FlippableWorkCover item={item} />
-                  </>
+                  </FlippableWorkCover>
                 ) : (
                   <>
                     <h3>{item.title}</h3>
@@ -450,7 +450,7 @@ function PitchSection() {
             contributor to team builder.
           </p>
           <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
-            <Image src="/img/hero-jonathan-portrait.png" alt="" width={330} height={330} loading="lazy" />
+            <PitchPresenceImage src="/img/pitch-jonathan-harvest.jpg" alt="" width={1024} height={576} />
           </div>
         </ScrollReveal>
       </div>

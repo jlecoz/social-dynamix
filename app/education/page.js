@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
+import PitchPresenceImage from "@/components/PitchPresenceImage";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getSiteConfig } from "@/config/getSiteConfig";
 
@@ -67,7 +68,7 @@ function PitchSection() {
             contributor to team builder.
           </p>
           <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
-            <Image src="/img/hero-jonathan-portrait.png" alt="" width={330} height={330} loading="lazy" />
+            <PitchPresenceImage src="/img/pitch-jonathan-harvest.jpg" alt="" width={1024} height={576} />
           </div>
         </ScrollReveal>
       </div>

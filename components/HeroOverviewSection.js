@@ -9,6 +9,8 @@ import { useScrollParallax } from "@/lib/useScrollParallax";
 export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
   const sectionRef = useRef(null);
   const [activeAvatarRole, setActiveAvatarRole] = useState(null);
+  const showDesignerAvatar = () => setActiveAvatarRole("designer");
+  const showCoderAvatar = () => setActiveAvatarRole("coder");
 
   useScrollParallax(
     () => {
@@ -43,7 +45,16 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
         >
           <div
             className="hero-role hero-role--designer"
-            onPointerEnter={() => setActiveAvatarRole("designer")}
+            role="button"
+            tabIndex={0}
+            onClick={showDesignerAvatar}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                showDesignerAvatar();
+              }
+            }}
+            onPointerEnter={showDesignerAvatar}
           >
             <p className="hero-role-title">designer</p>
             <p className="hero-role-copy">
@@ -87,7 +98,16 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
 
           <div
             className="hero-role hero-role--coder"
-            onPointerEnter={() => setActiveAvatarRole("coder")}
+            role="button"
+            tabIndex={0}
+            onClick={showCoderAvatar}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                showCoderAvatar();
+              }
+            }}
+            onPointerEnter={showCoderAvatar}
           >
             <p className="hero-role-title">&lt;coder&gt;</p>
             <p className="hero-role-copy">
