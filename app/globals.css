@@ -1061,7 +1061,10 @@ body:has(.parallax-container) {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding: 4rem 0;
-  background: #ffffff;
+  background:
+    radial-gradient(720px 420px at 18% 12%, rgba(255, 255, 255, 0.98), transparent 68%),
+    radial-gradient(520px 320px at 86% 22%, color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 92%), transparent 72%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfb 46%, #ffffff 100%);
   box-sizing: border-box;
 }
 
@@ -1077,13 +1080,30 @@ body:has(.parallax-container) {
   background:
     radial-gradient(
       560px 360px at 88% 0%,
-      color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 84%) 0%,
+      color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 88%) 0%,
       transparent 65%
     ),
+    linear-gradient(145deg, #ffffff 0%, #fbfdfd 52%, #f6fafa 100%),
     var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-border), transparent 42%);
+  border-radius: 1.15rem;
+  box-shadow:
+    0 2.25rem 5rem color-mix(in srgb, var(--color-navy), transparent 91%),
+    0 0.75rem 1.75rem color-mix(in srgb, var(--color-navy), transparent 95%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
   overflow: hidden;
+}
+
+.cv-pitch-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(460px 280px at 72% 18%, rgba(255, 255, 255, 0.78), transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.65), transparent 48%);
+  pointer-events: none;
 }
 
 .cv-pitch-headline {
@@ -1148,6 +1168,9 @@ body:has(.parallax-container) {
 .cv-pitch-image-presence {
   perspective: 1000px;
   overflow: hidden;
+  box-shadow:
+    -1.25rem 0 3.5rem color-mix(in srgb, var(--color-navy), transparent 92%),
+    inset 1px 0 0 rgba(255, 255, 255, 0.72);
 }
 
 .cv-pitch-image-presence::before {
@@ -1170,8 +1193,8 @@ body:has(.parallax-container) {
   object-fit: cover;
   object-position: calc(50% - 100px) center;
   border-radius: 0;
-  border-left: 1px solid color-mix(in srgb, var(--color-border), transparent 35%);
-  box-shadow: -24px 0 64px color-mix(in srgb, #0a0b0c, transparent 78%);
+  border-left: 1px solid color-mix(in srgb, var(--color-border), transparent 48%);
+  box-shadow: -24px 0 64px color-mix(in srgb, #0a0b0c, transparent 84%);
 }
 
 /* When only one meta card is present, don't force 2 cols */
@@ -1785,8 +1808,10 @@ body:has(.parallax-container) {
 
 .cv-work-card--split .cv-work-card-copy {
   width: 100%;
+  height: 100%;
   min-height: 100%;
   padding: 1.5rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -1799,6 +1824,9 @@ body:has(.parallax-container) {
   min-height: inherit;
   overflow: visible;
   background: transparent;
+  transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  transform-origin: 50% 58%;
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sr-only {
@@ -1819,18 +1847,23 @@ body:has(.parallax-container) {
   transform-style: preserve-3d;
 }
 
+.cv-work-card--split:hover .cv-work-card-cover,
+.cv-work-card--split:focus-within .cv-work-card-cover {
+  transform: translateY(-6px) rotateX(1deg) rotateY(-1deg);
+}
+
 .cv-work-card-cover-flip {
   position: absolute;
   inset: 0;
   border-radius: 0.8rem;
   transform-style: preserve-3d;
   transform-origin: 50% 50%;
-  transition: transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .cv-work-card-cover--flip.is-flipped .cv-work-card-cover-flip {
-  transform: translateZ(0.01px);
+  transform: rotateY(180deg) scale(1.015);
 }
 
 .cv-work-card-flip-hotspot {
@@ -1859,7 +1892,7 @@ body:has(.parallax-container) {
   position: absolute;
   inset: 0;
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--color-border), transparent 40%);
   border-radius: 0.8rem;
   backface-visibility: hidden;
@@ -1872,6 +1905,7 @@ body:has(.parallax-container) {
 
 .cv-work-card-cover-flip::before {
   content: "";
+  display: none;
   position: absolute;
   inset: 0.35rem;
   border-radius: 0.9rem;
@@ -1885,6 +1919,7 @@ body:has(.parallax-container) {
 
 .cv-work-card-cover-flip::after {
   content: "";
+  display: none;
   position: absolute;
   inset: 0;
   border-radius: 0.8rem;
@@ -1900,24 +1935,54 @@ body:has(.parallax-container) {
 
 .cv-work-card-cover-front {
   background: #ffffff;
-  transform: translateZ(18px);
+  transform: rotateY(0deg) translateZ(1px);
   transform-origin: 50% 50%;
   z-index: 2;
-  transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color var(--duration-mid) var(--ease),
+  transition: border-color var(--duration-mid) var(--ease),
     box-shadow var(--duration-mid) var(--ease);
-  will-change: transform;
 }
 
-.cv-work-card-cover--flip.is-flipped .cv-work-card-cover-front {
-  transform: translateZ(18px) rotateY(-180deg);
+.cv-work-card-cover-front::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -55%;
+  width: 46%;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 8%, rgba(255, 255, 255, 0.26) 46%, transparent 78%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) skewX(-14deg);
+}
+
+.cv-work-card--split:hover .cv-work-card-cover-front::after,
+.cv-work-card--split:focus-within .cv-work-card-cover-front::after {
+  animation: cv-work-card-sheen 920ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cv-work-card-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(0) skewX(-14deg);
+  }
+
+  18% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(360%) skewX(-14deg);
+  }
 }
 
 .cv-work-card-cover-back {
-  transform: translateZ(0);
+  transform: rotateY(180deg) translateZ(1px);
   z-index: 1;
-  background: linear-gradient(145deg, #071519, #12323a);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--color-fg);
   display: flex;
   align-items: stretch;
 }
@@ -1926,15 +1991,23 @@ body:has(.parallax-container) {
 .cv-work-card-cover-back .cv-work-client,
 .cv-work-card-cover-back p,
 .cv-work-card-cover-back .cv-work-card-external {
-  color: #f4fffd;
+  color: inherit;
 }
 
 .cv-work-card-cover-back h3 {
-  color: #ffffff;
+  color: var(--color-fg);
 }
 
 .cv-work-card-cover-back .cv-work-client {
-  color: #9fe5dc;
+  color: var(--color-grey-mid);
+}
+
+.cv-work-card-cover-back p {
+  color: var(--color-grey);
+}
+
+.cv-work-card-cover-back .cv-work-card-external {
+  color: var(--color-accent);
 }
 
 .cv-work-card-cover-back .button {
@@ -1961,6 +2034,52 @@ body:has(.parallax-container) {
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
+  transform: scale(1);
+  transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 520ms var(--ease);
+}
+
+.cv-work-card--split:hover .cv-work-card-cover-img,
+.cv-work-card--split:focus-within .cv-work-card-cover-img {
+  filter: saturate(1.06) contrast(1.03);
+  transform: scale(1.035);
+}
+
+.cv-work-card-cover-img--anchor-bottom-right {
+  top: auto;
+  left: auto;
+}
+
+.cv-work-card-cover-img--contain {
+  object-fit: contain;
+}
+
+.cv-work-card--split:hover .cv-work-card-cover-img--contain,
+.cv-work-card--split:focus-within .cv-work-card-cover-img--contain {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-work-card--split .cv-work-card-cover,
+  .cv-work-card-cover-flip,
+  .cv-work-card-cover-front::after,
+  .cv-work-card-cover-img {
+    animation: none;
+    transition: none;
+  }
+
+  .cv-work-card--split:hover .cv-work-card-cover,
+  .cv-work-card--split:focus-within .cv-work-card-cover,
+  .cv-work-card--split:hover .cv-work-card-cover-front::after,
+  .cv-work-card--split:focus-within .cv-work-card-cover-front::after,
+  .cv-work-card--split:hover .cv-work-card-cover-img,
+  .cv-work-card--split:focus-within .cv-work-card-cover-img {
+    transform: none;
+  }
+
+  .cv-work-card-cover--flip.is-flipped .cv-work-card-cover-flip {
+    transform: rotateY(180deg);
+  }
 }
 
 @media (max-width: 560px) {
@@ -1977,6 +2096,15 @@ body:has(.parallax-container) {
     position: absolute;
     inset: 0;
     object-fit: cover;
+  }
+
+  .cv-work-card--split .cv-work-card-cover-img--contain {
+    object-fit: contain;
+  }
+
+  .cv-work-card--split .cv-work-card-cover-img--anchor-bottom-right {
+    top: auto;
+    left: auto;
   }
 
   .cv-work-card--split .cv-work-card-copy {
@@ -3316,7 +3444,7 @@ body:has(.parallax-container) {
   }
 
   .hero-cv .hero-content {
-    padding: calc(5rem + 30px) 1.5rem calc(2.5rem + 30px);
+    padding: 32px 1.5rem;
   }
 
   .hero-duality {
@@ -3349,12 +3477,15 @@ body:has(.parallax-container) {
   }
 
   .cv-pitch-card {
+    --pitch-card-pad: clamp(2rem, 8vw, 3rem);
     --pitch-image-width: 100%;
+    --pitch-text-width: 100%;
     min-height: auto;
-    padding: clamp(2rem, 8vw, 3rem);
+    padding: var(--pitch-card-pad);
     padding-bottom: 0;
   }
 
+  .cv-pitch-card.is-pitch-image-visible,
   .cv-pitch-card.is-pitch-image-open {
     --pitch-image-width: 100%;
     --pitch-text-width: 100%;
@@ -3363,9 +3494,20 @@ body:has(.parallax-container) {
   .cv-pitch-avatar-target {
     position: relative;
     inset: auto;
-    width: calc(100% + (clamp(2rem, 8vw, 3rem) * 2));
-    min-height: clamp(18rem, 72vw, 28rem);
-    margin: 2rem calc(clamp(2rem, 8vw, 3rem) * -1) 0;
+    width: calc(100% + (var(--pitch-card-pad) * 2));
+    height: clamp(18rem, 72vw, 28rem);
+    min-height: 0;
+    margin: 2rem calc(var(--pitch-card-pad) * -1) 0;
+    overflow: hidden;
+    border-radius: 0 0 1.15rem 1.15rem;
+  }
+
+  .cv-pitch-image-presence {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  .cv-pitch-image-presence::before {
+    display: none;
   }
 
   .cv-pitch-copy {
@@ -3373,6 +3515,8 @@ body:has(.parallax-container) {
   }
 
   .cv-pitch-avatar-target img {
+    display: block;
+    object-position: center;
     border-left: 0;
     border-top: 1px solid color-mix(in srgb, var(--color-border), transparent 35%);
   }

@@ -297,7 +297,7 @@ function WorksSection() {
         <div className="section-services-inner">
           <ScrollReveal>
             <ExperienceHeadlineDecrypt as="p" className="section-label" text="WORKS" decrypt />
-            <ExperienceHeadlineDecrypt before="Selected collaborations across " gold="product and platform." />
+            <ExperienceHeadlineDecrypt before="A few curated collaborations across " gold="product and platform." />
           </ScrollReveal>
           <p className="section-intro">
             A snapshot of organisations and programmes where design leadership shaped outcomes end to end.

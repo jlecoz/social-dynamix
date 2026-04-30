@@ -1,17 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function FlippableWorkCover({ item, children }) {
   const [flipped, setFlipped] = useState(false);
   const showBack = () => setFlipped(true);
+  const handleCoverClick = (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (flipped && target?.closest("a, button")) return;
+
+    showBack();
+  };
+
+  useEffect(() => {
+    const resetFlip = () => setFlipped(false);
+
+    window.addEventListener("works-cards-horizontal-scroll", resetFlip);
+    return () => window.removeEventListener("works-cards-horizontal-scroll", resetFlip);
+  }, []);
 
   if (!item?.coverImage) return null;
 
   return (
     <div
       className={`cv-work-card-cover cv-work-card-cover--flip ${flipped ? "is-flipped" : ""}`}
-      onMouseLeave={() => setFlipped(false)}
+      onClick={handleCoverClick}
     >
       <button
         type="button"
@@ -19,7 +32,6 @@ export default function FlippableWorkCover({ item, children }) {
         aria-label={`Show ${item.title} details`}
         aria-pressed={flipped}
         onClick={showBack}
-        onMouseEnter={showBack}
       >
         <span className="sr-only">Show details</span>
       </button>
@@ -27,7 +39,7 @@ export default function FlippableWorkCover({ item, children }) {
       <div className="cv-work-card-cover-flip">
         <div className="cv-work-card-cover-face cv-work-card-cover-front">
           <img
-            className="cv-work-card-cover-img"
+            className={`cv-work-card-cover-img${item.coverImageClassName ? ` ${item.coverImageClassName}` : ""}`}
             src={item.coverImage}
             alt={item.coverAlt || ""}
             loading="lazy"

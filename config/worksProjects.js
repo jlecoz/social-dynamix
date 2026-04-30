@@ -5,11 +5,11 @@
 export const worksProjects = [
   {
     slug: "breeze-ds",
-    title: "Breeze DS",
+    title: "Breeze Design Systems 2026",
     client: "Imperial Brands",
     blurb: "Multi-brand whitelabel systems and platforms for next-generation smoking products",
     href: "https://www.imperialbrandsplc.com",
-    coverImage: "/img/works-breeze-ds.png",
+    coverImage: "/img/works-breeze-design-systems-2026.webp",
     coverAlt: "Breeze design system — NGP Digital",
     caseStudy: {
       heroDek:
@@ -76,6 +76,7 @@ export const worksProjects = [
     blurb: "Consumer loyalty scheme with points and rewards for purchases on blu.com",
     href: "https://www.blu.com",
     coverImage: "/img/works-blu-loyalty-program.png",
+    coverImageClassName: "cv-work-card-cover-img--anchor-bottom-right",
     coverAlt:
       "blu.com — hero with pod device, SWAP THE PODS / KEEP THE VAPE messaging, and VAPE BUNDLES section",
     caseStudy: {
@@ -208,6 +209,7 @@ export const worksProjects = [
     blurb: "Consumer restaurant menu self-service to in-kitchen printing for staff",
     href: "https://get.ser.vi",
     coverImage: "/img/works-hospitality-ser-vi.png",
+    coverImageClassName: "cv-work-card-cover-img--contain",
     coverAlt: "Ser.vi restaurant app — menu and table experience",
     caseStudy: {
       heroDek:

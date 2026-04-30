@@ -27,6 +27,7 @@ export default function WorksCardsTimeline({ children }) {
     let measureRaf = 0;
     let scrollDistance = 0;
     let horizontalStartOffset = 0;
+    let lastTranslateX = null;
 
     const clear = () => {
       scrollDistance = 0;
@@ -36,6 +37,7 @@ export default function WorksCardsTimeline({ children }) {
       cardsWrapper.style.removeProperty("--works-sticky-height");
       cardsWrapper.style.removeProperty("--works-scroll-runway");
       track.style.transform = "";
+      lastTranslateX = null;
     };
 
     const run = () => {
@@ -51,7 +53,14 @@ export default function WorksCardsTimeline({ children }) {
         1,
         Math.max(0, (stickyTop - rect.top - horizontalStartOffset) / scrollDistance),
       );
-      track.style.transform = `translate3d(${-scrollDistance * progress}px, 0, 0)`;
+      const nextTranslateX = -scrollDistance * progress;
+      track.style.transform = `translate3d(${nextTranslateX}px, 0, 0)`;
+
+      if (lastTranslateX !== null && Math.abs(nextTranslateX - lastTranslateX) > 8) {
+        window.dispatchEvent(new CustomEvent("works-cards-horizontal-scroll"));
+      }
+
+      lastTranslateX = nextTranslateX;
     };
 
     const schedule = () => {
