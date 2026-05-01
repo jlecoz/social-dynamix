@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
+import ExperienceSection from "@/components/ExperienceSection";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const skillTags = [
@@ -23,12 +24,12 @@ const languages = [
 ];
 
 export const metadata = {
-  title: "Skills & Languages",
-  description: "Key skills, knowledge and languages for Jonathan Le Coz.",
+  title: "Experience & Skills",
+  description: "Experience, key skills, knowledge and languages for Jonathan Le Coz.",
   alternates: { canonical: "/skills" },
   openGraph: {
-    title: "Skills & Languages",
-    description: "Key skills, knowledge and languages for Jonathan Le Coz.",
+    title: "Experience & Skills",
+    description: "Experience, key skills, knowledge and languages for Jonathan Le Coz.",
     url: "/skills",
   },
 };
@@ -140,6 +141,7 @@ function LanguagesSection() {
 export default function SkillsPage() {
   return (
     <>
+      <ExperienceSection />
       <SkillsSection />
       <LanguagesSection />
     </>

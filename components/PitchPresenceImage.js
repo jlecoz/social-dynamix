@@ -35,6 +35,11 @@ export default function PitchPresenceImage({ src, alt = "", width, height }) {
   useEffect(() => {
     const card = rootRef.current?.closest(".cv-pitch-card");
     if (!card || !isVisible) return undefined;
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)");
+    if (!canHover.matches) {
+      card.classList.remove("is-pitch-image-open");
+      return undefined;
+    }
 
     const updateOpenState = (event) => {
       const rect = card.getBoundingClientRect();

@@ -17,7 +17,6 @@ export default async function sitemap() {
         ...workUrls,
         `${base}/education`,
         `${base}/skills`,
-        `${base}/#experience`,
         `${base}/#recommendations`,
       ]
     : [base, ...workUrls, `${base}/#services`, `${base}/#work`, `${base}/contact`];

@@ -1073,11 +1073,7 @@ body:has(.parallax-container) {
   --pitch-image-width: clamp(16rem, 34%, 24rem);
   --pitch-image-open-width: 50%;
   --pitch-text-width: 100%;
-  position: relative;
-  display: block;
-  min-height: clamp(24rem, 42vw, 34rem);
-  padding: var(--pitch-card-pad);
-  background:
+  --pitch-card-background:
     radial-gradient(
       560px 360px at 88% 0%,
       color-mix(in srgb, var(--color-core-teal, #1a7a73), transparent 88%) 0%,
@@ -1085,6 +1081,11 @@ body:has(.parallax-container) {
     ),
     linear-gradient(145deg, #ffffff 0%, #fbfdfd 52%, #f6fafa 100%),
     var(--color-surface);
+  position: relative;
+  display: block;
+  min-height: clamp(24rem, 42vw, 34rem);
+  padding: var(--pitch-card-pad);
+  background: var(--pitch-card-background);
   border: 1px solid color-mix(in srgb, var(--color-border), transparent 42%);
   border-radius: 1.15rem;
   box-shadow:
@@ -1166,8 +1167,10 @@ body:has(.parallax-container) {
 }
 
 .cv-pitch-image-presence {
+  position: relative;
   perspective: 1000px;
   overflow: hidden;
+  background: var(--pitch-card-background);
   box-shadow:
     -1.25rem 0 3.5rem color-mix(in srgb, var(--color-navy), transparent 92%),
     inset 1px 0 0 rgba(255, 255, 255, 0.72);
@@ -1184,6 +1187,7 @@ body:has(.parallax-container) {
 }
 
 .cv-pitch-image-layer {
+  background: inherit;
   transform-style: preserve-3d;
 }
 
@@ -1192,6 +1196,7 @@ body:has(.parallax-container) {
   height: 100%;
   object-fit: cover;
   object-position: calc(50% - 100px) center;
+  mix-blend-mode: multiply;
   border-radius: 0;
   border-left: 1px solid color-mix(in srgb, var(--color-border), transparent 48%);
   box-shadow: -24px 0 64px color-mix(in srgb, #0a0b0c, transparent 84%);
