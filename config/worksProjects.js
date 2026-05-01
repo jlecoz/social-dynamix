@@ -75,7 +75,7 @@ export const worksProjects = [
     client: "Imperial Brands",
     blurb: "Consumer loyalty scheme with points and rewards for purchases on blu.com",
     href: "https://www.blu.com",
-    coverImage: "/img/works-blu-loyalty-program.png",
+    coverImage: "/img/works-blu-loyalty-program.webp",
     coverImageClassName: "cv-work-card-cover-img--anchor-bottom-right",
     coverAlt:
       "blu.com — hero with pod device, SWAP THE PODS / KEEP THE VAPE messaging, and VAPE BUNDLES section",
@@ -142,7 +142,7 @@ export const worksProjects = [
     client: "Auto Trader UK",
     blurb: "Online digital purchase journey for automotive retailers on autotrader.co.uk",
     href: "https://www.autotrader.co.uk",
-    coverImage: "/img/works-autotrader-deal-builder.png",
+    coverImage: "/img/works-autotrader-deal-builder.webp",
     coverAlt:
       "Auto Trader UK — Build your deal: reservation flow with progress steps and vehicle summary",
     caseStudy: {
@@ -208,7 +208,7 @@ export const worksProjects = [
     client: "Ser.vi",
     blurb: "Consumer restaurant menu self-service to in-kitchen printing for staff",
     href: "https://get.ser.vi",
-    coverImage: "/img/works-hospitality-ser-vi.png",
+    coverImage: "/img/works-hospitality-ser-vi.webp",
     coverImageClassName: "cv-work-card-cover-img--contain",
     coverAlt: "Ser.vi restaurant app — menu and table experience",
     caseStudy: {

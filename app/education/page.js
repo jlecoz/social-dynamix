@@ -1,8 +1,8 @@
 import { headers } from "next/headers";
 import Image from "next/image";
+import ContactCTA from "@/components/ContactCTA";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
 import IxdfCertificationsSection from "@/components/IxdfCertificationsSection";
-import PitchPresenceImage from "@/components/PitchPresenceImage";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getSiteConfig } from "@/config/getSiteConfig";
 
@@ -13,7 +13,7 @@ const education = [
     period: "2004 - 2006",
     activities: "Activities and societies: Option in Applied Computer Graphics",
     description: "Minor in Communication Design",
-    logo: "/img/csu-chico-seal.png",
+    logo: "/img/csu-chico-seal.webp",
   },
   {
     school: "International Academy of Design",
@@ -51,29 +51,6 @@ export async function generateMetadata() {
       siteName: siteConfig.brand.logoText,
     },
   };
-}
-
-function PitchSection() {
-  return (
-    <section className="section cv-pitch-section" id="pitch">
-      <div className="section-services-inner">
-        <ScrollReveal className="cv-pitch-card reveal-down">
-          <h1 className="cv-pitch-headline">
-            I build teams that make
-            <br />
-            complex things feel simple.
-          </h1>
-          <p className="cv-pitch-copy">
-            10 years leading UX across SaaS, ecommerce, and digital products - from pixels to strategy, from solo
-            contributor to team builder.
-          </p>
-          <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
-            <PitchPresenceImage src="/img/pitch-jonathan-harvest.jpg" alt="" width={1024} height={576} />
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
 }
 
 function EducationSection() {
@@ -134,9 +111,9 @@ function EducationSection() {
 export default function EducationPage() {
   return (
     <>
-      <PitchSection />
       <EducationSection />
       <IxdfCertificationsSection />
+      <ContactCTA />
     </>
   );
 }

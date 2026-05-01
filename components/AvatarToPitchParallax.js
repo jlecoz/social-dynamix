@@ -145,7 +145,7 @@ export default function AvatarToPitchParallax() {
   return (
     <img
       className="hero-cv-avatar-flight"
-      src="/img/pitch-jonathan-harvest.jpg"
+      src="/img/pitch-jonathan-harvest.webp"
       alt=""
       aria-hidden="true"
       decoding="async"

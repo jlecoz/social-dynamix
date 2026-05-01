@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { headers } from "next/headers";
-import { getSiteConfig } from "@/config/getSiteConfig";
+import ContactCTA from "@/components/ContactCTA";
 import ScrollReveal from "@/components/ScrollReveal";
 import HeroOverviewSection from "@/components/HeroOverviewSection";
 import ExperienceHeadlineDecrypt from "@/components/ExperienceHeadlineDecrypt";
@@ -176,7 +176,7 @@ function PitchSection() {
             contributor to team builder.
           </p>
           <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
-            <PitchPresenceImage src="/img/pitch-jonathan-harvest.jpg" alt="" width={1024} height={576} />
+            <PitchPresenceImage src="/img/pitch-jonathan-harvest.webp" alt="" width={1024} height={576} />
           </div>
         </ScrollReveal>
       </div>
@@ -184,30 +184,7 @@ function PitchSection() {
   );
 }
 
-function ContactCTA({ siteConfig }) {
-  return (
-    <section className="section section-contact-cta">
-      <ContactCtaBackground />
-      <div className="section-services-inner section-contact-cta-inner">
-        <ScrollReveal stagger>
-          <h2 className="section-headline contact-cta-headline-shimmer reveal reveal-fade">
-            Available for <span className="gold">product design leadership</span> and advisory work.
-          </h2>
-          <p className="section-intro reveal reveal-down">
-            Based in {cv.location}. Reach out about product design leadership via email and I&rsquo;ll respond as soon as I can.
-          </p>
-          <div className="cta-row reveal reveal-down" style={{ justifyContent: "center" }}>
-            <Link className="button button-gold" href="/contact">
-              Contact
-            </Link>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-
-function JonnyHome({ siteConfig }) {
+function JonnyHome() {
   return (
     <>
       <MainSectionParallax />
@@ -219,7 +196,7 @@ function JonnyHome({ siteConfig }) {
       <PitchSection />
       <WorksSection />
       <RecommendationsSection />
-      <ContactCTA siteConfig={siteConfig} />
+      <ContactCTA />
     </>
   );
 }
@@ -309,7 +286,6 @@ function MainHome() {
 
 export default async function HomePage() {
   const host = (await headers()).get("host") || "";
-  const siteConfig = getSiteConfig(host);
   const isJonny = host.toLowerCase().startsWith("jonny.");
-  return isJonny ? <JonnyHome siteConfig={siteConfig} /> : <MainHome />;
+  return isJonny ? <JonnyHome /> : <MainHome />;
 }

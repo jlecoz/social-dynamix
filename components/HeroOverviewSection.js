@@ -66,7 +66,7 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
             <div className="hero-avatar-flip" aria-label="Jonathan portrait illustration flip">
               <img
                 className="hero-cv-avatar-img hero-avatar-flip-face hero-avatar-flip-face--photo"
-                src="/img/hero-jonathan-portrait.png"
+                src="/img/hero-jonathan-portrait.webp"
                 alt="Jonathan Le Coz, Experiential Designer"
                 width={330}
                 height={330}
@@ -75,7 +75,7 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
               />
               <img
                 className="hero-avatar-illustration hero-avatar-illustration--designer hero-avatar-flip-face hero-avatar-flip-face--illustration"
-                src="/img/designer-portrait-illustration.png"
+                src="/img/designer-portrait-illustration.webp"
                 alt=""
                 aria-hidden="true"
                 width={330}
@@ -85,7 +85,7 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
               />
               <img
                 className="hero-avatar-illustration hero-avatar-illustration--coder hero-avatar-flip-face hero-avatar-flip-face--illustration"
-                src="/img/developer-portrait-illustration.png"
+                src="/img/developer-portrait-illustration.webp"
                 alt=""
                 aria-hidden="true"
                 width={330}

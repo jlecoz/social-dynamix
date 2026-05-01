@@ -663,10 +663,14 @@ body:has(.parallax-container) {
 }
 
 .hero-role--designer {
+  grid-column: 1;
+  grid-row: 1;
   text-align: right;
 }
 
 .hero-role--coder {
+  grid-column: 3;
+  grid-row: 1;
   text-align: left;
 }
 
@@ -708,6 +712,8 @@ body:has(.parallax-container) {
 /* Centered headshot — square source, circular display */
 .hero-cv-avatar {
   display: flex;
+  grid-column: 2;
+  grid-row: 1;
   justify-content: center;
   margin: 0 auto;
   width: 100%;
@@ -1147,6 +1153,7 @@ body:has(.parallax-container) {
   z-index: 1;
   width: var(--pitch-image-width);
   min-height: 100%;
+  background: transparent;
   opacity: 0;
   transform: translate3d(0, 12px, 0) scale(0.96);
   transition: width 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -1170,7 +1177,7 @@ body:has(.parallax-container) {
   position: relative;
   perspective: 1000px;
   overflow: hidden;
-  background: var(--pitch-card-background);
+  background: transparent;
   box-shadow:
     -1.25rem 0 3.5rem color-mix(in srgb, var(--color-navy), transparent 92%),
     inset 1px 0 0 rgba(255, 255, 255, 0.72);
@@ -1182,12 +1189,12 @@ body:has(.parallax-container) {
   inset: 0 auto 0 -5rem;
   z-index: 2;
   width: 8rem;
-  background: linear-gradient(90deg, var(--color-surface), transparent);
+  background: transparent;
   pointer-events: none;
 }
 
 .cv-pitch-image-layer {
-  background: inherit;
+  background: transparent;
   transform-style: preserve-3d;
 }
 
@@ -1196,7 +1203,7 @@ body:has(.parallax-container) {
   height: 100%;
   object-fit: cover;
   object-position: calc(50% - 100px) center;
-  mix-blend-mode: multiply;
+  background: transparent;
   border-radius: 0;
   border-left: 1px solid color-mix(in srgb, var(--color-border), transparent 48%);
   box-shadow: -24px 0 64px color-mix(in srgb, #0a0b0c, transparent 84%);
@@ -1278,7 +1285,7 @@ body:has(.parallax-container) {
   padding: 0 1.4rem 1.5rem;
 }
 
-/* Works section — full width + mountain illustration (multi-layer SVG-style depth); scrim keeps copy legible */
+/* Works section — full width + mountain illustration; scrim keeps copy legible */
 #works {
   position: relative;
   overflow: visible;
@@ -1290,7 +1297,7 @@ body:has(.parallax-container) {
       rgba(51, 70, 74, 0.82) 42%,
       rgba(15, 28, 38, 0.88) 100%
     ),
-    url("/img/works-section-bg.png");
+    url("/img/works-section-bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -3461,6 +3468,8 @@ body:has(.parallax-container) {
   .hero-role,
   .hero-role--designer,
   .hero-role--coder {
+    grid-column: auto;
+    grid-row: auto;
     text-align: center;
   }
 
@@ -3469,6 +3478,8 @@ body:has(.parallax-container) {
   }
 
   .hero-cv-avatar {
+    grid-column: auto;
+    grid-row: auto;
     order: 2;
   }
 
