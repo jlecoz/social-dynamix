@@ -11,6 +11,11 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
   const [activeAvatarRole, setActiveAvatarRole] = useState(null);
   const showDesignerAvatar = () => setActiveAvatarRole("designer");
   const showCoderAvatar = () => setActiveAvatarRole("coder");
+  const updateAvatarFromPointer = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const nextRole = event.clientX < rect.left + rect.width / 2 ? "designer" : "coder";
+    setActiveAvatarRole((currentRole) => (currentRole === nextRole ? currentRole : nextRole));
+  };
 
   useScrollParallax(
     () => {
@@ -41,78 +46,81 @@ export default function HeroOverviewSection({ meta, title, skillTagsLine }) {
         <div
           className={`hero-duality${activeAvatarRole ? ` is-avatar-${activeAvatarRole}` : ""}`}
           aria-label="Designer and coder overview"
+          onPointerMove={updateAvatarFromPointer}
           onPointerLeave={() => setActiveAvatarRole(null)}
         >
-          <div
-            className="hero-role hero-role--designer"
-            role="button"
-            tabIndex={0}
-            onClick={showDesignerAvatar}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                showDesignerAvatar();
-              }
-            }}
-            onPointerEnter={showDesignerAvatar}
-          >
-            <p className="hero-role-title">designer</p>
-            <p className="hero-role-copy">
-              Product designer specialising in UX strategy, design systems and customer-centred product direction.
-            </p>
-          </div>
-
-          <div className="hero-cv-avatar">
-            <div className="hero-avatar-flip" aria-label="Jonathan portrait illustration flip">
-              <img
-                className="hero-cv-avatar-img hero-avatar-flip-face hero-avatar-flip-face--photo"
-                src="/img/hero-jonathan-portrait.webp"
-                alt="Jonathan Le Coz, Experiential Designer"
-                width={330}
-                height={330}
-                loading="eager"
-                decoding="async"
-              />
-              <img
-                className="hero-avatar-illustration hero-avatar-illustration--designer hero-avatar-flip-face hero-avatar-flip-face--illustration"
-                src="/img/designer-portrait-illustration.webp"
-                alt=""
-                aria-hidden="true"
-                width={330}
-                height={330}
-                loading="eager"
-                decoding="async"
-              />
-              <img
-                className="hero-avatar-illustration hero-avatar-illustration--coder hero-avatar-flip-face hero-avatar-flip-face--illustration"
-                src="/img/developer-portrait-illustration.webp"
-                alt=""
-                aria-hidden="true"
-                width={330}
-                height={330}
-                loading="eager"
-                decoding="async"
-              />
+          <div className="hero-duality-inner">
+            <div
+              className="hero-role hero-role--designer"
+              role="button"
+              tabIndex={0}
+              onClick={showDesignerAvatar}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  showDesignerAvatar();
+                }
+              }}
+              onPointerEnter={showDesignerAvatar}
+            >
+              <p className="hero-role-title">designer</p>
+              <p className="hero-role-copy">
+                Product designer specialising in UX strategy, design systems and customer-centred product direction.
+              </p>
             </div>
-          </div>
 
-          <div
-            className="hero-role hero-role--coder"
-            role="button"
-            tabIndex={0}
-            onClick={showCoderAvatar}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                showCoderAvatar();
-              }
-            }}
-            onPointerEnter={showCoderAvatar}
-          >
-            <p className="hero-role-title">&lt;coder&gt;</p>
-            <p className="hero-role-copy">
-              Front-end minded design leader who prototypes, builds and partners closely with engineering teams.
-            </p>
+            <div className="hero-cv-avatar">
+              <div className="hero-avatar-flip" aria-label="Jonathan portrait illustration flip">
+                <img
+                  className="hero-cv-avatar-img hero-avatar-flip-face hero-avatar-flip-face--photo"
+                  src="/img/hero-jonathan-portrait.webp"
+                  alt="Jonathan Le Coz, Experiential Designer"
+                  width={330}
+                  height={330}
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  className="hero-avatar-illustration hero-avatar-illustration--designer hero-avatar-flip-face hero-avatar-flip-face--illustration"
+                  src="/img/designer-portrait-illustration.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={330}
+                  height={330}
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  className="hero-avatar-illustration hero-avatar-illustration--coder hero-avatar-flip-face hero-avatar-flip-face--illustration"
+                  src="/img/developer-portrait-illustration.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={330}
+                  height={330}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div
+              className="hero-role hero-role--coder"
+              role="button"
+              tabIndex={0}
+              onClick={showCoderAvatar}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  showCoderAvatar();
+                }
+              }}
+              onPointerEnter={showCoderAvatar}
+            >
+              <p className="hero-role-title">&lt;coder&gt;</p>
+              <p className="hero-role-copy">
+                Front-end minded design leader who prototypes, builds and partners closely with engineering teams.
+              </p>
+            </div>
           </div>
         </div>
 

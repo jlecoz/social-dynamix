@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { attachScrollAndResize } from "@/lib/scrollRoot";
 
 export default function PitchPresenceImage({ src, alt = "", width, height }) {
   const rootRef = useRef(null);
@@ -31,6 +32,43 @@ export default function PitchPresenceImage({ src, alt = "", width, height }) {
     card.classList.toggle("is-pitch-image-visible", isVisible);
     return () => card.classList.remove("is-pitch-image-visible");
   }, [isVisible]);
+
+  useEffect(() => {
+    const card = rootRef.current?.closest(".cv-pitch-card");
+    const pitch = card?.closest("#pitch");
+    if (!card || !pitch) return undefined;
+
+    const desktopQuery = window.matchMedia("(min-width: 769px)");
+    let raf = 0;
+
+    const updateRevealState = () => {
+      raf = 0;
+      if (!desktopQuery.matches || reduceMotion) {
+        card.classList.add("is-pitch-copy-revealed");
+        return;
+      }
+
+      const pitchRect = pitch.getBoundingClientRect();
+      const pitchMidpoint = pitchRect.top + pitchRect.height / 2;
+      card.classList.toggle("is-pitch-copy-revealed", pitchMidpoint <= window.innerHeight / 2);
+    };
+
+    const schedule = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(updateRevealState);
+    };
+
+    updateRevealState();
+    const detachScrollResize = attachScrollAndResize(schedule);
+    desktopQuery.addEventListener("change", schedule);
+
+    return () => {
+      detachScrollResize();
+      desktopQuery.removeEventListener("change", schedule);
+      cancelAnimationFrame(raf);
+      card.classList.remove("is-pitch-copy-revealed");
+    };
+  }, [reduceMotion]);
 
   useEffect(() => {
     const card = rootRef.current?.closest(".cv-pitch-card");
