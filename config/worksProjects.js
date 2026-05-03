@@ -142,7 +142,7 @@ export const worksProjects = [
     client: "Auto Trader UK",
     blurb: "Online digital purchase journey for automotive retailers on autotrader.co.uk",
     href: "https://www.autotrader.co.uk",
-    coverImage: "/img/works-autotrader-deal-builder.webp",
+    coverImage: "/img/works-autotrader-deal-builder-hero.webp",
     coverAlt:
       "Auto Trader UK — Build your deal: reservation flow with progress steps and vehicle summary",
     caseStudy: {

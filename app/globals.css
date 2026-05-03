@@ -1090,7 +1090,7 @@ body:has(.parallax-container) {
   position: relative;
   display: block;
   min-height: clamp(24rem, 42vw, 34rem);
-  padding: var(--pitch-card-pad);
+  padding: 160px 0 clamp(4rem, 9vw, 7rem) var(--pitch-card-pad);
   background: var(--pitch-card-background);
   border: 1px solid color-mix(in srgb, var(--color-border), transparent 42%);
   border-radius: 1.15rem;
