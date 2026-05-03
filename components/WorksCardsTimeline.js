@@ -77,6 +77,8 @@ export default function WorksCardsTimeline({ children }) {
 
       const stickyHeight = window.innerHeight;
       cardsWrapper.style.setProperty("--works-sticky-height", `${stickyHeight}px`);
+      const previousTransform = track.style.transform;
+      track.style.transform = "";
 
       if (intro) {
         const introRect = intro.getBoundingClientRect();
@@ -86,7 +88,11 @@ export default function WorksCardsTimeline({ children }) {
         horizontalStartOffset = 0;
       }
 
-      scrollDistance = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      const viewportRect = viewport.getBoundingClientRect();
+      const trackRect = track.getBoundingClientRect();
+      const trackStartOffset = Math.max(0, trackRect.left - viewportRect.left);
+      scrollDistance = Math.max(0, trackStartOffset + track.scrollWidth - viewport.clientWidth);
+      track.style.transform = previousTransform;
       cardsWrapper.style.setProperty("--works-scroll-distance", `${scrollDistance}px`);
       cardsWrapper.style.setProperty("--works-horizontal-start-offset", `${horizontalStartOffset}px`);
       cardsWrapper.style.setProperty(

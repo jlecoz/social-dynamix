@@ -37,7 +37,10 @@ export default function FlippableWorkCover({ item, children }) {
       </button>
 
       <div className="cv-work-card-cover-flip">
-        <div className="cv-work-card-cover-face cv-work-card-cover-front">
+        <div
+          className="cv-work-card-cover-face cv-work-card-cover-front"
+          style={item.coverBackgroundColor ? { backgroundColor: item.coverBackgroundColor } : undefined}
+        >
           <img
             className={`cv-work-card-cover-img${item.coverImageClassName ? ` ${item.coverImageClassName}` : ""}`}
             src={item.coverImage}

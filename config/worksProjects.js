@@ -210,6 +210,7 @@ export const worksProjects = [
     href: "https://get.ser.vi",
     coverImage: "/img/works-hospitality-ser-vi.webp",
     coverImageClassName: "cv-work-card-cover-img--contain",
+    coverBackgroundColor: "#f25900",
     coverAlt: "Ser.vi restaurant app — menu and table experience",
     caseStudy: {
       heroDek:
