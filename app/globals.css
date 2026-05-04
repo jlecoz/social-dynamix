@@ -2840,7 +2840,40 @@ body:has(.parallax-container) {
   line-height: 1.6;
   color: var(--color-grey);
   max-width: none;
-  white-space: pre-line;
+}
+
+.cv-rec-quote p {
+  margin: 0 0 0.9rem;
+}
+
+.cv-rec-quote p:last-child {
+  margin-bottom: 0;
+}
+
+.cv-rec-read-more {
+  margin: -0.15rem 0 0;
+}
+
+.cv-rec-read-more summary {
+  width: max-content;
+  color: var(--color-accent);
+  font-size: var(--size-150);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.cv-rec-read-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.cv-rec-read-more summary:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.cv-rec-read-more-content {
+  margin-top: 0.9rem;
 }
 
 .cv-edu-row--rec .cv-rec-meta {

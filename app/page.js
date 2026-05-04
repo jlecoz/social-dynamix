@@ -23,6 +23,52 @@ function getWorkCoverStyle(item) {
   };
 }
 
+function getRecommendationQuoteParagraphs(recommendation) {
+  if (recommendation.quoteParagraphs) return recommendation.quoteParagraphs;
+
+  const quote = recommendation.quote || "";
+
+  return quote
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(/(?<=[.!?])\s+/)
+    .filter(Boolean);
+}
+
+function RecommendationQuote({ recommendation }) {
+  const paragraphs = getRecommendationQuoteParagraphs(recommendation);
+  const readMoreAfterParagraph = recommendation.readMoreAfterParagraph;
+
+  if (!readMoreAfterParagraph || readMoreAfterParagraph >= paragraphs.length) {
+    return (
+      <blockquote className="cv-rec-quote">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </blockquote>
+    );
+  }
+
+  const visibleParagraphs = paragraphs.slice(0, readMoreAfterParagraph);
+  const hiddenParagraphs = paragraphs.slice(readMoreAfterParagraph);
+
+  return (
+    <blockquote className="cv-rec-quote">
+      {visibleParagraphs.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+      <details className="cv-rec-read-more">
+        <summary>Read more</summary>
+        <div className="cv-rec-read-more-content">
+          {hiddenParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </details>
+    </blockquote>
+  );
+}
+
 function WorksSection() {
   return (
     <section className="section" id="works">
@@ -138,7 +184,7 @@ function RecommendationsSection() {
                     <h3>{r.name}</h3>
                     {r.title ? <p className="cv-edu-org">{r.title}</p> : null}
                     <div className="cv-edu-period cv-rec-meta">{r.meta}</div>
-                    <p className="cv-rec-quote">{r.quote}</p>
+                    <RecommendationQuote recommendation={r} />
                   </div>
                 </div>
               </div>
