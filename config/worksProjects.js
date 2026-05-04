@@ -10,6 +10,8 @@ export const worksProjects = [
     blurb: "Multi-brand whitelabel systems and platforms for next-generation smoking products",
     href: "https://www.imperialbrandsplc.com",
     coverImage: "/img/works-breeze-design-systems-2026.webp",
+    coverImageWidth: 2048,
+    coverImageHeight: 1152,
     coverAlt: "Breeze design system — NGP Digital",
     caseStudy: {
       heroDek:
@@ -76,6 +78,8 @@ export const worksProjects = [
     blurb: "Consumer loyalty scheme with points and rewards for purchases on blu.com",
     href: "https://www.blu.com",
     coverImage: "/img/works-blu-loyalty-program.webp",
+    coverImageWidth: 2048,
+    coverImageHeight: 1164,
     coverImageClassName: "cv-work-card-cover-img--anchor-bottom-right",
     coverAlt:
       "blu.com — hero with pod device, SWAP THE PODS / KEEP THE VAPE messaging, and VAPE BUNDLES section",
@@ -143,6 +147,8 @@ export const worksProjects = [
     blurb: "Online digital purchase journey for automotive retailers on autotrader.co.uk",
     href: "https://www.autotrader.co.uk",
     coverImage: "/img/works-autotrader-deal-builder-hero.webp",
+    coverImageWidth: 2048,
+    coverImageHeight: 1106,
     coverAlt:
       "Auto Trader UK — Build your deal: reservation flow with progress steps and vehicle summary",
     caseStudy: {
@@ -209,6 +215,8 @@ export const worksProjects = [
     blurb: "Consumer restaurant menu self-service to in-kitchen printing for staff",
     href: "https://get.ser.vi",
     coverImage: "/img/works-hospitality-ser-vi.webp",
+    coverImageWidth: 2048,
+    coverImageHeight: 1106,
     coverImageClassName: "cv-work-card-cover-img--contain",
     coverBackgroundColor: "#f25900",
     coverAlt: "Ser.vi restaurant app — menu and table experience",

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function FlippableWorkCover({ item, children }) {
   const [flipped, setFlipped] = useState(false);
+  const coverImageWidth = item.coverImageWidth || 440;
+  const coverImageHeight = item.coverImageHeight || 440;
   const showBack = () => setFlipped(true);
   const handleCoverClick = (event) => {
     const target = event.target instanceof Element ? event.target : null;
@@ -24,6 +26,7 @@ export default function FlippableWorkCover({ item, children }) {
   return (
     <div
       className={`cv-work-card-cover cv-work-card-cover--flip ${flipped ? "is-flipped" : ""}`}
+      style={{ "--cv-work-cover-ratio": `${coverImageWidth} / ${coverImageHeight}` }}
       onClick={handleCoverClick}
     >
       <button
@@ -47,8 +50,8 @@ export default function FlippableWorkCover({ item, children }) {
             alt={item.coverAlt || ""}
             loading="lazy"
             decoding="async"
-            width={440}
-            height={440}
+            width={coverImageWidth}
+            height={coverImageHeight}
           />
         </div>
 

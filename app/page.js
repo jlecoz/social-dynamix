@@ -15,6 +15,13 @@ import { cv, linkedInRecommendationsUrl } from "@/config/cvData";
 
 const works = worksProjects;
 
+function getWorkCoverStyle(item) {
+  if (!item.coverImageWidth || !item.coverImageHeight) return undefined;
+
+  return {
+    "--cv-work-cover-ratio": `${item.coverImageWidth} / ${item.coverImageHeight}`,
+  };
+}
 
 function WorksSection() {
   return (
@@ -34,6 +41,7 @@ function WorksSection() {
               <article
                 key={`${item.title}-${item.client ?? ""}`}
                 className={`cv-work-card card__content reveal${item.coverImage ? " cv-work-card--split" : ""}`}
+                style={getWorkCoverStyle(item)}
               >
                 {item.coverImage ? (
                   <FlippableWorkCover item={item}>

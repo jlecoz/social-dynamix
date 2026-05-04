@@ -1725,6 +1725,7 @@ body:has(.parallax-container) {
 
 #works #cards.cards-scroll-driver .card__content.cv-work-card--split {
   flex-basis: clamp(30rem, 78vw, 46rem);
+  min-height: 0;
 }
 
 .cv-work-grid {
@@ -1781,6 +1782,10 @@ body:has(.parallax-container) {
   #works #cards.cards-scroll-driver .card__content {
     min-height: 7.5rem;
   }
+
+  #works #cards.cards-scroll-driver .card__content.cv-work-card--split {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1808,6 +1813,10 @@ body:has(.parallax-container) {
 
   #works #cards.cards-scroll-driver .card__content {
     min-height: 7.5rem;
+  }
+
+  #works #cards.cards-scroll-driver .card__content.cv-work-card--split {
+    min-height: 0;
   }
 }
 
@@ -1859,11 +1868,13 @@ body:has(.parallax-container) {
 
 /* Split work card — cover image front, copy back */
 .cv-work-card.cv-work-card--split {
+  align-self: flex-start;
+  aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
   background: transparent;
   border: 0;
   border-radius: 0;
   padding: 0;
-  min-height: 8.5rem;
+  min-height: 0;
   overflow: visible;
   perspective: 1600px;
   perspective-origin: 50% 44%;
@@ -1888,9 +1899,10 @@ body:has(.parallax-container) {
 .cv-work-card--split .cv-work-card-cover {
   position: relative;
   flex: 1 1 auto;
+  aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
   width: 100%;
   min-width: 0;
-  min-height: inherit;
+  min-height: 0;
   overflow: visible;
   background: transparent;
   transform: translateY(0) rotateX(0deg) rotateY(0deg);
@@ -1911,7 +1923,7 @@ body:has(.parallax-container) {
 }
 
 .cv-work-card-cover--flip {
-  min-height: inherit;
+  min-height: 0;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
@@ -2096,7 +2108,8 @@ body:has(.parallax-container) {
 
 .cv-work-card-cover-img {
   position: absolute;
-  inset: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -2157,13 +2170,14 @@ body:has(.parallax-container) {
   }
 
   .cv-work-card--split .cv-work-card-cover {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
     min-height: 0;
   }
 
   .cv-work-card--split .cv-work-card-cover-img {
     position: absolute;
-    inset: 0;
+    right: 0;
+    bottom: 0;
     object-fit: cover;
   }
 
