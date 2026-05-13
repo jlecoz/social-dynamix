@@ -1105,8 +1105,8 @@ body:has(.parallax-container) {
   position: relative;
   display: block;
   width: 100%;
-  min-height: clamp(32rem, 56vw, 42rem);
-  padding: 160px 0 clamp(4rem, 9vw, 7rem) var(--pitch-card-pad);
+  min-height: clamp(28rem, 46vw, 34rem);
+  padding: 160px 0 clamp(2rem, 4vw, 3rem) var(--pitch-card-pad);
   background: var(--pitch-card-background);
   border-block: 1px solid color-mix(in srgb, var(--color-border), transparent 42%);
   border-inline: 0;
@@ -1364,8 +1364,8 @@ body:has(.parallax-container) {
   margin-right: calc(50% - 50vw);
   padding-inline: 0;
   box-sizing: border-box;
-  padding-top: 128px;
-  padding-bottom: 128px;
+  padding-top: 160px;
+  padding-bottom: 160px;
   border-top-color: color-mix(in srgb, var(--color-white), transparent 78%);
 }
 
@@ -1389,6 +1389,13 @@ body:has(.parallax-container) {
 
 #works .section-intro {
   color: color-mix(in srgb, var(--color-white), var(--color-steel) 22%);
+}
+
+#works .works-card-instruction {
+  margin-top: 2rem;
+  color: color-mix(in srgb, var(--color-white), var(--color-steel) 12%);
+  font-size: var(--size-200);
+  line-height: 1.5;
 }
 
 /* Experience section — full width; tighter vertical padding; headline accent matches section label tone */
@@ -1440,8 +1447,20 @@ body:has(.parallax-container) {
   pointer-events: none;
 }
 
+.rec-stack-card:first-child .rec-stack-card__slack {
+  min-height: calc(var(--rec-slack) + var(--rec-slack));
+}
+
+.rec-stack-card:last-child .rec-stack-card__slack {
+  min-height: clamp(8rem, 20vh, 14rem);
+}
+
 .rec-stack-card:not(:first-child) {
   margin-top: calc(-1 * (var(--rec-slack) - 1rem));
+}
+
+.rec-stack-card:first-child + .rec-stack-card {
+  margin-top: calc(1rem - var(--rec-slack) - var(--rec-slack));
 }
 
 .rec-stack-card__content {
@@ -1706,7 +1725,7 @@ body:has(.parallax-container) {
 
 #works #cards.cards-scroll-driver .cv-work-grid {
   --works-track-pad: clamp(1.5rem, 6vw, 4rem);
-  margin-top: 3rem;
+  margin-top: 0.75rem;
   display: flex;
   align-items: stretch;
   gap: 64px;
@@ -1868,8 +1887,9 @@ body:has(.parallax-container) {
 
 /* Split work card — cover image front, copy back */
 .cv-work-card.cv-work-card--split {
+  --cv-work-card-ratio: 16 / 9;
   align-self: flex-start;
-  aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
+  aspect-ratio: var(--cv-work-card-ratio);
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -1899,7 +1919,7 @@ body:has(.parallax-container) {
 .cv-work-card--split .cv-work-card-cover {
   position: relative;
   flex: 1 1 auto;
-  aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
+  aspect-ratio: var(--cv-work-card-ratio);
   width: 100%;
   min-width: 0;
   min-height: 0;
@@ -1926,6 +1946,7 @@ body:has(.parallax-container) {
   min-height: 0;
   perspective: 1000px;
   transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .cv-work-card--split:hover .cv-work-card-cover,
@@ -2016,6 +2037,7 @@ body:has(.parallax-container) {
 
 .cv-work-card-cover-front {
   background: #ffffff;
+  cursor: pointer;
   transform: rotateY(0deg) translateZ(1px);
   transform-origin: 50% 50%;
   z-index: 2;
@@ -2110,6 +2132,7 @@ body:has(.parallax-container) {
   position: absolute;
   right: 0;
   bottom: 0;
+  cursor: pointer;
   width: 100%;
   height: 100%;
   display: block;
@@ -2170,7 +2193,7 @@ body:has(.parallax-container) {
   }
 
   .cv-work-card--split .cv-work-card-cover {
-    aspect-ratio: var(--cv-work-cover-ratio, 16 / 9);
+    aspect-ratio: var(--cv-work-card-ratio);
     min-height: 0;
   }
 
@@ -2421,6 +2444,9 @@ body:has(.parallax-container) {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid color-mix(in srgb, var(--color-border), transparent 35%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 /* Experience — LinkedIn-style role cards (logo, company, timeline bullets) */

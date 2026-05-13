@@ -15,14 +15,6 @@ import { cv, linkedInRecommendationsUrl } from "@/config/cvData";
 
 const works = worksProjects;
 
-function getWorkCoverStyle(item) {
-  if (!item.coverImageWidth || !item.coverImageHeight) return undefined;
-
-  return {
-    "--cv-work-cover-ratio": `${item.coverImageWidth} / ${item.coverImageHeight}`,
-  };
-}
-
 function getRecommendationQuoteParagraphs(recommendation) {
   if (recommendation.quoteParagraphs) return recommendation.quoteParagraphs;
 
@@ -79,7 +71,10 @@ function WorksSection() {
             <ExperienceHeadlineDecrypt before="A few curated collaborations across " gold="product and platform." />
           </ScrollReveal>
           <p className="section-intro">
-            A snapshot of organisations and programmes where design leadership shaped outcomes end to end.
+            A snapshot of organisations and programmes where my design leadership shaped outcomes end to end.
+          </p>
+          <p className="works-card-instruction">
+            <strong>Click on a card</strong> to learn more.
           </p>
 
           <ScrollReveal stagger className="cv-work-grid">
@@ -87,7 +82,6 @@ function WorksSection() {
               <article
                 key={`${item.title}-${item.client ?? ""}`}
                 className={`cv-work-card card__content reveal${item.coverImage ? " cv-work-card--split" : ""}`}
-                style={getWorkCoverStyle(item)}
               >
                 {item.coverImage ? (
                   <FlippableWorkCover item={item}>
@@ -226,12 +220,31 @@ function PitchSection() {
             complex things feel simple.
           </h2>
           <p className="cv-pitch-copy">
-            10 years leading UX across SaaS, ecommerce, and digital products - from pixels to strategy, from solo
-            contributor to team builder.
+            <strong>10 years leading UX</strong> across SaaS, ecommerce, and digital products - from{" "}
+            <strong>pixels to strategy</strong>, from <strong>solo contributor to team builder</strong>.
+          </p>
+          <p className="cv-pitch-copy">
+            During my current endeavor, I have <strong>built our Digital R&amp;D from the ground up.</strong> Taking a
+            team of two ad-hoc designers into a <strong>full-blown in-house design agency</strong> with 3 Product
+            Designers, 3 UX Researchers, 1 Systems Design Lead and 3 Front-end engineers.
           </p>
           <div className="cv-pitch-avatar-target is-settled" aria-hidden="true">
             <PitchPresenceImage src="/img/pitch-jonathan-harvest.webp" alt="" width={1024} height={576} />
           </div>
+          <p className="cv-pitch-copy">
+            My team, located in Amsterdam, worked{" "}
+            <strong>hand in hand with two large external digital partners</strong>{" "}
+            located in London, Publicis Sapient and Live &amp; Breathe. Together, we{" "}
+            <strong>defined, shaped, tested, delivered and measured the experiences</strong> for blu.com and pulze.com
+            under Imperial Brands PLC.
+          </p>
+          <p className="cv-pitch-copy">
+            The organisation was lacking in tools and processes to make design efficient, consistent and robust.
+            Negotiating the contracts, working with leadership and stakeholders across departments, and putting in place
+            the requests and governance models. I brought UserTesting.com, Figma, and Hotjar to Imperial to evolve their
+            old legacy design workflows and systems, drastically improving file structure and visibility and injecting
+            human-centric consumer culture to the core of the business&apos; digital pathways and channels.
+          </p>
         </ScrollReveal>
       </div>
     </section>

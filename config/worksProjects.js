@@ -12,60 +12,38 @@ export const worksProjects = [
     coverImage: "/img/works-breeze-design-systems-2026.webp",
     coverImageWidth: 2048,
     coverImageHeight: 1152,
+    coverImageClassName: "cv-work-card-cover-img--anchor-bottom-right",
     coverAlt: "Breeze design system — NGP Digital",
+    documentationHref: "/breeze-ds-case-study.html",
     caseStudy: {
       heroDek:
-        "A unified design system spanning multiple brands and markets — enabling consistent experiences while respecting each portfolio identity.",
+        "A focused view of the Breeze design framework work: the problem it solved, how the process stayed visible, and the outcomes it made measurable.",
       sections: [
         {
-          id: "overview",
-          label: "OVERVIEW",
+          id: "clear-problem-statement",
+          label: "TOPIC AREA",
+          title: "Clear Problem Statement",
           body: [
-            "Breeze DS anchors digital product teams across Imperial’s NGP portfolio with shared tokens, components, and governance so squads ship faster without fragmenting UX.",
+            "Imperial's NGP digital teams needed to scale multi-brand product experiences without rebuilding the same patterns for every market, brand, and squad.",
+            "The challenge was to create a shared system that reduced duplicated design and engineering effort while still allowing each portfolio brand to retain its own identity and regulatory needs.",
           ],
         },
         {
-          id: "challenge",
-          label: "CHALLENGE",
-          title: "Scale without sameness",
+          id: "process-transparency",
+          label: "TOPIC AREA",
+          title: "Process Transparency",
           body: [
-            "Each brand needed distinct voice and visuals, yet engineering demanded one codebase and predictable release cadence.",
-            "Stakeholders ranged from regulated-market compliance to agile product triads — documentation and contribution models had to be crystal clear.",
+            "The work made decision-making, contribution paths, and design rationale visible across product, design, engineering, and external partner teams.",
+            "Shared documentation, reusable components, and governance rituals helped teams understand what existed, how to use it, and when to contribute improvements back into the system.",
           ],
         },
         {
-          id: "approach",
-          label: "THE APPROACH",
-          type: "process",
-          steps: [
-            { name: "Discovery", tint: "#1a7a73" },
-            { name: "Define", tint: "#24a89e" },
-            { name: "Design", tint: "#4ac8e8" },
-            { name: "Deliver", tint: "#7ddff2" },
-          ],
-        },
-        {
-          id: "discovery",
-          label: "DISCOVERY & INSIGHTS",
-          type: "quote",
-          quote:
-            "Teams kept reinventing patterns that already existed three squads away — we needed visibility and reuse, not another one-off hero.",
-          attribution: "Research synthesis — design–engineering workshops",
-        },
-        {
-          id: "ia",
-          label: "INFORMATION ARCHITECTURE",
+          id: "measurable-outcomes",
+          label: "TOPIC AREA",
+          title: "Measurable Outcomes",
           body: [
-            "Mapped core journeys (browse, educate, verify age, subscribe) across brands and consolidated shared steps into modular flows with brand-specific skins.",
-          ],
-        },
-        {
-          id: "design-system",
-          label: "DESIGN SYSTEM & PROTOTYPING",
-          type: "palette",
-          palette: ["#0d3d3a", "#1a7a73", "#24a89e", "#4ac8e8", "#f5f5f5"],
-          body: [
-            "Established token tiers (color, spacing, elevation) plus React implementations with lint rules and accessibility checks baked into CI.",
+            "Breeze gave teams a clearer way to track reuse, consistency, and delivery quality across brands and product surfaces.",
+            "The system created a foundation for faster delivery, stronger file structure and visibility, and more consistent customer experiences across blu.com, pulze.com, and related Imperial Brands digital channels.",
           ],
         },
       ],

@@ -26,7 +26,6 @@ export default function FlippableWorkCover({ item, children }) {
   return (
     <div
       className={`cv-work-card-cover cv-work-card-cover--flip ${flipped ? "is-flipped" : ""}`}
-      style={{ "--cv-work-cover-ratio": `${coverImageWidth} / ${coverImageHeight}` }}
       onClick={handleCoverClick}
     >
       <button
