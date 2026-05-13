@@ -44,12 +44,9 @@ export const siteConfigJonny = {
   },
   contactEmail: "jonathan.lecoz@gmail.com",
   nav: [
-    { label: "Experience", href: "/#experience" },
     { label: "Works", href: "/#works" },
-    { label: "Skills", href: "/#skills" },
-    { label: "Education", href: "/#education" },
-    { label: "Certifications", href: "/#certifications" },
-    { label: "Recommendations", href: "/#recommendations" },
+    { label: "Experience & Skills", href: "/skills" },
+    { label: "Education", href: "/education" },
   ],
   social: {
     instagram: "#",

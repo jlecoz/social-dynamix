@@ -5,7 +5,7 @@ import { attachScrollAndResize } from "@/lib/scrollRoot";
 
 /** Hero uses dedicated background + foreground parallax — avoid stacking transforms on the whole block. */
 /** Skip sections whose layout depends on sticky / scroll-driven CSS (transform on inner breaks sticky). */
-const SKIP_SECTION_IDS = new Set(["overview", "recommendations"]);
+const SKIP_SECTION_IDS = new Set(["overview", "works", "recommendations"]);
 
 function collectParallaxEntries(main) {
   const out = [];

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getWorkBySlug, worksProjects } from "@/config/worksProjects";
 import CaseStudyPage from "@/components/CaseStudyPage";
+import ContactCTA from "@/components/ContactCTA";
 
 export async function generateStaticParams() {
   return worksProjects.map((w) => ({ slug: w.slug }));
@@ -33,5 +34,10 @@ export default async function WorkCaseStudyRoute({ params }) {
   const project = getWorkBySlug(slug);
   if (!project) notFound();
 
-  return <CaseStudyPage project={project} />;
+  return (
+    <>
+      <CaseStudyPage project={project} />
+      <ContactCTA />
+    </>
+  );
 }

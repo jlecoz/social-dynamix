@@ -94,6 +94,11 @@ export default function CaseStudyPage({ project }) {
       </div>
 
       <footer className="case-study-footer">
+        {project.documentationHref ? (
+          <Link href={project.documentationHref} className="button button-secondary">
+            Documentation
+          </Link>
+        ) : null}
         <Link href={project.href} className="button button-secondary" target="_blank" rel="noopener noreferrer">
           Visit client site
         </Link>

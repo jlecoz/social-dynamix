@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { buildSegment } from "@/components/scrambleText";
+import { attachScrollAndResize } from "@/lib/scrollRoot";
 
 const DEFAULT_BEFORE = "Design leadership across ";
 const DEFAULT_GOLD = "product and platform.";
+
+const clamp01 = (value) => Math.min(1, Math.max(0, value));
 
 /**
  * Headline/label renderer.
@@ -30,18 +33,40 @@ export default function ExperienceHeadlineDecrypt({
   const full = singleMode ? text : beforeProp + goldProp;
 
   const shouldDecrypt = decrypt === true && singleMode && reduceMotion !== true;
-
-  const { scrollYProgress } = useScroll({
-    target: elRef,
-    offset: ["start 0.92", "start 0.3"],
-  });
-
-  const [progress, setProgress] = useState(() => scrollYProgress.get());
+  const [progress, setProgress] = useState(shouldDecrypt ? 0 : 1);
   const [tick, setTick] = useState(0);
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (shouldDecrypt) setProgress(v);
-  });
+  useEffect(() => {
+    if (!shouldDecrypt) {
+      setProgress(1);
+      return undefined;
+    }
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = elRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const start = window.innerHeight * 0.92;
+      const end = window.innerHeight * 0.3;
+      setProgress(clamp01((start - rect.top) / (start - end)));
+    };
+
+    const schedule = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    };
+
+    schedule();
+    const detach = attachScrollAndResize(schedule);
+
+    return () => {
+      detach();
+      cancelAnimationFrame(raf);
+    };
+  }, [shouldDecrypt]);
 
   useEffect(() => {
     if (!shouldDecrypt || progress >= 0.999) return undefined;
@@ -63,14 +88,14 @@ export default function ExperienceHeadlineDecrypt({
 
   if (singleMode) {
     return (
-      <Tag ref={elRef} className={className} aria-label={full}>
+      <Tag ref={elRef} className={className} aria-label={full} style={{ position: "relative" }}>
         {decryptedText}
       </Tag>
     );
   }
 
   return (
-    <Tag ref={elRef} className={className} aria-label={full}>
+    <Tag ref={elRef} className={className} aria-label={full} style={{ position: "relative" }}>
       {beforeProp}
       <span className="gold">{goldProp}</span>
     </Tag>
