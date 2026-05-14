@@ -418,6 +418,26 @@ section.dark .section-body { color: rgba(255,255,255,0.6); }
 .rsc-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
 .rev-sum-card.secondary .rsc-sub { color: var(--text-light); }
 
+#financial {
+  background: var(--card-bg);
+}
+#financial .section-eyebrow { color: var(--teal-dark); }
+#financial .section-title { color: var(--navy); }
+#financial .rev-sum-card.main .rsc-label,
+#financial .rev-sum-card.main .rsc-sub {
+  color: rgba(255,255,255,0.72);
+}
+#financial .rsc-val.red { color: var(--red); }
+#financial .rsc-val.green { color: #1f7a45; }
+#financial .insight.dark-insight {
+  background: #edf9f7;
+  border-left-color: var(--teal-dark);
+  color: var(--text-dark);
+}
+#financial .insight.dark-insight strong {
+  color: var(--navy);
+}
+
 /* ── COST TABLE ── */
 .cost-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
 .cost-table th {
@@ -713,14 +733,9 @@ section.dark .divider {
   <div class="nav-logo">Waterside.<span>Reimagined.</span></div>
   <ul class="nav-links">
     <li><a href="#opportunity">Opportunity</a></li>
-    <li><a href="#phase1">Phase 1</a></li>
     <li><a href="#financial">Financials</a></li>
-    <li><a href="#digital">Digital</a></li>
-    <li><a href="#phase2">Brand</a></li>
     <li><a href="#longgame">Long Game</a></li>
-    <li><a href="#nextsteps">Next Steps</a></li>
   </ul>
-  <a href="#nextsteps" class="nav-cta">Let's Talk</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -790,86 +805,9 @@ section.dark .divider {
   </div>
 </section>
 
-<!-- ── PHASE 1 ── -->
-<section id="phase1">
-  <div class="section-eyebrow">Phase 1 · June 11 – July 19, 2026</div>
-  <div class="section-title">World Cup Activation</div>
-  <p class="section-body">No tickets. No entry fees. No friction for members. Pure F&B uplift from an audience already walking through the door — with a menu worth ordering from and an atmosphere worth staying for.</p>
-
-  <div class="insight"><strong>The Events Hall projector and screen are already installed.</strong> The ceiling-mounted projector and motorised pull-down screen fitted to the dark feature wall means the primary match night venue requires zero AV capital spend. This saves £2,000–£3,000 from the cost model. The room just needs a broadcast signal feed.</div>
-
-  <table class="zone-table">
-    <thead>
-      <tr><th>Zone</th><th>Format</th><th>Capacity</th><th>Avg Spend</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="zone-accent" style="background:#8e44ad"></span><span class="zone-name">Events Hall</span><span class="zone-sub">Projector already installed · Own bar · Cathedral ceiling</span></td>
-        <td>Walk-in + group bookings</td><td>60–80</td><td>£28–£38</td>
-      </tr>
-      <tr>
-        <td><span class="zone-accent" style="background:#c0392b"></span><span class="zone-name">Restaurant</span><span class="zone-sub">Crystal chandeliers · River views · New projector</span></td>
-        <td>Pre-booked dinner packages</td><td>70–90</td><td>£42–£55</td>
-      </tr>
-      <tr>
-        <td><span class="zone-accent" style="background:#2a9d8f"></span><span class="zone-name">Club Lounge</span><span class="zone-sub">Long bar · TV already showing sport · 25–30m L-shaped space</span></td>
-        <td>Member walk-in bar trade</td><td>80–100</td><td>£18–£25</td>
-      </tr>
-      <tr>
-        <td><span class="zone-accent" style="background:#c9a84c"></span><span class="zone-name">Riverside Terraces</span><span class="zone-sub">Upper terrace + lower covered deck · River Mersey views</span></td>
-        <td>Outdoor drinks & BBQ</td><td>30–60</td><td>£14–£22</td>
-      </tr>
-      <tr>
-        <td><span class="zone-accent" style="background:#27ae60"></span><span class="zone-name">Café / Family Room</span><span class="zone-sub">Separate space · Children's menu £6.95 · Own counter</span></td>
-        <td>Family nights · Corporate hire</td><td>20–30</td><td>£16–£22</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="insight"><strong>Combined capacity across all five zones: 280–380 guests simultaneously.</strong> More than any sports bar in Didsbury. Higher average spend per head than any pub. And a kitchen capable of serving all of it.</div>
-
-  <div class="divider"></div>
-  <div class="section-title" style="font-size: clamp(20px,2.5vw,30px)">The Match Night Menu — The Commercial Heart</div>
-  <p class="section-body" style="margin-bottom:1.5rem">A pub-style grazing menu served from 7pm on match nights. Sharing boards, loaded fries, wings, sliders — built from the existing kitchen's capability, no new equipment required. The single most important commercial lever.</p>
-
-  <div class="card-grid">
-    <div class="card" style="--accent:#c0392b">
-      <div class="card-icon" style="background:rgba(192,57,43,0.1);color:var(--red)">01</div>
-      <h3>Push Notification at 6pm</h3>
-      <p>Direct to every member's phone. 'England tonight. Match night menu from 7pm.' The existing app infrastructure handles this at zero cost.</p>
-    </div>
-    <div class="card" style="--accent:#2a9d8f">
-      <div class="card-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">02</div>
-      <h3>Segmented Email Campaign</h3>
-      <p>Families to café zone. Couples to restaurant. Groups to events hall. Lapsed members get a comeback offer. One database, five targeted messages.</p>
-    </div>
-    <div class="card" style="--accent:#c9a84c">
-      <div class="card-icon" style="background:rgba(201,168,76,0.1);color:var(--gold)">03</div>
-      <h3>Referral Mechanic</h3>
-      <p>"Bring 3 friends to England night — get £10 bar credit." Uses the existing Friendship Has Its Rewards programme already running in the app.</p>
-    </div>
-    <div class="card" style="--accent:#8e44ad">
-      <div class="card-icon" style="background:rgba(142,68,173,0.1);color:var(--purple)">04</div>
-      <h3>Previous Members</h3>
-      <p>The World Cup is the best re-engagement hook of the year. A time-limited, specific reason to return — no membership commitment needed.</p>
-    </div>
-    <div class="card" style="--accent:#27ae60">
-      <div class="card-icon" style="background:rgba(39,174,96,0.1);color:var(--green)">05</div>
-      <h3>Social Content Calendar</h3>
-      <p>39-day programme of match night atmosphere, member moments, food photography. Builds toward 10k Instagram followers organically.</p>
-    </div>
-    <div class="card" style="--accent:#0d2240">
-      <div class="card-icon" style="background:rgba(13,34,64,0.1);color:var(--navy)">06</div>
-      <h3>Corporate Outreach</h3>
-      <p>Events hall exclusive hire for England games. 3 corporate tables per match at £400 each. Targeted outreach to local business network.</p>
-    </div>
-  </div>
-
-  <div class="insight"><strong>If 1 in 20 active members buys a match night package:</strong> 375 people × £40 average spend = £15,000 from one email campaign — before a single paid advertisement runs.</div>
-</section>
 
 <!-- ── FINANCIAL ── -->
-<section id="financial" class="dark">
+<section id="financial">
   <div class="section-eyebrow">Financial Projections · Base Case · 20 Match Nights</div>
   <div class="section-title">What Phase 1 Is Worth</div>
 
@@ -879,224 +817,8 @@ section.dark .divider {
     <div class="rev-sum-card secondary"><div class="rsc-label">Net Contribution</div><div class="rsc-val green">£62k–£94k</div><div class="rsc-sub">After COGS & overhead</div></div>
   </div>
 
-  <table class="rev-table">
-    <thead><tr><th>Zone & Revenue Stream</th><th>Basis</th><th>Revenue</th></tr></thead>
-    <tbody>
-      <tr><td><strong style="color:var(--teal-light)">Lounge bar trade</strong><br><span style="font-size:11px;color:rgba(255,255,255,0.4)">200 guests × £33 avg × 20 nights</span></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Walk-in member bar</td><td style="color:white;font-weight:700;text-align:right">£132,000</td></tr>
-      <tr><td><strong style="color:white">Restaurant dinner packages</strong><br><span style="font-size:11px;color:rgba(255,255,255,0.4)">75 covers × £46 avg × 10 nights</span></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Pre-booked</td><td style="color:white;font-weight:700;text-align:right">£37,350</td></tr>
-      <tr><td><strong style="color:white">Events hall + group bookings</strong><br><span style="font-size:11px;color:rgba(255,255,255,0.4)">Corporate hire + key fixtures</span></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Exclusive hire</td><td style="color:white;font-weight:700;text-align:right">£12,000</td></tr>
-      <tr><td><strong style="color:white">Terrace & outdoor</strong><br><span style="font-size:11px;color:rgba(255,255,255,0.4)">8 warm evenings</span></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Drinks + BBQ</td><td style="color:white;font-weight:700;text-align:right">£4,800</td></tr>
-      <tr><td><strong style="color:white">Sponsorship — 2 local brands</strong></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Screen breaks + bar branding</td><td style="color:white;font-weight:700;text-align:right">£5,000</td></tr>
-      <tr><td><strong style="color:white">Hotel room uplift</strong><br><span style="font-size:11px;color:rgba(255,255,255,0.4)">10 additional bookings</span></td><td style="color:rgba(255,255,255,0.4);font-size:12px">Attributable to match nights</td><td style="color:white;font-weight:700;text-align:right">£950</td></tr>
-      <tr class="total-row"><td colspan="2"><strong>Total Gross Revenue — Base Case</strong></td><td style="text-align:right"><strong>£192,100</strong></td></tr>
-    </tbody>
-  </table>
-
   <div class="insight dark-insight"><strong>England Final Night — July 19, 2026 at 8pm UK:</strong> If England reach the Final, all five zones sell out simultaneously. Conservative estimate for a single final night across all zones: approximately <strong>£10,380 gross revenue</strong>. No pub in Didsbury delivers that yield from one evening.</div>
 
-  <div class="divider"></div>
-  <div class="section-title" style="font-size:clamp(20px,2.5vw,30px)">Updated Cost Model — Including Restaurant Projector</div>
-
-  <table style="width:100%;border-collapse:collapse;margin:1.5rem 0">
-    <thead><tr style="background:rgba(255,255,255,0.05)">
-      <th style="padding:10px 14px;text-align:left;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600">Item</th>
-      <th style="padding:10px 14px;text-align:left;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600">Notes</th>
-      <th style="padding:10px 14px;text-align:right;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:600">Cost</th>
-    </tr></thead>
-    <tbody>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05)">
-        <td style="padding:11px 14px;color:#66bb6a;font-weight:700">Events Hall projector & screen</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Already installed — zero capital required</td>
-        <td style="padding:11px 14px;text-align:right;color:#66bb6a;font-weight:700">£0</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Restaurant — 4K laser projector hire</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Short-throw · 120"+ image · 39-day hire (or purchase for £2k — recommended)</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£1,800</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Club Lounge — 2× 75" screens</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Wall-mounted hire for tournament</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£1,200</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Terrace outdoor screen</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Weatherproof · warm evenings only</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£800</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Broadcast decoder</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Sky Sports signal to all zones</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£400</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Licensing & broadcast rights review</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Public broadcast on existing premises licence</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£500</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">PRS / PPL music licensing</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Pre-match atmosphere music</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£350</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Staff uplift</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">20 nights × 3 additional staff × £90/shift avg</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£5,400</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Marketing & member comms</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Digital, email, social content, print</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£2,000</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02)">
-        <td style="padding:11px 14px;color:rgba(255,255,255,0.85)">Atmosphere dressing</td>
-        <td style="padding:11px 14px;font-size:12px;color:rgba(255,255,255,0.4)">Flags, branding, match menus, staff shirts</td>
-        <td style="padding:11px 14px;text-align:right;color:rgba(255,255,255,0.85);font-weight:600">£1,200</td>
-      </tr>
-      <tr style="background:rgba(42,157,143,0.12);border-top:1px solid rgba(42,157,143,0.3)">
-        <td style="padding:13px 14px;color:var(--teal-light);font-weight:700;font-size:15px" colspan="2">Total Phase 1 Event Overhead</td>
-        <td style="padding:13px 14px;text-align:right;color:var(--teal-light);font-weight:700;font-size:16px">£14,250</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ── DIGITAL AUDIT ── -->
-<section id="digital" class="dark">
-  <div class="section-eyebrow">Digital Audit · Live Search Data · May 3, 2026</div>
-  <div class="section-title">Three Searches. Three Different Stories.</div>
-  <p class="section-body">The pattern is consistent: Waterside wins the searches that bring in people who already know it exists — and loses the searches most likely to bring in new members, diners and spa visitors.</p>
-
-  <div class="serp-block">
-    <div class="serp-header serp-danger"><span>⚠ 'GYM DIDSBURY' — High Volume · High Intent · Waterside Ranks 3rd</span><span>Critical</span></div>
-    <div class="serp-row"><div class="serp-pos" style="color:#66bb6a">1</div><div><div class="serp-name">RxGym – Didsbury</div><div class="serp-sub">rxgym.co.uk · "The Best Gym in Didsbury"</div></div><div class="serp-meta">★ 4.4 · 98 reviews</div></div>
-    <div class="serp-row"><div class="serp-pos" style="color:#ffa726">2</div><div><div class="serp-name">Nuffield Health Didsbury</div><div class="serp-sub">nuffield.com · Fitness & Wellbeing</div></div><div class="serp-meta">★ 4.0 · 373 reviews</div></div>
-    <div class="serp-row ws"><div class="serp-pos" style="color:#ff5252">3</div><div><div class="serp-name">Waterside Leisure Club</div><div class="serp-sub">watersidehotelandleisureclub.co.uk · 775 reviews</div></div><div class="serp-meta">★ 4.2 · 775</div></div>
-  </div>
-  <div class="insight dark-insight"><strong>The critical paradox:</strong> RxGym has 98 reviews. Waterside has 775 — eight times more. Yet RxGym ranks above for the most commercially important search term. This is not a quality problem. <strong>It is a website content problem. And it is fixable.</strong></div>
-
-  <div class="serp-block" style="margin-top:1.5rem">
-    <div class="serp-header serp-danger"><span>⚠ 'SPA DIDSBURY' — High Spend Intent · Waterside Ranks 8th+</span><span>Critical</span></div>
-    <div class="serp-row"><div class="serp-pos" style="color:#66bb6a">1–3</div><div><div class="serp-name">Exhale Spa West · Exhale Therapy · Didsbury Thai Massage</div><div class="serp-sub">Beauty salons with treatment rooms — no pool, no thermal suite</div></div><div class="serp-meta">All above Waterside</div></div>
-    <div class="serp-row ws" style="opacity:0.7"><div class="serp-pos" style="color:#ff5252">8+</div><div><div class="serp-name">Waterside Hotel & Leisure Club</div><div class="serp-sub">25m pool · hydrotherapy · steam room · sauna · thermal suite</div></div><div class="serp-meta" style="color:#ff5252">Not visible</div></div>
-  </div>
-  <div class="insight dark-insight"><strong>The most damaging gap:</strong> One dedicated spa page with proper copy could move Waterside from position 8 to the top 3 for "spa Didsbury" within 90 days. The facilities exist. <strong>The page doesn't.</strong></div>
-
-  <div class="serp-block" style="margin-top:1.5rem">
-    <div class="serp-header serp-success"><span>✓ 'LEISURE CLUB DIDSBURY' — Waterside Dominates · AI Overview + Position 1</span><span>Strong</span></div>
-    <div class="serp-row ws"><div class="serp-pos" style="color:#66bb6a">AI</div><div><div class="serp-name">Google AI Overview leads with Waterside by name</div><div class="serp-sub">Accurately describes BOX12, BioCircuit, 25m pool, hydrotherapy, 100+ weekly classes</div></div><div class="serp-meta" style="color:#66bb6a">Featured</div></div>
-  </div>
-  <div class="insight dark-insight" style="border-left-color:var(--gold)">
-    <strong style="color:var(--gold)">"Hidden gem"</strong> — a member review from 3 months ago. The people who find Waterside love it. <strong>The problem is not quality. It is discoverability. That is a solvable problem.</strong>
-  </div>
-</section>
-
-<!-- ── PHASE 2 ── -->
-<section id="phase2">
-  <div class="section-eyebrow">Phase 2 · August – November 2026</div>
-  <div class="section-title">Brand & Digital Transformation</div>
-  <p class="section-body">The World Cup proves the concept, generates the revenue, and produces the photography that feeds directly into Phase 2. This is the permanent transformation that multiplies the value of everything Waterside already has.</p>
-
-  <div class="card-grid">
-    <div class="card" style="--accent:#2a9d8f">
-      <div class="card-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">01</div>
-      <h3>Brand Identity System</h3>
-      <p>Evolved from the existing Waterside teal — not replaced. Full colour system, typography pairing, brand voice guidelines. The teal is strong. It just needs a complete system built around it.</p>
-    </div>
-    <div class="card" style="--accent:#c9a84c">
-      <div class="card-icon" style="background:rgba(201,168,76,0.1);color:var(--gold)">02</div>
-      <h3>Drone Video & Photography</h3>
-      <p>River Mersey at golden hour. The shot no competitor can replicate. No stock photography. The asset library that every other piece of communication is built on.</p>
-    </div>
-    <div class="card" style="--accent:#0a1628">
-      <div class="card-icon" style="background:rgba(10,22,40,0.08);color:var(--navy)">03</div>
-      <h3>Website Rebuild</h3>
-      <p>Modern CMS, animated hero with drone video, mobile-first, TechnoGym app integration, class browser, restaurant booking, SEO-optimised architecture.</p>
-    </div>
-    <div class="card" style="--accent:#8e44ad">
-      <div class="card-icon" style="background:rgba(142,68,173,0.1);color:var(--purple)">04</div>
-      <h3>SEO Foundation</h3>
-      <p>Spa page targeting "spa Didsbury." Gym page rewrite targeting "gym Didsbury." Dead domain redirect (watersidesports.co.uk). Google review programme. Local citation building.</p>
-    </div>
-  </div>
-
-  <div class="insight"><strong>Three design registers in one site:</strong> GymBox energy for the gym section. Third Space restraint for the spa and pool. David Lloyd warmth for the restaurant and family sections. The skill is knowing which part of the venue speaks to which audience.</div>
-
-  <div class="divider"></div>
-  <div class="section-title" style="font-size:clamp(20px,2.5vw,30px)">Food Sorcery — One Site. Two Brands. One Destination Story.</div>
-
-  <div class="fs-stat-bar">
-    <div><span class="fs-stat-val">2016</span><span class="fs-stat-label">Established</span></div>
-    <div><span class="fs-stat-val">18,000</span><span class="fs-stat-label">Instagram followers</span></div>
-    <div><span class="fs-stat-val">2</span><span class="fs-stat-label">Venues</span></div>
-    <div><span class="fs-stat-val">9am–7pm</span><span class="fs-stat-label">Operating hours</span></div>
-    <div><span class="fs-stat-val" style="color:#ff5252">Broken</span><span class="fs-stat-label">Current website</span></div>
-  </div>
-
-  <div class="fs-timing">
-    <strong>Food Sorcery closes at 7pm.</strong> World Cup matches start at 9pm. There is a 2-hour gap every match night where the space, the kitchen, and 16 cooking stations sit completely empty.
-    <span class="gold"> That changes with one conversation.</span>
-  </div>
-
-  <div class="card-grid">
-    <div class="card" style="--accent:#c9a84c">
-      <div class="card-icon" style="background:rgba(201,168,76,0.15);color:var(--gold)">01</div>
-      <h3>Cook Together, Watch Together</h3>
-      <p>Afternoon cooking class at Food Sorcery (3–6pm) → evening match at Waterside (9pm). One site, one day, two experiences. From £85 per person. Neither brand can offer this alone.</p>
-    </div>
-    <div class="card" style="--accent:#c0392b">
-      <div class="card-icon" style="background:rgba(192,57,43,0.1);color:var(--red)">02</div>
-      <h3>World Cup Cuisine Series</h3>
-      <p>Cook the food of England's opponents before the match. Brazilian class before Brazil game. Mexican before Mexico. 48 nations = 48 potential class topics that are sellable, promotable and shareable.</p>
-    </div>
-    <div class="card" style="--accent:#2a9d8f">
-      <div class="card-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">03</div>
-      <h3>Weekend Destination Package</h3>
-      <p>Saturday: cooking class + match night dinner. Sunday: swim, spa, late checkout. One booking, two brands, one address. From £220/person. Nothing comparable exists in South Manchester.</p>
-    </div>
-    <div class="card" style="--accent:#8e44ad">
-      <div class="card-icon" style="background:rgba(142,68,173,0.1);color:var(--purple)">04</div>
-      <h3>The Broken Website — Urgent</h3>
-      <p>18k Instagram followers. Two venues. No working website. An immediate fix now, with a full rebuild alongside Waterside's site in Phase 2. Two brands, one design system, one destination story.</p>
-    </div>
-  </div>
-
-  <div class="insight"><strong>Combined Instagram reach with zero paid media: 22,700 followers.</strong> Food Sorcery's 18k alongside Waterside's 4.7k. A simple cross-promotion agreement during the World Cup doubles both brands' reach instantly.</div>
-</section>
-
-<!-- ── PHASE 3 ── -->
-<section class="mid">
-  <div class="section-eyebrow">Phase 3 · 2027 Onwards</div>
-  <div class="section-title">POS & Loyalty Intelligence Layer</div>
-  <p class="section-body">Waterside already has a unified POS across at least three zones. Phase 3 takes the transaction data that already exists and turns it into a genuine member intelligence and loyalty system.</p>
-
-  <div class="pitch-quote">
-    "If a member spends £38 on match night, £24 on Sunday lunch, and £15 after spin class — that's £77/month in F&B on top of their membership fee. Right now, Waterside has no way of knowing who these people are or treating them accordingly. <strong>Phase 3 makes that data visible and turns it into personalised revenue.</strong>"
-  </div>
-
-  <div class="card-grid">
-    <div class="card" style="--accent:#2a9d8f">
-      <div class="card-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">01</div>
-      <h3>Unified Member View</h3>
-      <p>Total spend per member, per zone, per week. Identify the highest-value customers in the building. Treat them like the VIPs they actually are.</p>
-    </div>
-    <div class="card" style="--accent:#c9a84c">
-      <div class="card-icon" style="background:rgba(201,168,76,0.1);color:var(--gold)">02</div>
-      <h3>Loyalty Programme</h3>
-      <p>Spend accumulation across gym, restaurant, bar and spa — rewarded via the existing app. Free guest passes, priority bookings, complimentary spa sessions.</p>
-    </div>
-    <div class="card" style="--accent:#c0392b">
-      <div class="card-icon" style="background:rgba(192,57,43,0.1);color:var(--red)">03</div>
-      <h3>Personalised Offers</h3>
-      <p>Sunday swimmer gets a brunch offer. Friday gym-goer gets a bar promotion after spin class. Behaviour-triggered offers delivered via push notification.</p>
-    </div>
-    <div class="card" style="--accent:#8e44ad">
-      <div class="card-icon" style="background:rgba(142,68,173,0.1);color:var(--purple)">04</div>
-      <h3>Membership Conversion</h3>
-      <p>Every World Cup guest is a warm lead. The POS captures their spend. The loyalty programme gives them a reason to sign up. The tournament becomes a 6-week acquisition campaign.</p>
-    </div>
-  </div>
 </section>
 
 <!-- ── LONG GAME ── -->
@@ -1161,96 +883,14 @@ section.dark .divider {
     </div>
   </div>
 </section>
-
-<!-- ── THREE PHASES ── -->
-<section>
-  <div class="section-eyebrow">The Partnership</div>
-  <div class="section-title">A Commercial Relationship Built on Results</div>
-  <p class="section-body">Phase 1 is a six-week audition. Judge us on the results before committing to Phase 2. Phase 2 produces the evidence that makes Phase 3 inevitable.</p>
-
-  <div class="phase-grid">
-    <div class="phase-card phase-1">
-      <div class="phase-num">Phase 1</div>
-      <div class="phase-title">World Cup Activation</div>
-      <div class="phase-date">June 11 – July 19, 2026</div>
-      <div class="phase-body">Transform existing screenings into a structured, promoted, multi-zone hospitality programme. Match night menu, member comms, app activation, sponsorship.</div>
-      <span class="phase-val">£62k–£94k net · 39 days</span>
-    </div>
-    <div class="phase-card phase-2">
-      <div class="phase-num">Phase 2</div>
-      <div class="phase-title">Brand & Digital Rebuild</div>
-      <div class="phase-date">August – November 2026</div>
-      <div class="phase-body">Brand identity, drone video, website rebuild on modern CMS, SEO foundation, booking integration. Food Sorcery digital presence included.</div>
-      <span class="phase-val">Permanent revenue multiplier</span>
-    </div>
-    <div class="phase-card phase-3">
-      <div class="phase-num">Phase 3</div>
-      <div class="phase-title">Loyalty & Data Layer</div>
-      <div class="phase-date">2027 onwards</div>
-      <div class="phase-body">POS integration, member loyalty programme, personalised offers, behaviour-triggered comms. Retainer-based ongoing marketing partnership.</div>
-      <span class="phase-val">Long-term growth engine</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── NEXT STEPS ── -->
-<section id="nextsteps" class="mid">
-  <div class="section-eyebrow">Next Steps · From This Meeting to Kick-Off</div>
-  <div class="section-title">39 Days to World Cup.<br>Here Is Exactly What Happens Next.</div>
-
-  <div class="timeline">
-    <div class="tl-item tl-1">
-      <div class="tl-when">This Week</div>
-      <div class="tl-what">
-        <strong>Agree Phase 1 scope & sign letter of engagement</strong>
-        <span>Share member database access for email segmentation. Confirm kitchen team availability for match night menu development. Identify licensing requirements.</span>
-      </div>
-      <div class="tl-tag tag-urgent">Urgent</div>
-    </div>
-    <div class="tl-item tl-2">
-      <div class="tl-when">Next Week</div>
-      <div class="tl-what">
-        <strong>Match night menu finalised · First member email sent</strong>
-        <span>App push notification scheduled. Atmosphere dressing ordered. Sponsorship outreach to 2 local brands begins. Food Sorcery conversation initiated.</span>
-      </div>
-      <div class="tl-tag tag-urgent">Urgent</div>
-    </div>
-    <div class="tl-item tl-3">
-      <div class="tl-when">Weeks 3–4</div>
-      <div class="tl-what">
-        <strong>Broadcast licence confirmed · AV installed · Staff briefed</strong>
-        <span>Restaurant projector installed. Lounge screens up. Outdoor screen hired. Social content calendar live. Restaurant bookings open to members.</span>
-      </div>
-      <div class="tl-tag" style="background:rgba(201,168,76,0.1);color:var(--gold)">Pre-Launch</div>
-    </div>
-    <div class="tl-item tl-4">
-      <div class="tl-when">June 11</div>
-      <div class="tl-what">
-        <strong>World Cup opens · Waterside is live</strong>
-        <span>Northwest's premier match destination active. England vs Croatia on June 17 is the first major sell-out target. Photography programme begins.</span>
-      </div>
-      <div class="tl-tag tag-go">Go Live</div>
-    </div>
-    <div class="tl-item tl-5">
-      <div class="tl-when">July 19</div>
-      <div class="tl-what">
-        <strong>World Cup Final · Post-tournament debrief</strong>
-        <span>Revenue report presented. Phase 2 brand and website proposal confirmed based on results. POS review initiated. Food Sorcery partnership formalised.</span>
-      </div>
-      <div class="tl-tag tag-phase">Phase 2 Unlocked</div>
-    </div>
-  </div>
-</section>
-
 <!-- ── CLOSING ── -->
 <div class="closing">
-  <div class="closing-title">The Tournament Starts<br>in <span>39 Days.</span></div>
-  <p class="closing-sub">The projector is already installed. The members are already coming. The money is already being spent — just not here. Everything needed to change that is already in place.</p>
+  <div class="closing-title">The Opportunity<br>is <span>Already Here.</span></div>
+  <p class="closing-sub">The projector is installed. The members are coming. The money is already being spent somewhere else. Everything needed to change that is already in place — it just needs to be activated.</p>
   <div class="closing-stats">
     <div class="cs"><div class="cs-num">7,500</div><div class="cs-label">Members ready to activate</div></div>
-    <div class="cs"><div class="cs-num">£94k</div><div class="cs-label">Potential net contribution — 39 days</div></div>
     <div class="cs"><div class="cs-num">£485k</div><div class="cs-label">5-year gross revenue opportunity</div></div>
-    <div class="cs"><div class="cs-num">£0</div><div class="cs-label">Current revenue from football screenings</div></div>
+    <div class="cs"><div class="cs-num">15.6×</div><div class="cs-label">Return on infrastructure investment</div></div>
   </div>
   <div class="closing-tagline">"Swim. Train. Dine. Unwind. On the banks of the River Mersey."</div>
 </div>
